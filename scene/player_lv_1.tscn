@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://4c4y0wctbyhw"]
+
+[ext_resource type="Script" path="res://script/player_lv_1.gd" id="1_k2ufn"]
+[ext_resource type="Texture2D" uid="uid://bfk4cx3h0q6vm" path="res://art/level 1/character/URBAN PACK/Tiles/tile_0024.png" id="1_rqkgg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2aw4p"]
+radius = 6.0
+height = 18.0
+
+[node name="PayerLv1" type="CharacterBody2D"]
+script = ExtResource("1_k2ufn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rqkgg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_2aw4p")
