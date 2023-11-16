@@ -5544,6 +5544,7 @@ layer_2/z_index = 2
 layer_2/tile_data = PackedInt32Array(4128794, 1900544, 19, 3604487, 3276800, 23, 3604488, 3473408, 4, 3604486, 3473408, 4, 3604485, 3276800, 23)
 
 [node name="PayerLv1" parent="." instance=ExtResource("2_gwy1d")]
+z_index = 5
 position = Vector2(433, 1063)
 
 [node name="LimUp" type="StaticBody2D" parent="."]
