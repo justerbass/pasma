@@ -1,0 +1,189 @@
+[gd_scene load_steps=23 format=3 uid="uid://dl8dgdt605cpo"]
+
+[ext_resource type="Texture2D" uid="uid://c6u7nisene15o" path="res://art/level 1/character/CHARACTERS/Female person/PNG/Poses/character_femalePerson_idle.png" id="1_b31g3"]
+[ext_resource type="Script" path="res://script/ball_player.gd" id="1_vxuv0"]
+[ext_resource type="Texture2D" uid="uid://cx80b84oyxmme" path="res://art/level 1/character/CHARACTERS/Female person/PNG/Poses/character_femalePerson_interact.png" id="2_wgc4x"]
+[ext_resource type="Texture2D" uid="uid://dhgrxgwap3ru7" path="res://art/level 1/character/CHARACTERS/Female person/PNG/Poses/character_femalePerson_attack0.png" id="3_7mveh"]
+[ext_resource type="Texture2D" uid="uid://b5j4ef3ovf3p0" path="res://art/level 1/character/CHARACTERS/Female person/PNG/Poses/character_femalePerson_fall.png" id="4_3kuwp"]
+[ext_resource type="Texture2D" uid="uid://c2l2ubhykwdeq" path="res://art/level 1/character/CHARACTERS/Female person/PNG/Poses/character_femalePerson_kick.png" id="5_tgliq"]
+[ext_resource type="Texture2D" uid="uid://cxdmxgf4ahyuy" path="res://art/level 1/character/CHARACTERS/Female person/PNG/Poses/character_femalePerson_attack1.png" id="6_jam2n"]
+[ext_resource type="Texture2D" uid="uid://g1n7mcp7ytp1" path="res://art/level 1/Absolute_Reality_v16_ball_0.png" id="7_xbn6a"]
+[ext_resource type="Texture2D" uid="uid://d1cgospxw43nm" path="res://art/level 1/character/CHARACTERS/Male person/PNG/Poses/character_malePerson_idle.png" id="8_k422o"]
+[ext_resource type="Texture2D" uid="uid://ddjsiaminskml" path="res://art/level 1/character/CHARACTERS/Male person/PNG/Poses/character_malePerson_interact.png" id="9_kmuhv"]
+[ext_resource type="Texture2D" uid="uid://g4igwbvklu2v" path="res://art/level 1/character/CHARACTERS/Male person/PNG/Poses/character_malePerson_attack0.png" id="10_n8aso"]
+[ext_resource type="Texture2D" uid="uid://d4lhld4nclkrp" path="res://art/level 1/character/CHARACTERS/Male person/PNG/Poses/character_malePerson_fall.png" id="11_sumue"]
+[ext_resource type="Texture2D" uid="uid://cx5sh35767pse" path="res://art/level 1/character/CHARACTERS/Male person/PNG/Poses/character_malePerson_kick.png" id="12_6d6lr"]
+[ext_resource type="Texture2D" uid="uid://d006bjro2lpi6" path="res://art/level 1/character/CHARACTERS/Male person/PNG/Poses/character_malePerson_attack1.png" id="13_ybdgs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k8ei2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_b31g3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wgc4x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7mveh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3kuwp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tgliq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jam2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7mveh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wgc4x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_b31g3")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hg6hq"]
+size = Vector2(280, 99.3333)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k304p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_k422o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kmuhv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_n8aso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_sumue")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_6d6lr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ybdgs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_n8aso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kmuhv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_k422o")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hvr3"]
+size = Vector2(278, 95.3333)
+
+[sub_resource type="Curve2D" id="Curve2D_v5pog"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 46, 86, 0, 0, 0, 0, 148, 22, 0, 0, 0, 0, 256, -29, 0, 0, 0, 0, 364, -53, 0, 0, 0, 0, 488, -58, 0, 0, 0, 0, 606, -52, 0, 0, 0, 0, 731, -23, 0, 0, 0, 0, 821, 7, 0, 0, 0, 0, 956, 75)
+}
+point_count = 9
+
+[sub_resource type="Animation" id="Animation_q5gbp"]
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_xykc2"]
+resource_name = "shot"
+length = 7.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 3.5, 4, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8rhio"]
+_data = {
+"RESET": SubResource("Animation_q5gbp"),
+"shot": SubResource("Animation_xykc2")
+}
+
+[node name="BallPlayer" type="Node2D"]
+position = Vector2(248, 311)
+script = ExtResource("1_vxuv0")
+
+[node name="FemalePlayer" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_k8ei2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="FemalePlayer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FemalePlayer/StaticBody2D"]
+position = Vector2(103.333, 19)
+shape = SubResource("RectangleShape2D_hg6hq")
+
+[node name="MalePlayer" type="AnimatedSprite2D" parent="."]
+position = Vector2(1000, 0)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_k304p")
+flip_h = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MalePlayer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MalePlayer/StaticBody2D"]
+position = Vector2(-103.667, 18.3333)
+shape = SubResource("RectangleShape2D_7hvr3")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_v5pog")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(46, 86)
+rotation = -0.56036
+
+[node name="Ball" type="Sprite2D" parent="Path2D/PathFollow2D"]
+rotation = 0.645473
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("7_xbn6a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D/PathFollow2D"]
+autoplay = "shot"
+libraries = {
+"": SubResource("AnimationLibrary_8rhio")
+}
+
+[node name="Maleshot" type="Timer" parent="."]
+wait_time = 3.5
+
+[node name="WaitShot" type="Timer" parent="."]
+wait_time = 7.0
+
+[connection signal="timeout" from="Maleshot" to="." method="_on_maleshot_timeout"]
+[connection signal="timeout" from="WaitShot" to="." method="_on_wait_shot_timeout"]

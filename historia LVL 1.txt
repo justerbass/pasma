@@ -1,0 +1,61 @@
+Introducción:
+
+En un mundo en descontrol, tu personaje se embarca en un viaje épico donde 
+descubrirá y dominará diversas habilidades para enfrentar el caos que se ha 
+desatado. el anciano interpreta señales sutiles de la naturaleza que apuntan 
+hacia un individuo con la capacidad de restablecer el equilibrio. habla de 
+un individuo destinado a aprender y combinar múltiples habilidades ancestrales 
+para restaurar el equilibrio en un mundo desgarrado por el descontrol.
+
+
+Inicio en el Pueblo:
+
+Comienzas en tu pueblo natal, donde la comunidad, guiada por el anciano sabio 
+en constante búsqueda, te identifica como la esperanza para restablecer el 
+equilibrio.
+
+El anciano sabio, tras encontrarte, comparte la urgencia de la situación y te 
+insta a emprender un viaje en busca de mentores que te guiarán en el desarrollo 
+de habilidades vitales.
+
+En el pueblo, el jugador puede aprender las habilidades básicas de combate y 
+exploración.
+
+NPC 10(anciano, mujer tendiendo, jovenes, guerrero)
+
+
+El bosque
+
+El bosque es un lugar peligroso, lleno de criaturas salvajes y trampas mortales. 
+El jugador debe usar sus habilidades para sobrevivir al bosque y encontrar el 
+camino hacia el campamento.
+
+
+El campamento
+
+El campamento es un lugar seguro donde el jugador puede descansar y recuperarse. 
+También puede encontrar un maestro que lo enseñe nuevas habilidades.
+
+
+El Bosque
+
+El jugador decide regresar al bosque para usar su nueva habilidad. Al llegar, 
+se encuentra con que el bosque está en un estado de caos. Las criaturas salvajes 
+se han vuelto agresivas, las plantas se están marchitando y los árboles se están 
+cayendo.
+
+El jugador comienza a usar su habilidad para restaurar el orden en el bosque. 
+Cura a las criaturas salvajes, hace que las plantas vuelvan a crecer y ayuda a 
+los árboles a recuperarse.
+
+
+El desierto
+
+El desierto es el lugar más peligroso del viaje. El jugador debe usar todas sus 
+habilidades para sobrevivir al calor, la sed y los peligros del desierto.
+
+En el desierto, el jugador encuentra un objeto mágico que le permitirá 
+continuar su viaje. El objeto puede ser una piedra, una espada, un libro o 
+cualquier otra cosa que tenga un significado especial para la historia.
+
+

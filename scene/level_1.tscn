@@ -1,7 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://vstitko5efi4"]
+[gd_scene load_steps=13 format=3 uid="uid://vstitko5efi4"]
 
 [ext_resource type="Texture2D" uid="uid://c8saisffefl2l" path="res://art/level 1/world/RPG/Spritesheet/roguelikeSheet_transparent.png" id="1_2m64g"]
 [ext_resource type="PackedScene" uid="uid://4c4y0wctbyhw" path="res://scene/player_lv_1.tscn" id="2_gwy1d"]
+[ext_resource type="Texture2D" uid="uid://bipegd1j2sy3g" path="res://art/level 1/character/CHARACTERS PLAT/PNG/Female/Poses/female_action1.png" id="5_g2oa5"]
+[ext_resource type="PackedScene" uid="uid://dl8dgdt605cpo" path="res://scene/ball_player.tscn" id="6_3cqj4"]
+[ext_resource type="Texture2D" uid="uid://cfn0n40dxb3nu" path="res://art/level 1/world/RTS/PNG/Retina/Unit/medievalUnit_23.png" id="6_6qgjt"]
+[ext_resource type="Texture2D" uid="uid://cy5hiynh7mqdf" path="res://art/level 1/character/URBAN PACK/Tilemap/tilemap.png" id="7_hifxw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6swco"]
 texture = ExtResource("1_2m64g")
@@ -5478,6 +5482,85 @@ size = Vector2(1920, 10)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_auef4"]
 size = Vector2(10, 1080)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_503kt"]
+texture = ExtResource("7_hifxw")
+separation = Vector2i(1, 1)
+23:16/0 = 0
+24:16/0 = 0
+24:15/0 = 0
+23:15/0 = 0
+24:14/0 = 0
+23:14/0 = 0
+23:13/0 = 0
+24:13/0 = 0
+24:12/0 = 0
+23:12/0 = 0
+23:11/0 = 0
+24:11/0 = 0
+24:10/0 = 0
+23:10/0 = 0
+23:9/0 = 0
+24:9/0 = 0
+24:8/0 = 0
+23:8/0 = 0
+23:7/0 = 0
+24:7/0 = 0
+24:6/0 = 0
+23:6/0 = 0
+23:5/0 = 0
+24:5/0 = 0
+24:4/0 = 0
+23:4/0 = 0
+23:3/0 = 0
+24:3/0 = 0
+24:2/0 = 0
+23:2/0 = 0
+23:1/0 = 0
+24:1/0 = 0
+24:0/0 = 0
+23:0/0 = 0
+25:0/0 = 0
+26:0/0 = 0
+26:1/0 = 0
+25:1/0 = 0
+25:2/0 = 0
+26:2/0 = 0
+26:3/0 = 0
+25:3/0 = 0
+25:4/0 = 0
+26:4/0 = 0
+26:5/0 = 0
+25:5/0 = 0
+25:6/0 = 0
+26:6/0 = 0
+26:7/0 = 0
+25:7/0 = 0
+25:8/0 = 0
+26:8/0 = 0
+25:9/0 = 0
+26:9/0 = 0
+26:10/0 = 0
+25:10/0 = 0
+25:11/0 = 0
+26:11/0 = 0
+25:12/0 = 0
+26:13/0 = 0
+26:12/0 = 0
+25:13/0 = 0
+26:14/0 = 0
+25:14/0 = 0
+25:15/0 = 0
+26:15/0 = 0
+26:16/0 = 0
+25:16/0 = 0
+24:17/0 = 0
+23:17/0 = 0
+26:17/0 = 0
+25:17/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_40vc4"]
+sources/0 = SubResource("TileSetAtlasSource_503kt")
+
 [node name="Level 1" type="Node2D"]
 
 [node name="back green" type="ColorRect" parent="."]
@@ -5571,3 +5654,20 @@ position = Vector2(1925, 540)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LimRi"]
 shape = SubResource("RectangleShape2D_auef4")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="FemaleAction1" type="Sprite2D" parent="."]
+position = Vector2(231, 996)
+texture = ExtResource("5_g2oa5")
+
+[node name="MedievalUnit23" type="Sprite2D" parent="."]
+position = Vector2(29, 789)
+texture = ExtResource("6_6qgjt")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_40vc4")
+format = 2
+layer_0/tile_data = PackedInt32Array(3932166, 1572864, 13, 4128805, 1572864, 9, 4325381, 1572864, 15, 4259842, 1572864, 4)
+
+[node name="BallPlayer" parent="." instance=ExtResource("6_3cqj4")]
+position = Vector2(53, 884)
+scale = Vector2(0.1, 0.1)
