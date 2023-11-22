@@ -165,8 +165,9 @@ shape = SubResource("RectangleShape2D_7hvr3")
 curve = SubResource("Curve2D_v5pog")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(46, 86)
-rotation = -0.56036
+position = Vector2(688.046, -32.9654)
+rotation = 0.227967
+progress = 676.961
 
 [node name="Ball" type="Sprite2D" parent="Path2D/PathFollow2D"]
 rotation = 0.645473
