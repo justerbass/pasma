@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://crbl1d7pxy6xj"]
+[gd_scene load_steps=27 format=3 uid="uid://crbl1d7pxy6xj"]
 
 [ext_resource type="Script" path="res://script/cleaner.gd" id="1_5k4jp"]
 [ext_resource type="Texture2D" uid="uid://ba4813csrr6n2" path="res://art/level 1/character/CHARACTERS PLAT/PNG/Female/Poses/female_walk2.png" id="1_86oql"]
@@ -8,6 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://c1d2obayuuru1" path="res://art/level 1/character/CHARACTERS PLAT/PNG/Female/Poses/female_climb2.png" id="5_fy8jb"]
 [ext_resource type="Texture2D" uid="uid://3qx3tb02hwr5" path="res://art/level 1/world/Indoors/Tilesheets/roguelikeIndoor_transparent.png" id="6_ptq3j"]
 [ext_resource type="Texture2D" uid="uid://cy5hiynh7mqdf" path="res://art/level 1/character/URBAN PACK/Tilemap/tilemap.png" id="7_gffhx"]
+[ext_resource type="Texture2D" uid="uid://syxehxir6kc8" path="res://art/level 1/character/URBAN PACK/Tiles/tile_0244.png" id="9_dqsws"]
+[ext_resource type="Texture2D" uid="uid://bi16x65itvm46" path="res://art/level 1/character/URBAN PACK/Tiles/tile_0245.png" id="10_whsdc"]
+[ext_resource type="Texture2D" uid="uid://c8mb37mlbne3w" path="res://art/level 1/character/URBAN PACK/Tiles/tile_0246.png" id="11_q8oqd"]
+[ext_resource type="Texture2D" uid="uid://bp5l106qj2ugq" path="res://art/level 1/CC1.png" id="12_me2p7"]
+[ext_resource type="Texture2D" uid="uid://dfjpx5pp4664y" path="res://art/level 1/CC2.png" id="13_hkoqt"]
+[ext_resource type="Texture2D" uid="uid://cbeoo4gf3c2kj" path="res://art/level 1/CC3.png" id="14_8pro6"]
 
 [sub_resource type="Curve2D" id="Curve2D_ydl8v"]
 _data = {
@@ -47,6 +53,21 @@ animations = [{
 radius = 30.7293
 height = 99.8966
 
+[sub_resource type="Animation" id="Animation_cfk38"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_okw6l"]
 resource_name = "hang"
 length = 16.0
@@ -61,33 +82,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 0.69, 0.69, 0.72, 0.72, 0.765, 0.765, 0.89, 0.89, 0.935, 0.935, 0.98, 0.98, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-
-[sub_resource type="Animation" id="Animation_cfk38"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:progress_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pi8cq"]
@@ -597,6 +591,12 @@ separation = Vector2i(1, 1)
 [sub_resource type="TileSet" id="TileSet_3owri"]
 sources/0 = SubResource("TileSetAtlasSource_sf5cc")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3wg2"]
+size = Vector2(48, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0c400"]
+size = Vector2(52, 11)
+
 [node name="Cleaner" type="Node2D"]
 script = ExtResource("1_5k4jp")
 
@@ -607,9 +607,10 @@ curve = SubResource("Curve2D_ydl8v")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2(817.26, -3)
-rotation = -0.0454695
+rotation = -0.0454693
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Path2D/PathFollow2D"]
+z_index = 1
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_q8fq3")
 animation = &"side"
@@ -619,9 +620,6 @@ animation = &"side"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/AnimatedSprite2D/StaticBody2D"]
 position = Vector2(-0.505043, 11.0996)
 shape = SubResource("CapsuleShape2D_suadg")
-
-[node name="Camera2D" type="Camera2D" parent="Path2D/PathFollow2D/AnimatedSprite2D"]
-zoom = Vector2(5, 5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D/PathFollow2D"]
 libraries = {
@@ -633,13 +631,6 @@ tile_set = SubResource("TileSet_ntfhx")
 format = 2
 layer_0/name = "empy"
 layer_0/tile_data = PackedInt32Array(-131056, 1048576, 1, -131055, 1114112, 1, -131054, 1179648, 1)
-layer_1/name = "clothe"
-layer_1/enabled = true
-layer_1/modulate = Color(1, 1, 1, 1)
-layer_1/y_sort_enabled = false
-layer_1/y_sort_origin = 0
-layer_1/z_index = 1
-layer_1/tile_data = PackedInt32Array(-131056, 1048576, 2, -131055, 1114112, 2, -131054, 1179648, 2)
 
 [node name="TileMap2" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_3owri")
@@ -652,7 +643,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 1
-layer_1/tile_data = PackedInt32Array(-131049, 196608, 9, -131050, 131072, 9, -131051, 65536, 9)
+layer_1/tile_data = PackedInt32Array()
 
 [node name="back" type="Timer" parent="."]
 wait_time = 11.0
@@ -663,6 +654,125 @@ wait_time = 16.3
 [node name="restart" type="Timer" parent="."]
 wait_time = 36.0
 
+[node name="WC1" type="Sprite2D" parent="."]
+position = Vector2(343, -24)
+texture = ExtResource("9_dqsws")
+
+[node name="WC2" type="Sprite2D" parent="."]
+position = Vector2(359, -24)
+texture = ExtResource("10_whsdc")
+
+[node name="WC3" type="Sprite2D" parent="."]
+position = Vector2(375, -23)
+texture = ExtResource("11_q8oqd")
+
+[node name="Cc1" type="Sprite2D" parent="."]
+position = Vector2(264, -23)
+scale = Vector2(0.35, 0.36)
+texture = ExtResource("12_me2p7")
+
+[node name="Cc2" type="Sprite2D" parent="."]
+position = Vector2(279.75, -20)
+scale = Vector2(0.37, 0.4)
+texture = ExtResource("13_hkoqt")
+
+[node name="Cc3" type="Sprite2D" parent="."]
+position = Vector2(296.375, -23)
+scale = Vector2(0.375001, 0.35)
+texture = ExtResource("14_8pro6")
+
+[node name="pick1" type="Timer" parent="."]
+wait_time = 5.4
+
+[node name="pick2" type="Timer" parent="."]
+wait_time = 6.4
+
+[node name="pick3" type="Timer" parent="."]
+wait_time = 7.4
+
+[node name="pick4" type="Timer" parent="."]
+wait_time = 8.9
+
+[node name="pick5" type="Timer" parent="."]
+wait_time = 9.9
+
+[node name="pick6" type="Timer" parent="."]
+wait_time = 10.9
+
+[node name="upc1" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="upc2" type="Timer" parent="."]
+wait_time = 6.0
+
+[node name="upc3" type="Timer" parent="."]
+wait_time = 7.0
+
+[node name="upw1" type="Timer" parent="."]
+wait_time = 8.5
+
+[node name="upw2" type="Timer" parent="."]
+wait_time = 9.5
+
+[node name="upw3" type="Timer" parent="."]
+wait_time = 10.5
+
+[node name="upstop" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="put1" type="Timer" parent="."]
+wait_time = 41.41
+
+[node name="put2" type="Timer" parent="."]
+wait_time = 42.41
+
+[node name="put3" type="Timer" parent="."]
+wait_time = 43.41
+
+[node name="put4" type="Timer" parent="."]
+wait_time = 44.91
+
+[node name="put5" type="Timer" parent="."]
+wait_time = 45.91
+
+[node name="put6" type="Timer" parent="."]
+wait_time = 46.91
+
+[node name="restart2" type="Timer" parent="."]
+wait_time = 72.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(280, -26)
+shape = SubResource("RectangleShape2D_k3wg2")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(360, -26.5)
+shape = SubResource("RectangleShape2D_0c400")
+
 [connection signal="timeout" from="back" to="." method="_on_back_timeout"]
 [connection signal="timeout" from="hide" to="." method="_on_hide_timeout"]
 [connection signal="timeout" from="restart" to="." method="_on_restart_timeout"]
+[connection signal="timeout" from="pick1" to="." method="_on_pick_1_timeout"]
+[connection signal="timeout" from="pick2" to="." method="_on_pick_2_timeout"]
+[connection signal="timeout" from="pick3" to="." method="_on_pick_3_timeout"]
+[connection signal="timeout" from="pick4" to="." method="_on_pick_4_timeout"]
+[connection signal="timeout" from="pick5" to="." method="_on_pick_5_timeout"]
+[connection signal="timeout" from="pick6" to="." method="_on_pick_6_timeout"]
+[connection signal="timeout" from="upc1" to="." method="_on_upc_1_timeout"]
+[connection signal="timeout" from="upc2" to="." method="_on_upc_2_timeout"]
+[connection signal="timeout" from="upc3" to="." method="_on_upc_3_timeout"]
+[connection signal="timeout" from="upw1" to="." method="_on_upw_1_timeout"]
+[connection signal="timeout" from="upw2" to="." method="_on_upw_2_timeout"]
+[connection signal="timeout" from="upw3" to="." method="_on_upw_3_timeout"]
+[connection signal="timeout" from="upstop" to="." method="_on_upstop_timeout"]
+[connection signal="timeout" from="put1" to="." method="_on_put_1_timeout"]
+[connection signal="timeout" from="put2" to="." method="_on_put_2_timeout"]
+[connection signal="timeout" from="put3" to="." method="_on_put_3_timeout"]
+[connection signal="timeout" from="put4" to="." method="_on_put_4_timeout"]
+[connection signal="timeout" from="put5" to="." method="_on_put_5_timeout"]
+[connection signal="timeout" from="put6" to="." method="_on_put_6_timeout"]
+[connection signal="timeout" from="restart2" to="." method="_on_restart_2_timeout"]

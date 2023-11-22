@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0g1h027xfuit"]
+
+[ext_resource type="Texture2D" uid="uid://cxcoocyfy3p5l" path="res://art/level 1/character/URBAN PACK/Tiles/tile_0294.png" id="1_a7jso"]
+[ext_resource type="Texture2D" uid="uid://dds1aaep4tw0g" path="res://art/level 1/character/URBAN PACK/Tiles/tile_0267.png" id="2_pmojk"]
+[ext_resource type="Texture2D" uid="uid://cxwy65yhwusgo" path="res://art/level 1/character/URBAN PACK/Tiles/tile_0321.png" id="3_dnfeb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ft1n2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_a7jso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pmojk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dnfeb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pmojk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1tang"]
+radius = 6.0
+height = 18.0
+
+[node name="guard" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ft1n2")
+autoplay = "default"
+frame_progress = 0.646809
+
+[node name="StaticBody2D" type="StaticBody2D" parent="AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/StaticBody2D"]
+shape = SubResource("CapsuleShape2D_1tang")
