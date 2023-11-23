@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://vstitko5efi4"]
+[gd_scene load_steps=12 format=3 uid="uid://vstitko5efi4"]
 
 [ext_resource type="Texture2D" uid="uid://c8saisffefl2l" path="res://art/level 1/world/RPG/Spritesheet/roguelikeSheet_transparent.png" id="1_2m64g"]
 [ext_resource type="PackedScene" uid="uid://4c4y0wctbyhw" path="res://scene/player_lv_1.tscn" id="2_gwy1d"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dl8dgdt605cpo" path="res://scene/ball_player.tscn" id="6_3cqj4"]
 [ext_resource type="Texture2D" uid="uid://cfn0n40dxb3nu" path="res://art/level 1/world/RTS/PNG/Retina/Unit/medievalUnit_23.png" id="6_6qgjt"]
 [ext_resource type="PackedScene" uid="uid://crbl1d7pxy6xj" path="res://scene/cleaner.tscn" id="6_nypgw"]
-[ext_resource type="Texture2D" uid="uid://cy5hiynh7mqdf" path="res://art/level 1/character/URBAN PACK/Tilemap/tilemap.png" id="7_hifxw"]
+[ext_resource type="PackedScene" uid="uid://bjfubvxc3s65d" path="res://scene/vague.tscn" id="7_3mjy7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sygqo"]
 size = Vector2(1920, 10)
@@ -5483,85 +5483,6 @@ separation = Vector2i(1, 1)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_6swco")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_503kt"]
-texture = ExtResource("7_hifxw")
-separation = Vector2i(1, 1)
-23:16/0 = 0
-24:16/0 = 0
-24:15/0 = 0
-23:15/0 = 0
-24:14/0 = 0
-23:14/0 = 0
-23:13/0 = 0
-24:13/0 = 0
-24:12/0 = 0
-23:12/0 = 0
-23:11/0 = 0
-24:11/0 = 0
-24:10/0 = 0
-23:10/0 = 0
-23:9/0 = 0
-24:9/0 = 0
-24:8/0 = 0
-23:8/0 = 0
-23:7/0 = 0
-24:7/0 = 0
-24:6/0 = 0
-23:6/0 = 0
-23:5/0 = 0
-24:5/0 = 0
-24:4/0 = 0
-23:4/0 = 0
-23:3/0 = 0
-24:3/0 = 0
-24:2/0 = 0
-23:2/0 = 0
-23:1/0 = 0
-24:1/0 = 0
-24:0/0 = 0
-23:0/0 = 0
-25:0/0 = 0
-26:0/0 = 0
-26:1/0 = 0
-25:1/0 = 0
-25:2/0 = 0
-26:2/0 = 0
-26:3/0 = 0
-25:3/0 = 0
-25:4/0 = 0
-26:4/0 = 0
-26:5/0 = 0
-25:5/0 = 0
-25:6/0 = 0
-26:6/0 = 0
-26:7/0 = 0
-25:7/0 = 0
-25:8/0 = 0
-26:8/0 = 0
-25:9/0 = 0
-26:9/0 = 0
-26:10/0 = 0
-25:10/0 = 0
-25:11/0 = 0
-26:11/0 = 0
-25:12/0 = 0
-26:13/0 = 0
-26:12/0 = 0
-25:13/0 = 0
-26:14/0 = 0
-25:14/0 = 0
-25:15/0 = 0
-26:15/0 = 0
-26:16/0 = 0
-25:16/0 = 0
-24:17/0 = 0
-23:17/0 = 0
-26:17/0 = 0
-25:17/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_40vc4"]
-sources/0 = SubResource("TileSetAtlasSource_503kt")
-
 [node name="Level 1" type="Node2D"]
 
 [node name="back green" type="ColorRect" parent="."]
@@ -5670,7 +5591,5 @@ position = Vector2(601, 1017)
 position = Vector2(29, 789)
 texture = ExtResource("6_6qgjt")
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_40vc4")
-format = 2
-layer_0/tile_data = PackedInt32Array(3932166, 1572864, 13)
+[node name="vague" parent="." instance=ExtResource("7_3mjy7")]
+position = Vector2(266, 889)
