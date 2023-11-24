@@ -1,42 +1,71 @@
 extends Node2D
 
-var direction
+var pos
+var speed = 5
 
 
 func _ready():
-	$AnimationPlayer.play("idle")
 	$Timer.start()
+	$AnimationPlayer.play("idle")
+	$AnimatedSprite2D.hide()
 
+##generacion de movimiento y animacion segun valor de direccion 
+func _physics_process(delta):
+	
+	var velocity = Vector2.ZERO
+	
+	if pos == 0:
+		$Sprite2D.hide()
+		$AnimationPlayer.stop()
+		$AnimatedSprite2D.show()
+		$AnimatedSprite2D.play()
+		$AnimatedSprite2D.animation = "up"
+		velocity.y -= speed
+		
 
+		
+				
+	elif pos == 1:
+		$Sprite2D.hide()
+		$AnimationPlayer.stop()
+		$AnimatedSprite2D.show()
+		$AnimatedSprite2D.play()
+		$AnimatedSprite2D.animation = "down"
+		velocity.y += speed
+		
+		
 
-func _process(delta):
-	if direction ==	0:
-		$AnimationPlayer.stop()
-		$AnimatedSprite2D.stop()
-		$AnimatedSprite2D.play("up")
 				
-	elif direction == 1:
+	elif pos == 2:
+		$Sprite2D.hide()
 		$AnimationPlayer.stop()
-		$AnimatedSprite2D.stop()
-		$AnimatedSprite2D.play("down")
+		$AnimatedSprite2D.show()
+		$AnimatedSprite2D.play()
+		$AnimatedSprite2D.animation = "left"
+		velocity.x -= speed
+		
+
 				
-	elif direction == 	2:
+	elif pos == 3:
+		$Sprite2D.hide()
 		$AnimationPlayer.stop()
-		$AnimatedSprite2D.stop()
-		$AnimatedSprite2D.play("left")
+		$AnimatedSprite2D.show()
+		$AnimatedSprite2D.play()
+		$AnimatedSprite2D.animation = "right"
+		velocity.x += speed
+		
+	
 				
-	elif direction == 3:
-		$AnimationPlayer.stop()
-		$AnimatedSprite2D.stop()
-		$AnimatedSprite2D.play("right")
-				
-	elif direction == 4:
-		$AnimatedSprite2D.stop()
+	elif pos == 4:
+		$AnimatedSprite2D.hide()
+		$Sprite2D.show()
 		$AnimationPlayer.play("idle")
+		
+		
+	position += velocity * delta
 
 
 func _on_timer_timeout():
 	randomize()
-	direction = int(randf_range(0, 5))
-	print(direction)
+	pos = int(randf_range(0, 5))
 
