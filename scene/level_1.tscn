@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://4c4y0wctbyhw" path="res://scene/player_lv_1.tscn" id="2_gwy1d"]
 [ext_resource type="PackedScene" uid="uid://d0g1h027xfuit" path="res://scene/guard.tscn" id="5_ivrmp"]
 [ext_resource type="PackedScene" uid="uid://dl8dgdt605cpo" path="res://scene/ball_player.tscn" id="6_3cqj4"]
-[ext_resource type="Texture2D" uid="uid://cfn0n40dxb3nu" path="res://art/level 1/world/RTS/PNG/Retina/Unit/medievalUnit_23.png" id="6_6qgjt"]
 [ext_resource type="PackedScene" uid="uid://crbl1d7pxy6xj" path="res://scene/cleaner.tscn" id="6_nypgw"]
 [ext_resource type="PackedScene" uid="uid://bjfubvxc3s65d" path="res://scene/vague.tscn" id="7_3mjy7"]
+[ext_resource type="PackedScene" uid="uid://b4tkffeyo83gw" path="res://scene/sabio.tscn" id="7_i2era"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sygqo"]
 size = Vector2(1920, 10)
@@ -5587,9 +5587,9 @@ position = Vector2(69, 996)
 [node name="guard" parent="." instance=ExtResource("5_ivrmp")]
 position = Vector2(601, 1017)
 
-[node name="MedievalUnit23" type="Sprite2D" parent="."]
-position = Vector2(29, 789)
-texture = ExtResource("6_6qgjt")
-
 [node name="vague" parent="." instance=ExtResource("7_3mjy7")]
-position = Vector2(266, 889)
+position = Vector2(263, 887)
+
+[node name="sabio" parent="." instance=ExtResource("7_i2era")]
+position = Vector2(1, 759)
+scale = Vector2(0.15, 0.15)

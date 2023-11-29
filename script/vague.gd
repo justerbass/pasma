@@ -8,11 +8,13 @@ func _ready():
 	$Timer.start()
 	$AnimationPlayer.play("idle")
 	$AnimatedSprite2D.hide()
+	
 
 ##generacion de movimiento y animacion segun valor de direccion 
 func _physics_process(delta):
 	
 	var velocity = Vector2.ZERO
+	shock()
 	
 	if pos == 0:
 		$Sprite2D.hide()
@@ -66,6 +68,25 @@ func _physics_process(delta):
 
 
 func _on_timer_timeout():
+
 	randomize()
 	pos = int(randf_range(0, 5))
 
+
+##funcion de deteccion de colision y movimiento contrario a la colision.
+func shock():
+	if $AnimatedSprite2D/RCUp.is_colliding():
+		pos = 1
+		print("up col")
+		
+	elif  $AnimatedSprite2D/RCDown.is_colliding():
+		pos = 0
+		print("down col")
+
+	elif $AnimatedSprite2D/RCLeft.is_colliding():
+		pos = 3
+		print("left col")
+
+	elif  $AnimatedSprite2D/RCRight.is_colliding():
+		pos = 2
+		print("rigth col")

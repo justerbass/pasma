@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://n55sd6qi6eut"]
+
+[ext_resource type="Texture2D" uid="uid://ddhq0kq675j64" path="res://art/controls/dialog/scroll.png" id="1_jn5mf"]
+[ext_resource type="Script" path="res://scene/ui_dialogue.gd" id="1_mjbkf"]
+
+[sub_resource type="Theme" id="Theme_t3xww"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7ofcn"]
+texture = ExtResource("1_jn5mf")
+texture_margin_left = 43.875
+texture_margin_right = 70.875
+region_rect = Rect2(595, -11.5, 813.375, 1073.25)
+
+[node name="UIDialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mjbkf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 370.0
+offset_top = 800.0
+offset_right = 1860.0
+offset_bottom = 1030.0
+theme = SubResource("Theme_t3xww")
+theme_override_styles/panel = SubResource("StyleBoxTexture_7ofcn")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_right = 0.021
+anchor_bottom = 0.037
+offset_left = 39.0
+offset_top = 724.0
+offset_right = 293.68
+offset_bottom = 990.04
+expand_mode = 5
+stretch_mode = 5
+
+[node name="AnimationText" type="AnimationPlayer" parent="CanvasLayer"]

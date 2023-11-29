@@ -165,6 +165,26 @@ animation = &"down"
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_gw2j4")
 
+[node name="RCUp" type="RayCast2D" parent="AnimatedSprite2D"]
+target_position = Vector2(0, -15)
+collision_mask = 51
+collide_with_areas = true
+
+[node name="RCDown" type="RayCast2D" parent="AnimatedSprite2D"]
+target_position = Vector2(0, 15)
+collision_mask = 51
+collide_with_areas = true
+
+[node name="RCLeft" type="RayCast2D" parent="AnimatedSprite2D"]
+target_position = Vector2(-15, 0)
+collision_mask = 51
+collide_with_areas = true
+
+[node name="RCRight" type="RayCast2D" parent="AnimatedSprite2D"]
+target_position = Vector2(15, 0)
+collision_mask = 51
+collide_with_areas = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite2D")
 libraries = {
