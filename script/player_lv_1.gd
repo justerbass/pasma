@@ -34,13 +34,16 @@ func _physics_process(delta):
 		
 	if velocity.x > 0:
 		$AnimatedSprite2D.animation = "right"
+		$Area2D/CollisionShape2D.rotation_degrees = 270
 	elif velocity.x < 0:
 		$AnimatedSprite2D.animation = "left"
-	
+		$Area2D/CollisionShape2D.rotation_degrees = 90
 	if velocity.y > 0:
 		$AnimatedSprite2D.animation = "down"
+		$Area2D/CollisionShape2D.rotation_degrees = 0
 	elif velocity.y < 0:
 		$AnimatedSprite2D.animation = "up"
+		$Area2D/CollisionShape2D.rotation_degrees = 180
 		
 	
 	move_and_slide()

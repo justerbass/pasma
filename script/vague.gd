@@ -77,16 +77,22 @@ func _on_timer_timeout():
 func shock():
 	if $AnimatedSprite2D/RCUp.is_colliding():
 		pos = 1
-		print("up col")
 		
 	elif  $AnimatedSprite2D/RCDown.is_colliding():
 		pos = 0
-		print("down col")
 
 	elif $AnimatedSprite2D/RCLeft.is_colliding():
 		pos = 3
-		print("left col")
 
 	elif  $AnimatedSprite2D/RCRight.is_colliding():
 		pos = 2
-		print("rigth col")
+
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("interactuar"):
+		$"/root/UiDialogue".vague = true
+
+
+func _on_area_2d_body_exited(body):
+	if body.is_in_group("interactuar"):
+		$"/root/UiDialogue".vague = false

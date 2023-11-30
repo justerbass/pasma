@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b4tkffeyo83gw"]
+[gd_scene load_steps=21 format=3 uid="uid://b4tkffeyo83gw"]
 
 [ext_resource type="Texture2D" uid="uid://kn7wvmg2v7q" path="res://art/level 1/character/Monk/Monk_Transition.png" id="1_v0h72"]
 [ext_resource type="Script" path="res://script/sabio.gd" id="1_vst3u"]
@@ -113,7 +113,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_70jr5"]
 size = Vector2(46, 102)
 
-[node name="sabio" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahisx"]
+size = Vector2(54, 60.5)
+
+[node name="sabio" type="Node2D" groups=["interactuar"]]
 script = ExtResource("1_vst3u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -127,8 +130,16 @@ animation = &"wait"
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_70jr5")
 
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D" groups=["interactuar"]]
+position = Vector2(0, 25)
+shape = SubResource("RectangleShape2D_ahisx")
+
 [node name="AnimatedWait" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
 
+[connection signal="body_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="AnimatedWait" to="." method="_on_animated_wait_timeout"]

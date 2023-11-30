@@ -1,7 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://n55sd6qi6eut"]
+[gd_scene load_steps=11 format=3 uid="uid://n55sd6qi6eut"]
 
 [ext_resource type="Texture2D" uid="uid://ddhq0kq675j64" path="res://art/controls/dialog/scroll.png" id="1_jn5mf"]
-[ext_resource type="Script" path="res://scene/ui_dialogue.gd" id="1_mjbkf"]
+[ext_resource type="Script" path="res://script/ui_dialogue.gd" id="1_kryb0"]
+[ext_resource type="FontFile" uid="uid://clwisbpne2e21" path="res://Pacifico-Regular.ttf" id="3_kr030"]
+[ext_resource type="Texture2D" uid="uid://ddtf3jtlik4cu" path="res://art/level 1/character/CHARACTERS/Female person/PNG/Poses HD/character_femalePerson_interact.png" id="4_x4lla"]
+[ext_resource type="Texture2D" uid="uid://ddjsiaminskml" path="res://art/level 1/character/CHARACTERS/Male person/PNG/Poses/character_malePerson_interact.png" id="5_k0imw"]
+[ext_resource type="Texture2D" uid="uid://bbtxx5lisvvik" path="res://art/level 1/character/Monk/Monk_Idle.png" id="6_m6h8e"]
+[ext_resource type="Texture2D" uid="uid://c8od3dcwdgxd1" path="res://art/level 1/character/URBAN PACK/Tiles/tile_0348.png" id="7_045ug"]
+[ext_resource type="Texture2D" uid="uid://dds1aaep4tw0g" path="res://art/level 1/character/URBAN PACK/Tiles/tile_0267.png" id="8_sin0c"]
 
 [sub_resource type="Theme" id="Theme_t3xww"]
 
@@ -18,20 +24,36 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_mjbkf")
+script = ExtResource("1_kryb0")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
-offset_left = 370.0
-offset_top = 800.0
-offset_right = 1860.0
-offset_bottom = 1030.0
+offset_left = 400.0
+offset_top = 770.0
+offset_right = 1890.0
+offset_bottom = 1070.0
 theme = SubResource("Theme_t3xww")
 theme_override_styles/panel = SubResource("StyleBoxTexture_7ofcn")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/PanelContainer"]
-layout_mode = 2
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+modulate = Color(0.0120535, 0.116847, 0.41088, 1)
+offset_left = 440.0
+offset_top = 800.0
+offset_right = 1819.0
+offset_bottom = 1064.0
+scale = Vector2(1.00002, 1.02093)
+theme_override_fonts/normal_font = ExtResource("3_kr030")
+theme_override_fonts/bold_font = ExtResource("3_kr030")
+theme_override_fonts/italics_font = ExtResource("3_kr030")
+theme_override_fonts/bold_italics_font = ExtResource("3_kr030")
+theme_override_fonts/mono_font = ExtResource("3_kr030")
+theme_override_font_sizes/normal_font_size = 70
+theme_override_font_sizes/bold_font_size = 70
+theme_override_font_sizes/italics_font_size = 70
+theme_override_font_sizes/bold_italics_font_size = 70
+theme_override_font_sizes/mono_font_size = 70
+scroll_active = false
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = -1
@@ -43,5 +65,26 @@ offset_right = 293.68
 offset_bottom = 990.04
 expand_mode = 5
 stretch_mode = 5
+
+[node name="FemBallPlayer" type="Sprite2D" parent="CanvasLayer/TextureRect"]
+visible = false
+texture = ExtResource("4_x4lla")
+
+[node name="MalBallPlayer" type="Sprite2D" parent="CanvasLayer/TextureRect"]
+visible = false
+texture = ExtResource("5_k0imw")
+
+[node name="sabio" type="Sprite2D" parent="CanvasLayer/TextureRect"]
+visible = false
+texture = ExtResource("6_m6h8e")
+hframes = 2
+
+[node name="vague" type="Sprite2D" parent="CanvasLayer/TextureRect"]
+visible = false
+texture = ExtResource("7_045ug")
+
+[node name="guard" type="Sprite2D" parent="CanvasLayer/TextureRect"]
+visible = false
+texture = ExtResource("8_sin0c")
 
 [node name="AnimationText" type="AnimationPlayer" parent="CanvasLayer"]

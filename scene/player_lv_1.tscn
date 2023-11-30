@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://4c4y0wctbyhw"]
+[gd_scene load_steps=17 format=3 uid="uid://4c4y0wctbyhw"]
 
 [ext_resource type="Script" path="res://script/player_lv_1.gd" id="1_k2ufn"]
 [ext_resource type="Texture2D" uid="uid://bfk4cx3h0q6vm" path="res://art/level 1/character/URBAN PACK/Tiles/tile_0024.png" id="1_rqkgg"]
@@ -89,6 +89,9 @@ animations = [{
 radius = 6.0
 height = 18.0
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4dd8o"]
+b = Vector2(0, 21)
+
 [node name="PayerLv1" type="CharacterBody2D"]
 collision_layer = 3
 script = ExtResource("1_k2ufn")
@@ -111,3 +114,9 @@ limit_smoothed = true
 rotation_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="Area2D" type="Area2D" parent="." groups=["interactuar"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_4dd8o")
