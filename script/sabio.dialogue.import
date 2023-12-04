@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://iqoemvaakrff"
+path="res://.godot/imported/sabio.dialogue-a224be4957f45a12e7a6bf4ca6fd8669.tres"
+
+[deps]
+
+source_file="res://script/sabio.dialogue"
+dest_files=["res://.godot/imported/sabio.dialogue-a224be4957f45a12e7a6bf4ca6fd8669.tres"]
+
+[params]
+
+defaults=true

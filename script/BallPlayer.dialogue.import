@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://dbtq5kap0hwnc"
+path="res://.godot/imported/BallPlayer.dialogue-3f7c1e3323548956d02e43194aea6a9b.tres"
+
+[deps]
+
+source_file="res://script/BallPlayer.dialogue"
+dest_files=["res://.godot/imported/BallPlayer.dialogue-3f7c1e3323548956d02e43194aea6a9b.tres"]
+
+[params]
+
+defaults=true

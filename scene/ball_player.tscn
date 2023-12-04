@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dl8dgdt605cpo"]
+[gd_scene load_steps=23 format=3 uid="uid://dl8dgdt605cpo"]
 
 [ext_resource type="Texture2D" uid="uid://c6u7nisene15o" path="res://art/level 1/character/CHARACTERS/Female person/PNG/Poses/character_femalePerson_idle.png" id="1_b31g3"]
 [ext_resource type="Script" path="res://script/ball_player.gd" id="1_vxuv0"]
@@ -53,9 +53,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hg6hq"]
 size = Vector2(280, 99.3333)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_md01m"]
-size = Vector2(76.6667, 68.6667)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_k304p"]
 animations = [{
 "frames": [{
@@ -93,9 +90,6 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7hvr3"]
 size = Vector2(278, 95.3333)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wuep0"]
-size = Vector2(74.6667, 64.6667)
 
 [sub_resource type="Curve2D" id="Curve2D_v5pog"]
 _data = {
@@ -155,11 +149,6 @@ sprite_frames = SubResource("SpriteFrames_k8ei2")
 position = Vector2(103.333, 19)
 shape = SubResource("RectangleShape2D_hg6hq")
 
-[node name="AreaDetecFemPl" type="Area2D" parent="FemalePlayer"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FemalePlayer/AreaDetecFemPl"]
-shape = SubResource("RectangleShape2D_md01m")
-
 [node name="MalePlayer" type="AnimatedSprite2D" parent="."]
 position = Vector2(1000, 0)
 scale = Vector2(1.5, 1.5)
@@ -171,11 +160,6 @@ flip_h = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MalePlayer/StaticBody2D"]
 position = Vector2(-103.667, 18.3333)
 shape = SubResource("RectangleShape2D_7hvr3")
-
-[node name="AreaDetecMalPl" type="Area2D" parent="MalePlayer"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MalePlayer/AreaDetecMalPl" groups=["interactuar"]]
-shape = SubResource("RectangleShape2D_wuep0")
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_v5pog")
@@ -190,10 +174,10 @@ scale = Vector2(0.07, 0.07)
 texture = ExtResource("7_xbn6a")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D/PathFollow2D"]
-autoplay = "shot"
 libraries = {
 "": SubResource("AnimationLibrary_8rhio")
 }
+autoplay = "shot"
 
 [node name="Maleshot" type="Timer" parent="."]
 wait_time = 3.5
@@ -201,9 +185,5 @@ wait_time = 3.5
 [node name="WaitShot" type="Timer" parent="."]
 wait_time = 7.0
 
-[connection signal="body_entered" from="FemalePlayer/AreaDetecFemPl" to="." method="_on_area_detec_fem_pl_body_entered"]
-[connection signal="body_exited" from="FemalePlayer/AreaDetecFemPl" to="." method="_on_area_detec_fem_pl_body_exited"]
-[connection signal="body_entered" from="MalePlayer/AreaDetecMalPl" to="." method="_on_area_detec_mal_pl_body_entered"]
-[connection signal="body_exited" from="MalePlayer/AreaDetecMalPl" to="." method="_on_area_detec_mal_pl_body_exited"]
 [connection signal="timeout" from="Maleshot" to="." method="_on_maleshot_timeout"]
 [connection signal="timeout" from="WaitShot" to="." method="_on_wait_shot_timeout"]

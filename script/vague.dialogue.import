@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://cgf3xqjjgapif"
+path="res://.godot/imported/vague.dialogue-f4d59dc1b00ba7009d5b2791d3a3128f.tres"
+
+[deps]
+
+source_file="res://script/vague.dialogue"
+dest_files=["res://.godot/imported/vague.dialogue-f4d59dc1b00ba7009d5b2791d3a3128f.tres"]
+
+[params]
+
+defaults=true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0g1h027xfuit"]
+[gd_scene load_steps=7 format=3 uid="uid://d0g1h027xfuit"]
 
 [ext_resource type="Texture2D" uid="uid://cxcoocyfy3p5l" path="res://art/level 1/character/URBAN PACK/Tiles/tile_0294.png" id="1_a7jso"]
 [ext_resource type="Script" path="res://script/guard.gd" id="1_c6s8n"]
@@ -29,9 +29,6 @@ animations = [{
 radius = 6.0
 height = 18.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0mb8r"]
-size = Vector2(9, 9)
-
 [node name="guard" type="Node2D" groups=["interactuar"]]
 script = ExtResource("1_c6s8n")
 
@@ -44,11 +41,3 @@ frame_progress = 0.646809
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/StaticBody2D"]
 shape = SubResource("CapsuleShape2D_1tang")
-
-[node name="Area2D" type="Area2D" parent="." groups=["interactuar"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["interactuar"]]
-shape = SubResource("RectangleShape2D_0mb8r")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
