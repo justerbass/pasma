@@ -1,13 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://d1u1o1eqddlb8"]
+[gd_scene load_steps=13 format=3 uid="uid://d1u1o1eqddlb8"]
 
-[ext_resource type="Texture2D" uid="uid://bw417lc213jrb" path="res://art/controls/Sprites/transparentDark/transparentDark01.png" id="1_ueggt"]
-[ext_resource type="Texture2D" uid="uid://b84vsqh3jg8ed" path="res://art/controls/Sprites/transparentLight/transparentLight01.png" id="2_h6x7v"]
-[ext_resource type="Texture2D" uid="uid://4ykr4w7k3pfp" path="res://art/controls/Sprites/transparentDark/transparentDark08.png" id="3_8q700"]
-[ext_resource type="Texture2D" uid="uid://556dgqpui481" path="res://art/controls/Sprites/transparentLight/transparentLight08.png" id="4_6atyq"]
-[ext_resource type="Texture2D" uid="uid://ctqnmvqbsoo5u" path="res://art/controls/Sprites/transparentDark/transparentDark03.png" id="5_03sk1"]
-[ext_resource type="Texture2D" uid="uid://03vrrkxydi2b" path="res://art/controls/Sprites/transparentLight/transparentLight03.png" id="6_miv2r"]
-[ext_resource type="Texture2D" uid="uid://6lbqgqn16xji" path="res://art/controls/Sprites/transparentDark/transparentDark04.png" id="7_4xb2q"]
-[ext_resource type="Texture2D" uid="uid://ntw031u7ofrx" path="res://art/controls/Sprites/transparentLight/transparentLight04.png" id="8_h4dwb"]
+[ext_resource type="Texture2D" uid="uid://c7oo4pe355g8o" path="res://art/controls/Sprites/transparentDark/transparentDark24.png" id="1_8vi0f"]
+[ext_resource type="Script" path="res://script/ui_control.gd" id="1_vnkc4"]
+[ext_resource type="Texture2D" uid="uid://d0a75krsmx3hm" path="res://art/controls/Sprites/transparentLight/transparentLight24.png" id="2_xyg65"]
+[ext_resource type="Texture2D" uid="uid://d0qq8thn1u7al" path="res://art/controls/Sprites/transparentDark/transparentDark25.png" id="3_solb7"]
+[ext_resource type="Texture2D" uid="uid://b57r385fxobdw" path="res://art/controls/Sprites/transparentLight/transparentLight25.png" id="4_aip81"]
+[ext_resource type="Texture2D" uid="uid://cpise2oe86h4i" path="res://art/controls/Sprites/transparentDark/transparentDark22.png" id="5_2i815"]
+[ext_resource type="Texture2D" uid="uid://c4b7bdgpeu185" path="res://art/controls/Sprites/transparentLight/transparentLight22.png" id="6_yqw6j"]
+[ext_resource type="Texture2D" uid="uid://beutumc6clxjc" path="res://art/controls/Sprites/transparentDark/transparentDark23.png" id="7_w6x3t"]
+[ext_resource type="Texture2D" uid="uid://bn8ls5qr624my" path="res://art/controls/Sprites/transparentLight/transparentLight23.png" id="8_u4cog"]
 [ext_resource type="Texture2D" uid="uid://dw7r0pyusvsor" path="res://art/controls/Sprites/transparentDark/transparentDark33.png" id="9_76vig"]
 [ext_resource type="Texture2D" uid="uid://csqqn84ntaryk" path="res://art/controls/speak_black (1).png" id="10_rxc6l"]
 [ext_resource type="Texture2D" uid="uid://bduesojswj4qk" path="res://art/controls/speak_white (1).png" id="11_fnlr1"]
@@ -19,43 +20,63 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_vnkc4")
 
-[node name="up_btn" type="TouchScreenButton" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="up_btn" type="TouchScreenButton" parent="CanvasLayer"]
 modulate = Color(0.627451, 0.627451, 0.627451, 1)
-position = Vector2(87, 360)
-texture_normal = ExtResource("1_ueggt")
-texture_pressed = ExtResource("2_h6x7v")
+position = Vector2(100, 300)
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("1_8vi0f")
+texture_pressed = ExtResource("2_xyg65")
+action = "UP"
 
-[node name="down_btn" type="TouchScreenButton" parent="."]
+[node name="down_btn" type="TouchScreenButton" parent="CanvasLayer"]
 modulate = Color(0.627451, 0.627451, 0.627451, 1)
-position = Vector2(86, 454)
-texture_normal = ExtResource("3_8q700")
-texture_pressed = ExtResource("4_6atyq")
+position = Vector2(100, 450)
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("3_solb7")
+texture_pressed = ExtResource("4_aip81")
+action = "DOWN"
 
-[node name="left_btn" type="TouchScreenButton" parent="."]
+[node name="left_btn" type="TouchScreenButton" parent="CanvasLayer"]
 modulate = Color(0.627451, 0.627451, 0.627451, 1)
-position = Vector2(6, 416)
-texture_normal = ExtResource("5_03sk1")
-texture_pressed = ExtResource("6_miv2r")
+position = Vector2(30, 380)
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("5_2i815")
+texture_pressed = ExtResource("6_yqw6j")
+action = "LEFT"
 
-[node name="right_btn" type="TouchScreenButton" parent="."]
+[node name="right_btn" type="TouchScreenButton" parent="CanvasLayer"]
 modulate = Color(0.627451, 0.627451, 0.627451, 1)
-position = Vector2(164, 416)
-texture_normal = ExtResource("7_4xb2q")
-texture_pressed = ExtResource("8_h4dwb")
+position = Vector2(170, 380)
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("7_w6x3t")
+texture_pressed = ExtResource("8_u4cog")
+action = "RIGHT"
 
-[node name="quit_btn" type="TouchScreenButton" parent="."]
+[node name="quit_btn" type="TouchScreenButton" parent="CanvasLayer"]
 position = Vector2(876, 24)
 texture_normal = ExtResource("9_76vig")
 
-[node name="speak_btn" type="TouchScreenButton" parent="."]
-position = Vector2(850, 280)
+[node name="speak_btn" type="TouchScreenButton" parent="CanvasLayer"]
+visible = false
+position = Vector2(850, 250)
 scale = Vector2(0.08, 0.08)
 texture_normal = ExtResource("10_rxc6l")
 texture_pressed = ExtResource("11_fnlr1")
+action = "SPEAK"
 
-[node name="aplause_btn" type="TouchScreenButton" parent="."]
+[node name="aplause_btn" type="TouchScreenButton" parent="CanvasLayer"]
 visible = false
 
-[node name="TouchScreenButton8" type="TouchScreenButton" parent="."]
+[node name="TouchScreenButton8" type="TouchScreenButton" parent="CanvasLayer"]
 visible = false
+
+[connection signal="pressed" from="CanvasLayer/up_btn" to="." method="_on_up_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/down_btn" to="." method="_on_down_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/left_btn" to="." method="_on_left_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/right_btn" to="." method="_on_right_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/quit_btn" to="." method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/speak_btn" to="." method="_on_speak_btn_pressed"]

@@ -9,14 +9,14 @@ var guard_in_range = false
 func _physics_process(delta):
 	
 	## movimento del personaje
-	var directions = Input.get_axis("ui_up", "ui_down")
+	var directions = Input.get_axis("UP", "DOWN")
 	if directions:
 		velocity.y = directions * SPEED
 	else:
 		velocity.y = move_toward(0, 0, SPEED)
 		
 		
-	var direction = Input.get_axis("ui_left", "ui_right")
+	var direction = Input.get_axis("LEFT", "RIGHT")
 	
 	if direction:
 		velocity.x = direction * SPEED
@@ -54,44 +54,58 @@ func _physics_process(delta):
 	SpeachVillage()
 
 		
-		
+
+##sistema de dialogo de la villa
+
 func SpeachVillage():
 	
 	if sabio_in_range:
-		DialogueManager.show_example_dialogue_balloon(load("res://script/sabio.dialogue"), "start_sabio")
-		return
+		
+		if Input.is_action_just_pressed("SPEAK"):
+			DialogueManager.show_example_dialogue_balloon(load("res://script/sabio.dialogue"), "start_sabio")
+			return
 		
 	if guard_in_range:
-		DialogueManager.show_example_dialogue_balloon(load("res://script/guard.dialogue"), "start_guard")
-		return
+		if Input.is_action_just_pressed("SPEAK"):
+			DialogueManager.show_example_dialogue_balloon(load("res://script/guard.dialogue"), "start_guard")
+			return
 		
 	if ballplayer_in_range:
-		DialogueManager.show_example_dialogue_balloon(load("res://scene/ball_player.tscn"), "start_ballplayer")
-		return
+		if Input.is_action_just_pressed("SPEAK"):
+			DialogueManager.show_example_dialogue_balloon(load("res://script/BallPlayer.dialogue"), "start_ballplayer")
+			return
 		
 	if vague_in_range:
-		DialogueManager.show_example_dialogue_balloon(load("res://script/vague.dialogue"), "start_vague")
-		return
+		if Input.is_action_just_pressed("SPEAK"):
+			DialogueManager.show_example_dialogue_balloon(load("res://script/vague.dialogue"), "start_vague")
+			return
 		
-
 
 func _on_area_2d_body_entered(body):
 	if body is sabio:
 		sabio_in_range = true
+		$"../UIControl/CanvasLayer/speak_btn".show()
 	if body is vague:
 		vague_in_range = true
+		$"../UIControl/CanvasLayer/speak_btn".show()
 	if body is guard:
 		guard_in_range = true
+		$"../UIControl/CanvasLayer/speak_btn".show()
 	if body is ballplayer:
 		ballplayer_in_range = true
+		$"../UIControl/CanvasLayer/speak_btn".show()
 
 
 func _on_area_2d_body_exited(body):
 	if body is sabio:
 		sabio_in_range = false
+		$"../UIControl/CanvasLayer/speak_btn".hide()
 	if body is vague:
 		vague_in_range = false
+		$"../UIControl/CanvasLayer/speak_btn".hide()
 	if body is guard:
 		guard_in_range = false
+		$"../UIControl/CanvasLayer/speak_btn".hide()
 	if body is ballplayer:
 		ballplayer_in_range = false
+		$"../UIControl/CanvasLayer/speak_btn".hide()

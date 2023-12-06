@@ -5588,3 +5588,7 @@ position = Vector2(1, 759)
 scale = Vector2(0.15, 0.15)
 
 [node name="UIControl" parent="." instance=ExtResource("8_16enq")]
+offset_left = 433.0
+offset_top = 1063.0
+offset_right = 433.0
+offset_bottom = 1063.0
