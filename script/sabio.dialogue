@@ -1,18 +1,24 @@
-~ start
+~ start_sabio
 
-
-Sabio : ¡QUIETO!, no te alejes... 
-- Hacer caso.
-	 Sabio : Joven, he estado observando tus acciones con gran interés. Has demostrado una gran bondad y compasión, así como un fuerte sentido de la justicia.
-	- Que yo qué...??? 
-		Sabio : Bueno, si no me crees tendre que sacar toda mi sabiduria, dandote un consejo de un coacher de Mier....
-		- Un qué???
-			Sabio : Para poder devolver la calma a esta región, la paz interior es la cuestion. 
-			Sabio : Si no sabes en donde encontrar, la calma perderas.
-			Sabio : "Te resulto útil...",
-			- No entendi nada de nada.
-				Sabio : Bueno es lo que te puedo enseñar, si necesitas mas anda al campamento al norte del pueblo. 
-				Sabio : Para auyentar a los animales aplaudirles en la cara funcionara.
-				Sabio : Buen Viaje, Joven Aventurero y no olvides.... 
-- irse 
+if global.sabio_teaching_village == false:
+	Sabio : ¡QUIETO!, no te alejes... 
+	- Hacer caso.
+		 Sabio : Joven, he estado observando tus acciones con gran interés. Has demostrado una gran bondad y compasión, así como un fuerte sentido de la justicia.
+		- Que yo qué...??? 
+			Sabio : Bueno, si no me crees tendre que sacar toda mi sabiduria, dandote un consejo de un coacher de Mier....
+			- Un qué???
+				Sabio : Para poder devolver la calma a esta región, la paz interior es la cuestion. 
+				Sabio : Si no sabes en donde encontrar, la calma perderas.
+				Sabio : "Te resulto útil...",
+				- No entendi nada de nada.
+					set global.sabio_teaching_village = true
+					Sabio : Bueno es lo que te puedo enseñar, si necesitas más anda al campamento al norte del pueblo. 
+					Sabio : Para auyentar a los animales aplaudirles en la cara funcionara.
+					set global.player_aplause_learned = true
+					Sabio : Buen Viaje, Joven Aventurero y no olvides.... 
+	- irse 
+else:
+	Sabio : Eso que te puedo enseñar, si necesitas más anda al campamento al norte del pueblo. 
+	Sabio : Para auyentar a los animales aplaudirles en la cara funcionara.
+	Sabio : Buen Viaje, Joven Aventurero y no olvides.... 
 => END

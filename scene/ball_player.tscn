@@ -15,6 +15,12 @@
 [ext_resource type="Texture2D" uid="uid://cx5sh35767pse" path="res://art/level 1/character/CHARACTERS/Male person/PNG/Poses/character_malePerson_kick.png" id="12_6d6lr"]
 [ext_resource type="Texture2D" uid="uid://d006bjro2lpi6" path="res://art/level 1/character/CHARACTERS/Male person/PNG/Poses/character_malePerson_attack1.png" id="13_ybdgs"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hg6hq"]
+size = Vector2(214.667, 99.3333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hvr3"]
+size = Vector2(210, 95.3333)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_k8ei2"]
 animations = [{
 "frames": [{
@@ -50,9 +56,6 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hg6hq"]
-size = Vector2(280, 99.3333)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_k304p"]
 animations = [{
 "frames": [{
@@ -87,9 +90,6 @@ animations = [{
 "name": &"default",
 "speed": 12.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hvr3"]
-size = Vector2(278, 95.3333)
 
 [sub_resource type="Curve2D" id="Curve2D_v5pog"]
 _data = {
@@ -135,31 +135,29 @@ _data = {
 "shot": SubResource("Animation_xykc2")
 }
 
-[node name="BallPlayer" type="Node2D" groups=["interactuar"]]
+[node name="BallPlayer" type="CharacterBody2D"]
 position = Vector2(248, 311)
 script = ExtResource("1_vxuv0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(106, 28.5)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_hg6hq")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(895.5, 27.4999)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_7hvr3")
 
 [node name="FemalePlayer" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_k8ei2")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="FemalePlayer"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FemalePlayer/StaticBody2D"]
-position = Vector2(103.333, 19)
-shape = SubResource("RectangleShape2D_hg6hq")
 
 [node name="MalePlayer" type="AnimatedSprite2D" parent="."]
 position = Vector2(1000, 0)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_k304p")
 flip_h = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="MalePlayer"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MalePlayer/StaticBody2D"]
-position = Vector2(-103.667, 18.3333)
-shape = SubResource("RectangleShape2D_7hvr3")
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_v5pog")

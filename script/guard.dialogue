@@ -1,12 +1,17 @@
-~ Start
+~ start_guard
 
-Guard: [[Saludos|Muy Buenos Días]]
-- Hola.
-	Guard: Te recomiendo ir a ver al sabio del pueblo.
-	Guard: para que puedas ir al mundo exterior tranquilo, 
-	Guard: de otra sera una odisea saber hasta donde puedas llegar.
-	- Donde lo encuentro??
-		Guard: buscalo por la villa, no sera dificil encontralo... 
-		=> END
+if global.player_aplause_learned == false
+	Guard: [[Saludos|Muy Buenos Días]]
+	- Hola.
+			Guard: Te recomiendo ir a ver al sabio del pueblo.
+			Guard: para que puedas ir al mundo exterior tranquilo, 
+			Guard: de otra sera una odisea saber hasta donde puedas llegar.
+			- Donde lo encuentro??
+				Guard: buscalo por la villa, no sera dificil encontralo... 
+				=> END
+else
+	Guard: Que tengas un buen día.
+	Guard: Espero que logres volver pronto.
+	=> END
 
 => END

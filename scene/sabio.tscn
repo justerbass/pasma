@@ -113,7 +113,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_70jr5"]
 size = Vector2(46, 102)
 
-[node name="sabio" type="Node2D" groups=["interactuar"]]
+[node name="sabio" type="CharacterBody2D"]
 script = ExtResource("1_vst3u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -121,14 +121,12 @@ position = Vector2(153, 121)
 sprite_frames = SubResource("SpriteFrames_6ggio")
 animation = &"wait"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="AnimatedSprite2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/StaticBody2D"]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_70jr5")
-
 [node name="AnimatedWait" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(154, 121)
+shape = SubResource("RectangleShape2D_70jr5")
 
 [connection signal="timeout" from="AnimatedWait" to="." method="_on_animated_wait_timeout"]

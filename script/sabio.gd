@@ -1,4 +1,5 @@
 extends Node2D
+class_name sabio
 
 func _ready():
 	$AnimatedSprite2D.play("wait")

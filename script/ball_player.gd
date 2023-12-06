@@ -1,4 +1,5 @@
 extends Node2D
+class_name ballplayer
 
 ##funcion que ejecuta la jugabilidad
 func _ready():

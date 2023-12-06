@@ -1,4 +1,5 @@
 extends Node2D
+class_name vague
 
 var pos
 var speed = 5

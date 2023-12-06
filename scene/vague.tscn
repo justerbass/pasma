@@ -85,10 +85,6 @@ animations = [{
 "speed": 3.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gw2j4"]
-radius = 7.0
-height = 16.0
-
 [sub_resource type="Animation" id="Animation_t08dt"]
 length = 0.001
 tracks/0/type = "value"
@@ -151,19 +147,17 @@ _data = {
 "idle": SubResource("Animation_og56g")
 }
 
-[node name="vague" type="Node2D" groups=["interactuar"]]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gw2j4"]
+radius = 7.0
+height = 16.0
+
+[node name="vague" type="CharacterBody2D"]
 z_index = 1
 script = ExtResource("1_tnn0j")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_k41nt")
 animation = &"down"
-
-[node name="StaticBody2D" type="StaticBody2D" parent="AnimatedSprite2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/StaticBody2D"]
-position = Vector2(0, 1)
-shape = SubResource("CapsuleShape2D_gw2j4")
 
 [node name="RCUp" type="RayCast2D" parent="AnimatedSprite2D"]
 target_position = Vector2(0, -15)
@@ -197,9 +191,7 @@ wait_time = 3.0
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_hwk2o")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_gw2j4")
 
