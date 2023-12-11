@@ -117,7 +117,6 @@ size = Vector2(46, 102)
 script = ExtResource("1_vst3u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(153, 121)
 sprite_frames = SubResource("SpriteFrames_6ggio")
 animation = &"wait"
 
@@ -126,7 +125,6 @@ wait_time = 10.0
 autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(154, 121)
 shape = SubResource("RectangleShape2D_70jr5")
 
 [connection signal="timeout" from="AnimatedWait" to="." method="_on_animated_wait_timeout"]

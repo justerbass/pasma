@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d1u1o1eqddlb8"]
+[gd_scene load_steps=17 format=3 uid="uid://d1u1o1eqddlb8"]
 
 [ext_resource type="Texture2D" uid="uid://c7oo4pe355g8o" path="res://art/controls/Sprites/transparentDark/transparentDark24.png" id="1_8vi0f"]
 [ext_resource type="Script" path="res://script/ui_control.gd" id="1_vnkc4"]
@@ -12,6 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://dw7r0pyusvsor" path="res://art/controls/Sprites/transparentDark/transparentDark33.png" id="9_76vig"]
 [ext_resource type="Texture2D" uid="uid://csqqn84ntaryk" path="res://art/controls/speak_black (1).png" id="10_rxc6l"]
 [ext_resource type="Texture2D" uid="uid://bduesojswj4qk" path="res://art/controls/speak_white (1).png" id="11_fnlr1"]
+[ext_resource type="Texture2D" uid="uid://cwfns3beogwnr" path="res://art/controls/clap black.png" id="13_dnlj1"]
+[ext_resource type="Texture2D" uid="uid://cd6fft8k6hcdh" path="res://art/controls/clap white.png" id="14_4g81l"]
+[ext_resource type="Texture2D" uid="uid://dpxb3n665plwl" path="res://art/controls/peace black.png" id="15_fskni"]
+[ext_resource type="Texture2D" uid="uid://cc4cy44n6nif0" path="res://art/controls/peace white.png" id="16_xromg"]
 
 [node name="UIControl" type="Control"]
 layout_mode = 3
@@ -30,7 +34,7 @@ position = Vector2(100, 300)
 scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("1_8vi0f")
 texture_pressed = ExtResource("2_xyg65")
-action = "UP"
+action = "\"UP\""
 
 [node name="down_btn" type="TouchScreenButton" parent="CanvasLayer"]
 modulate = Color(0.627451, 0.627451, 0.627451, 1)
@@ -38,7 +42,7 @@ position = Vector2(100, 450)
 scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("3_solb7")
 texture_pressed = ExtResource("4_aip81")
-action = "DOWN"
+action = "\"DOWN\""
 
 [node name="left_btn" type="TouchScreenButton" parent="CanvasLayer"]
 modulate = Color(0.627451, 0.627451, 0.627451, 1)
@@ -70,13 +74,14 @@ action = "SPEAK"
 
 [node name="aplause_btn" type="TouchScreenButton" parent="CanvasLayer"]
 visible = false
+position = Vector2(721, 352)
+scale = Vector2(0.0800781, 0.08)
+texture_normal = ExtResource("13_dnlj1")
+texture_pressed = ExtResource("14_4g81l")
 
-[node name="TouchScreenButton8" type="TouchScreenButton" parent="CanvasLayer"]
+[node name="peace_btn" type="TouchScreenButton" parent="CanvasLayer"]
 visible = false
-
-[connection signal="pressed" from="CanvasLayer/up_btn" to="." method="_on_up_btn_pressed"]
-[connection signal="pressed" from="CanvasLayer/down_btn" to="." method="_on_down_btn_pressed"]
-[connection signal="pressed" from="CanvasLayer/left_btn" to="." method="_on_left_btn_pressed"]
-[connection signal="pressed" from="CanvasLayer/right_btn" to="." method="_on_right_btn_pressed"]
-[connection signal="pressed" from="CanvasLayer/quit_btn" to="." method="_on_quit_btn_pressed"]
-[connection signal="pressed" from="CanvasLayer/speak_btn" to="." method="_on_speak_btn_pressed"]
+position = Vector2(851, 438)
+scale = Vector2(0.08, 0.08)
+texture_normal = ExtResource("15_fskni")
+texture_pressed = ExtResource("16_xromg")

@@ -8,7 +8,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("SPEAK"):
+		get_tree().change_scene_to_file("res://scene/level_1.tscn")
 
 
 
@@ -24,3 +25,10 @@ func _on_timer_2_timeout():
 	$CanvasLayer/Label5.hide()
 	
 	
+
+
+func _on_timer_4_timeout():
+	$CanvasLayer/Label.show()
+	$CanvasLayer/Label4.show()
+	$Timer.start()
+	$Timer3.start()

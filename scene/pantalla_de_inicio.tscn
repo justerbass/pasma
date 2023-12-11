@@ -31,6 +31,7 @@ scale = Vector2(0.35, 0.35)
 texture = ExtResource("1_oaatn")
 
 [node name="Label" type="Label" parent="CanvasLayer"]
+visible = false
 offset_left = 66.0
 offset_top = 185.0
 offset_right = 286.0
@@ -42,6 +43,7 @@ text = "ADVERTENCIA"
 horizontal_alignment = 1
 
 [node name="Label4" type="Label" parent="CanvasLayer"]
+visible = false
 offset_left = 700.0
 offset_top = 184.0
 offset_right = 920.0
@@ -78,26 +80,31 @@ text = "apreta \"shift\" para comenzar."
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 script = ExtResource("4_qr7hm")
-texto = "Aun, no funcionan los botones, y no se aun porque. \\n para mover el personaje se pueden usar las flechas direccionales o \"wasd\", \\n para interacturar \"shift\""
+texto = "Para mover el personaje se pueden usar las flechas direccionales o \"wasd\".  Para interacturar \"shift\"."
 
 [node name="Label2" type="Label" parent="CanvasLayer/Sprite2D"]
 offset_left = 100.0
 offset_top = 380.0
 offset_right = 883.0
-offset_bottom = 425.0
+offset_bottom = 480.0
 theme_override_fonts/font = ExtResource("2_jgoe4")
 theme_override_font_sizes/font_size = 25
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Timer" type="Timer" parent="."]
-autostart = true
 
 [node name="Timer2" type="Timer" parent="."]
 wait_time = 0.5
 
 [node name="Timer3" type="Timer" parent="."]
 wait_time = 0.1
+
+[node name="Timer4" type="Timer" parent="."]
+wait_time = 5.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="timeout" from="Timer3" to="CanvasLayer/Sprite2D" method="_on_timer_3_timeout"]
+[connection signal="timeout" from="Timer4" to="." method="_on_timer_4_timeout"]
