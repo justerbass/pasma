@@ -91,7 +91,7 @@ func _on_area_2d_body_entered(body):
 		$"../UIControl/CanvasLayer/speak_btn".show()
 	if body is guard:
 		guard_in_range = true
-		$"..w/UIControl/CanvasLayer/speak_btn".show()
+		$"../UIControl/CanvasLayer/speak_btn".show()
 	if body is ballplayer:
 		ballplayer_in_range = true
 		$"../UIControl/CanvasLayer/speak_btn".show()

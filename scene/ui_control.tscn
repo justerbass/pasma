@@ -34,7 +34,7 @@ position = Vector2(100, 300)
 scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("1_8vi0f")
 texture_pressed = ExtResource("2_xyg65")
-action = "\"UP\""
+action = "UP"
 
 [node name="down_btn" type="TouchScreenButton" parent="CanvasLayer"]
 modulate = Color(0.627451, 0.627451, 0.627451, 1)
@@ -42,7 +42,7 @@ position = Vector2(100, 450)
 scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("3_solb7")
 texture_pressed = ExtResource("4_aip81")
-action = "\"DOWN\""
+action = "DOWN"
 
 [node name="left_btn" type="TouchScreenButton" parent="CanvasLayer"]
 modulate = Color(0.627451, 0.627451, 0.627451, 1)
@@ -66,7 +66,7 @@ texture_normal = ExtResource("9_76vig")
 
 [node name="speak_btn" type="TouchScreenButton" parent="CanvasLayer"]
 visible = false
-position = Vector2(850, 250)
+position = Vector2(726, 377)
 scale = Vector2(0.08, 0.08)
 texture_normal = ExtResource("10_rxc6l")
 texture_pressed = ExtResource("11_fnlr1")
@@ -74,7 +74,7 @@ action = "SPEAK"
 
 [node name="aplause_btn" type="TouchScreenButton" parent="CanvasLayer"]
 visible = false
-position = Vector2(721, 352)
+position = Vector2(849, 310)
 scale = Vector2(0.0800781, 0.08)
 texture_normal = ExtResource("13_dnlj1")
 texture_pressed = ExtResource("14_4g81l")
@@ -85,3 +85,12 @@ position = Vector2(851, 438)
 scale = Vector2(0.08, 0.08)
 texture_normal = ExtResource("15_fskni")
 texture_pressed = ExtResource("16_xromg")
+
+[connection signal="pressed" from="CanvasLayer/up_btn" to="." method="_on_up_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/down_btn" to="." method="_on_down_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/left_btn" to="." method="_on_left_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/right_btn" to="." method="_on_right_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/quit_btn" to="." method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/speak_btn" to="." method="_on_speak_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/aplause_btn" to="." method="_on_aplause_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/peace_btn" to="." method="_on_peace_btn_pressed"]
