@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://cwgn46h1uc2y"]
+
+[ext_resource type="Script" path="res://script/wolf.gd" id="1_7s4xx"]
+[ext_resource type="Texture2D" uid="uid://dorgy1hhmlxbx" path="res://art/level 1/character/ANIMAL PACK/PNG/Square (outline)/dog.png" id="1_8x62o"]
+[ext_resource type="Texture2D" uid="uid://bpc7cukojgkh0" path="res://art/level 1/character/ANIMAL PACK/PNG/Round/dog.png" id="2_3n8hl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpyq8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yit5u"]
+size = Vector2(8.2, 14.3)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e800s"]
+
+[node name="wolf" type="CharacterBody2D"]
+script = ExtResource("1_7s4xx")
+
+[node name="Dog" type="Sprite2D" parent="."]
+texture = ExtResource("1_8x62o")
+
+[node name="DogPace" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_3n8hl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 12)
+scale = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_rpyq8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, 50)
+scale = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_yit5u")
+
+[node name="AreaDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetection"]
+scale = Vector2(100, 100)
+shape = SubResource("CircleShape2D_e800s")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="AreaDetection" to="." method="_on_area_detection_body_entered"]
+[connection signal="body_exited" from="AreaDetection" to="." method="_on_area_detection_body_exited"]

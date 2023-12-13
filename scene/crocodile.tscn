@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkp3k0ook2a0i"]
+
+[ext_resource type="Texture2D" uid="uid://mu7vw4jg04b6" path="res://art/level 1/character/ANIMAL PACK/PNG/Square (outline)/crocodile.png" id="1_78chl"]
+[ext_resource type="Script" path="res://script/crocodile.gd" id="1_g0vik"]
+[ext_resource type="Texture2D" uid="uid://cf11g8128fuwx" path="res://art/level 1/character/ANIMAL PACK/PNG/Round/crocodile.png" id="2_cnb8f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ammjc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wdqf"]
+size = Vector2(8.1, 12.9)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_snygm"]
+
+[node name="crocodile" type="CharacterBody2D"]
+script = ExtResource("1_g0vik")
+
+[node name="Crocodile" type="Sprite2D" parent="."]
+texture = ExtResource("1_78chl")
+
+[node name="CrocodilePace" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_cnb8f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_ammjc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(-3.8147e-06, 50)
+scale = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_3wdqf")
+
+[node name="AreaDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetection"]
+scale = Vector2(100, 100)
+shape = SubResource("CircleShape2D_snygm")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="AreaDetection" to="." method="_on_area_detection_body_entered"]
+[connection signal="body_exited" from="AreaDetection" to="." method="_on_area_detection_body_exited"]

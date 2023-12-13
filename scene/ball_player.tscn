@@ -16,10 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://d006bjro2lpi6" path="res://art/level 1/character/CHARACTERS/Male person/PNG/Poses/character_malePerson_attack1.png" id="13_ybdgs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hg6hq"]
-size = Vector2(214.667, 99.3333)
+size = Vector2(78.6669, 99.3333)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7hvr3"]
-size = Vector2(210, 95.3333)
+size = Vector2(72, 95.3333)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k8ei2"]
 animations = [{
@@ -140,12 +140,12 @@ position = Vector2(248, 311)
 script = ExtResource("1_vxuv0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(106, 28.5)
+position = Vector2(3.99988, 28.5)
 scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_hg6hq")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(895.5, 27.4999)
+position = Vector2(999, 27.4999)
 scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_7hvr3")
 
@@ -182,6 +182,11 @@ wait_time = 3.5
 
 [node name="WaitShot" type="Timer" parent="."]
 wait_time = 7.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-5, 0, 65, -44, 489, -64, 945, -44, 995, -1)
 
 [connection signal="timeout" from="Maleshot" to="." method="_on_maleshot_timeout"]
 [connection signal="timeout" from="WaitShot" to="." method="_on_wait_shot_timeout"]

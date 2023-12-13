@@ -18,14 +18,13 @@ func _on_timer_timeout():
 	$CanvasLayer/Label5.show()
 	$Timer2.start()
 	
-	
+
 func _on_timer_2_timeout():
 	$Timer2.stop()
 	$CanvasLayer/Label3.hide()
 	$CanvasLayer/Label5.hide()
 	
 	
-
 
 func _on_timer_4_timeout():
 	$CanvasLayer/Label.show()

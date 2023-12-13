@@ -78,6 +78,7 @@ position = Vector2(849, 310)
 scale = Vector2(0.0800781, 0.08)
 texture_normal = ExtResource("13_dnlj1")
 texture_pressed = ExtResource("14_4g81l")
+action = "ATTACK"
 
 [node name="peace_btn" type="TouchScreenButton" parent="CanvasLayer"]
 visible = false
@@ -85,6 +86,7 @@ position = Vector2(851, 438)
 scale = Vector2(0.08, 0.08)
 texture_normal = ExtResource("15_fskni")
 texture_pressed = ExtResource("16_xromg")
+action = "POWER"
 
 [connection signal="pressed" from="CanvasLayer/up_btn" to="." method="_on_up_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/down_btn" to="." method="_on_down_btn_pressed"]

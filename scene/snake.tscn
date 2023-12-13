@@ -1,0 +1,147 @@
+[gd_scene load_steps=12 format=3 uid="uid://cnnbcqdgs068h"]
+
+[ext_resource type="Texture2D" uid="uid://brv27ejvmred" path="res://art/level 1/character/ANIMAL PACK/PNG/Square (outline)/snake.png" id="1_eqy3h"]
+[ext_resource type="Script" path="res://script/snake.gd" id="1_rlrvj"]
+[ext_resource type="Texture2D" uid="uid://ciy7cj6ooa73j" path="res://art/level 1/character/ANIMAL PACK/PNG/Round/snake.png" id="2_2lxor"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wd7fi"]
+
+[sub_resource type="Animation" id="Animation_3dq4p"]
+resource_name = "enemy"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Snake:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.8)]
+}
+
+[sub_resource type="Animation" id="Animation_jyepd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Snake:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Snake:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bq1lo"]
+resource_name = "half"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Snake:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.5, 0.3)]
+}
+
+[sub_resource type="Animation" id="Animation_qfbvb"]
+resource_name = "damage"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Snake:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Snake:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 1, 1), Color(1, 1, 1, 1), Color(1, 0, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nblnn"]
+_data = {
+"RESET": SubResource("Animation_jyepd"),
+"damage": SubResource("Animation_qfbvb"),
+"enemy": SubResource("Animation_3dq4p"),
+"half": SubResource("Animation_bq1lo")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gifg"]
+size = Vector2(10.5333, 15.2333)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hrv7n"]
+
+[node name="snake" type="CharacterBody2D"]
+script = ExtResource("1_rlrvj")
+
+[node name="Snake" type="Sprite2D" parent="."]
+texture = ExtResource("1_eqy3h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_wd7fi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nblnn")
+}
+
+[node name="SnakePace" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_2lxor")
+
+[node name="TimerMovement" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, 50)
+scale = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_8gifg")
+
+[node name="AreaDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetection"]
+scale = Vector2(100, 100)
+shape = SubResource("CircleShape2D_hrv7n")
+
+[connection signal="timeout" from="TimerMovement" to="." method="_on_timer_movement_timeout"]
+[connection signal="body_entered" from="AreaDetection" to="." method="_on_area_detection_body_entered"]
+[connection signal="body_exited" from="AreaDetection" to="." method="_on_area_detection_body_exited"]

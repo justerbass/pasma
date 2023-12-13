@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbx0qfngklng6"]
+
+[ext_resource type="Texture2D" uid="uid://d0ei0jggdwsod" path="res://art/level 1/character/ANIMAL PACK/PNG/Square (outline)/goat.png" id="1_a1as6"]
+[ext_resource type="Script" path="res://script/goat.gd" id="1_cgvu6"]
+[ext_resource type="Texture2D" uid="uid://qyf524y0cpth" path="res://art/level 1/character/ANIMAL PACK/PNG/Round/goat.png" id="2_jru0g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbhtf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lrbgo"]
+size = Vector2(10, 14.6)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s35k0"]
+
+[node name="goat" type="CharacterBody2D"]
+script = ExtResource("1_cgvu6")
+
+[node name="Goat" type="Sprite2D" parent="."]
+texture = ExtResource("1_a1as6")
+
+[node name="GoatPace" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_jru0g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_bbhtf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, 50)
+scale = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_lrbgo")
+
+[node name="AreaDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetection"]
+scale = Vector2(100, 100)
+shape = SubResource("CircleShape2D_s35k0")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="AreaDetection" to="." method="_on_area_detection_body_entered"]
+[connection signal="body_exited" from="AreaDetection" to="." method="_on_area_detection_body_exited"]

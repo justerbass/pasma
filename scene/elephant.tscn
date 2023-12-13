@@ -1,0 +1,146 @@
+[gd_scene load_steps=12 format=3 uid="uid://dovegctu1fej4"]
+
+[ext_resource type="Texture2D" uid="uid://bgit1u50tfeyf" path="res://art/level 1/character/ANIMAL PACK/PNG/Square (outline)/elephant.png" id="1_xldyg"]
+[ext_resource type="Script" path="res://script/elephant.gd" id="1_xo1hy"]
+[ext_resource type="Texture2D" uid="uid://lvefoh52lkrf" path="res://art/level 1/character/ANIMAL PACK/PNG/Round/elephant.png" id="3_8qt5w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwh8r"]
+
+[sub_resource type="Animation" id="Animation_ebh81"]
+resource_name = "enemy"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Elephant:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.8)]
+}
+
+[sub_resource type="Animation" id="Animation_3m7vt"]
+resource_name = "damage"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Elephant:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Elephant:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.631373, 0, 0.870588, 1), Color(1, 1, 1, 1), Color(0.631373, 0, 0.870588, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p6xla"]
+resource_name = "half"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Elephant:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.5, 0.3)]
+}
+
+[sub_resource type="Animation" id="Animation_je2y2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Elephant:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Elephant:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_euxsx"]
+_data = {
+"RESET": SubResource("Animation_je2y2"),
+"damage": SubResource("Animation_3m7vt"),
+"enemy": SubResource("Animation_ebh81"),
+"half": SubResource("Animation_p6xla")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_la56f"]
+size = Vector2(10.5, 14.25)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jrb04"]
+
+[node name="elephant" type="CharacterBody2D"]
+script = ExtResource("1_xo1hy")
+
+[node name="Elephant" type="Sprite2D" parent="."]
+texture = ExtResource("1_xldyg")
+
+[node name="ElephantPace" type="Sprite2D" parent="."]
+texture = ExtResource("3_8qt5w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_gwh8r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_euxsx")
+}
+
+[node name="TimerMovement" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, 50)
+scale = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_la56f")
+
+[node name="AreaDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetection"]
+scale = Vector2(100, 100)
+shape = SubResource("CircleShape2D_jrb04")
+
+[connection signal="timeout" from="TimerMovement" to="." method="_on_timer_movement_timeout"]
+[connection signal="body_entered" from="AreaDetection" to="." method="_on_area_detection_body_entered"]
+[connection signal="body_exited" from="AreaDetection" to="." method="_on_area_detection_body_exited"]

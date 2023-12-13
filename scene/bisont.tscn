@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://dendwhgs3peic"]
+
+[ext_resource type="Texture2D" uid="uid://pkmee08kflun" path="res://art/level 1/character/ANIMAL PACK/PNG/Square (outline)/buffalo.png" id="1_8clp7"]
+[ext_resource type="Script" path="res://script/bisont.gd" id="1_vgavi"]
+[ext_resource type="Texture2D" uid="uid://dnhtwxll5xf6s" path="res://art/level 1/character/ANIMAL PACK/PNG/Round/buffalo.png" id="2_eu3l3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5qma"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kslmg"]
+size = Vector2(9.9, 13)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w2ion"]
+
+[node name="bisont" type="CharacterBody2D"]
+script = ExtResource("1_vgavi")
+
+[node name="Buffalo" type="Sprite2D" parent="."]
+texture = ExtResource("1_8clp7")
+
+[node name="BuffaloPace" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_eu3l3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_j5qma")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, 50)
+scale = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_kslmg")
+
+[node name="AreaDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetection"]
+scale = Vector2(100, 100)
+shape = SubResource("CircleShape2D_w2ion")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="AreaDetection" to="." method="_on_area_detection_body_entered"]
+[connection signal="body_exited" from="AreaDetection" to="." method="_on_area_detection_body_exited"]

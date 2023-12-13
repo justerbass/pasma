@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://vstitko5efi4"]
+[gd_scene load_steps=32 format=3 uid="uid://vstitko5efi4"]
 
 [ext_resource type="Texture2D" uid="uid://c8saisffefl2l" path="res://art/level 1/world/RPG/Spritesheet/roguelikeSheet_transparent.png" id="1_2m64g"]
 [ext_resource type="PackedScene" uid="uid://4c4y0wctbyhw" path="res://scene/player_lv_1.tscn" id="2_gwy1d"]
@@ -17,6 +17,16 @@
 [ext_resource type="Script" path="res://script/AreaDesert.gd" id="14_w6aly"]
 [ext_resource type="AudioStream" uid="uid://c1ip8x2ns3j1b" path="res://audio/sound/desert ambient.mp3" id="15_evrn7"]
 [ext_resource type="AudioStream" uid="uid://b6ocwxdligs11" path="res://audio/sound/exterior ambient.mp3" id="16_xbpdv"]
+[ext_resource type="PackedScene" uid="uid://dovegctu1fej4" path="res://scene/elephant.tscn" id="21_litfj"]
+[ext_resource type="PackedScene" uid="uid://dkp3k0ook2a0i" path="res://scene/crocodile.tscn" id="22_ymbsp"]
+[ext_resource type="PackedScene" uid="uid://bbx0qfngklng6" path="res://scene/goat.tscn" id="23_7aa2u"]
+[ext_resource type="PackedScene" uid="uid://c3pd1hci3q055" path="res://scene/bear.tscn" id="24_c4ov8"]
+[ext_resource type="Texture2D" uid="uid://c8iu84ao85gta" path="res://art/level 1/character/ANIMAL PACK/PNG/Square (outline)/chick.png" id="25_i8jcb"]
+[ext_resource type="PackedScene" uid="uid://dendwhgs3peic" path="res://scene/bisont.tscn" id="25_ulpxh"]
+[ext_resource type="Texture2D" uid="uid://bud6esvacqwmd" path="res://art/level 1/character/ANIMAL PACK/PNG/Square (outline)/chicken.png" id="26_agl45"]
+[ext_resource type="PackedScene" uid="uid://bim7srmlkmfop" path="res://scene/rinho.tscn" id="26_inhj3"]
+[ext_resource type="PackedScene" uid="uid://cwgn46h1uc2y" path="res://scene/wolf.tscn" id="27_dbg5v"]
+[ext_resource type="PackedScene" uid="uid://cnnbcqdgs068h" path="res://scene/snake.tscn" id="28_ot7jn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sygqo"]
 size = Vector2(1920, 10)
@@ -5496,10 +5506,10 @@ sources/0 = SubResource("TileSetAtlasSource_6swco")
 [node name="Level 1" type="Node2D"]
 
 [node name="back green" type="ColorRect" parent="."]
-offset_left = -48.0
-offset_top = -58.0
-offset_right = 1952.0
-offset_bottom = 1102.0
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 1960.0
+offset_bottom = 1120.0
 color = Color(0.482353, 0.678431, 0.172549, 1)
 
 [node name="back sand 1" type="ColorRect" parent="."]
@@ -5537,6 +5547,12 @@ offset_bottom = 1120.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.901961, 0.854902, 0.74902, 1)
+
+[node name="AudioLevel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_xbpdv")
+volume_db = -10.0
+autoplay = true
+bus = &"Backgroud"
 
 [node name="LimUp" type="StaticBody2D" parent="."]
 position = Vector2(960, -5)
@@ -5597,6 +5613,7 @@ position = Vector2(25, 780)
 scale = Vector2(0.15, 0.15)
 
 [node name="AreaVillage" type="Area2D" parent="."]
+visible = false
 position = Vector2(0, 1080)
 script = ExtResource("9_hswt1")
 
@@ -5613,6 +5630,7 @@ max_polyphony = 4
 bus = &"Areas2D"
 
 [node name="AreaForest" type="Area2D" parent="."]
+visible = false
 position = Vector2(650, 540)
 script = ExtResource("11_0v3ti")
 
@@ -5642,6 +5660,7 @@ attenuation = 0.6
 bus = &"Areas2D"
 
 [node name="AreaDesert" type="Area2D" parent="."]
+visible = false
 position = Vector2(1920, 540)
 script = ExtResource("14_w6aly")
 
@@ -5655,13 +5674,99 @@ max_distance = 890.0
 attenuation = 0.6
 bus = &"Areas2D"
 
-[node name="AudioLevel" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("16_xbpdv")
-volume_db = -10.0
-autoplay = true
-bus = &"Backgroud"
-
 [node name="UIControl" parent="." instance=ExtResource("8_16enq")]
+
+[node name="Chick" type="Sprite2D" parent="."]
+position = Vector2(41, 43)
+texture = ExtResource("25_i8jcb")
+
+[node name="Chicken" type="Sprite2D" parent="."]
+position = Vector2(230, 41)
+texture = ExtResource("26_agl45")
+
+[node name="snake2" parent="." instance=ExtResource("28_ot7jn")]
+position = Vector2(793, 1015)
+scale = Vector2(0.1, 0.1)
+
+[node name="snake" parent="." instance=ExtResource("28_ot7jn")]
+position = Vector2(984, 852)
+scale = Vector2(0.1, 0.1)
+
+[node name="elephant" parent="." instance=ExtResource("21_litfj")]
+position = Vector2(1527, 201)
+scale = Vector2(0.2, 0.2)
+
+[node name="elephant2" parent="." instance=ExtResource("21_litfj")]
+position = Vector2(1389, 543)
+scale = Vector2(0.2, 0.2)
+
+[node name="elephant3" parent="." instance=ExtResource("21_litfj")]
+position = Vector2(1329, 892)
+scale = Vector2(0.2, 0.2)
+
+[node name="crocodile" parent="." instance=ExtResource("22_ymbsp")]
+position = Vector2(264, 304)
+scale = Vector2(0.1, 0.1)
+
+[node name="crocodile2" parent="." instance=ExtResource("22_ymbsp")]
+position = Vector2(522, 321)
+scale = Vector2(0.1, 0.1)
+
+[node name="crocodile3" parent="." instance=ExtResource("22_ymbsp")]
+position = Vector2(420, 29)
+scale = Vector2(0.1, 0.1)
+
+[node name="goat" parent="." instance=ExtResource("23_7aa2u")]
+position = Vector2(942, 401)
+scale = Vector2(0.1, 0.1)
+
+[node name="goat2" parent="." instance=ExtResource("23_7aa2u")]
+position = Vector2(957, 95)
+scale = Vector2(0.1, 0.1)
+
+[node name="bear" parent="." instance=ExtResource("24_c4ov8")]
+position = Vector2(466, 652)
+scale = Vector2(0.15, 0.15)
+
+[node name="bear2" parent="." instance=ExtResource("24_c4ov8")]
+position = Vector2(666, 468)
+scale = Vector2(0.15, 0.15)
+
+[node name="bear3" parent="." instance=ExtResource("24_c4ov8")]
+position = Vector2(719, 712)
+scale = Vector2(0.15, 0.15)
+
+[node name="bisont" parent="." instance=ExtResource("25_ulpxh")]
+position = Vector2(284, 483)
+scale = Vector2(0.15, 0.15)
+
+[node name="bisont2" parent="." instance=ExtResource("25_ulpxh")]
+position = Vector2(116, 654)
+scale = Vector2(0.15, 0.15)
+
+[node name="bisont3" parent="." instance=ExtResource("25_ulpxh")]
+position = Vector2(77, 360)
+scale = Vector2(0.15, 0.15)
+
+[node name="rinho" parent="." instance=ExtResource("26_inhj3")]
+position = Vector2(1691, 769)
+scale = Vector2(0.15, 0.15)
+
+[node name="rinho2" parent="." instance=ExtResource("26_inhj3")]
+position = Vector2(1721, 407)
+scale = Vector2(0.15, 0.15)
+
+[node name="wolf" parent="." instance=ExtResource("27_dbg5v")]
+position = Vector2(1036, 601)
+scale = Vector2(0.1, 0.1)
+
+[node name="wolf2" parent="." instance=ExtResource("27_dbg5v")]
+position = Vector2(1190, 231)
+scale = Vector2(0.1, 0.1)
+
+[node name="wolf3" parent="." instance=ExtResource("27_dbg5v")]
+position = Vector2(678, 87)
+scale = Vector2(0.1, 0.1)
 
 [connection signal="body_entered" from="AreaVillage" to="AreaVillage" method="_on_body_entered"]
 [connection signal="body_exited" from="AreaVillage" to="AreaVillage" method="_on_body_exited"]

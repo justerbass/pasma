@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwd2jlbb5l41l"]
+
+[ext_resource type="Script" path="res://script/chick.gd" id="1_03pju"]
+[ext_resource type="Texture2D" uid="uid://c8iu84ao85gta" path="res://art/level 1/character/ANIMAL PACK/PNG/Square (outline)/chick.png" id="1_gi4m6"]
+[ext_resource type="Texture2D" uid="uid://cuq8fe56is8jd" path="res://art/level 1/character/ANIMAL PACK/PNG/Round/chick.png" id="2_8w37q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yj305"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1320d"]
+size = Vector2(10, 13)
+
+[node name="chick" type="CharacterBody2D"]
+script = ExtResource("1_03pju")
+
+[node name="Chick" type="Sprite2D" parent="."]
+texture = ExtResource("1_gi4m6")
+
+[node name="ChickPace" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_8w37q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_yj305")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, 50)
+scale = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_1320d")

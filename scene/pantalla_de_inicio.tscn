@@ -80,7 +80,7 @@ text = "apreta \"shift\" para comenzar."
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 script = ExtResource("4_qr7hm")
-texto = "Para mover el personaje se pueden usar las flechas direccionales o \"wasd\".  Para interacturar \"shift\"."
+texto = "Este juego esta en desarrollo para Android, por lo que puede no ser comodos los controles . Para mover el personaje aún se pueden usar \"wasd\".  Para interacturar \"shift\"."
 
 [node name="Label2" type="Label" parent="CanvasLayer/Sprite2D"]
 offset_left = 100.0
