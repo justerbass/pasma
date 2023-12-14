@@ -1,10 +1,106 @@
-[gd_scene load_steps=7 format=3 uid="uid://dendwhgs3peic"]
+[gd_scene load_steps=12 format=3 uid="uid://dendwhgs3peic"]
 
 [ext_resource type="Texture2D" uid="uid://pkmee08kflun" path="res://art/level 1/character/ANIMAL PACK/PNG/Square (outline)/buffalo.png" id="1_8clp7"]
 [ext_resource type="Script" path="res://script/bisont.gd" id="1_vgavi"]
 [ext_resource type="Texture2D" uid="uid://dnhtwxll5xf6s" path="res://art/level 1/character/ANIMAL PACK/PNG/Round/buffalo.png" id="2_eu3l3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5qma"]
+
+[sub_resource type="Animation" id="Animation_mrbxi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Buffalo:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buffalo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_y0kxh"]
+resource_name = "damage"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Buffalo:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buffalo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tup86"]
+resource_name = "enemy"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Buffalo:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.8)]
+}
+
+[sub_resource type="Animation" id="Animation_qtx3g"]
+resource_name = "half"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Buffalo:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.5, 0.3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cjqe8"]
+_data = {
+"RESET": SubResource("Animation_mrbxi"),
+"damage": SubResource("Animation_y0kxh"),
+"enemy": SubResource("Animation_tup86"),
+"half": SubResource("Animation_qtx3g")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kslmg"]
 size = Vector2(9.9, 13)
@@ -26,6 +122,9 @@ scale = Vector2(7, 7)
 shape = SubResource("RectangleShape2D_j5qma")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cjqe8")
+}
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0

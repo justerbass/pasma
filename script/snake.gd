@@ -61,3 +61,9 @@ func dead():
 	else :
 		$AreaDetection/CollisionShape2D.disabled = false
 	
+
+
+func _on_hitbox_area_entered(area):
+	pass # Replace with function body.
+	
+

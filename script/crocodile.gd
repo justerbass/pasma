@@ -12,7 +12,7 @@ var player_in_area = false
 var prey
 
 func _ready():
-	pass
+	$AnimationPlayer.play("enemy")
 
 func _physics_process(delta):
 	dead()

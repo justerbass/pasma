@@ -6,6 +6,8 @@ var sabio_in_range = false
 var ballplayer_in_range = false
 var vague_in_range = false
 var guard_in_range = false
+var iner_peace_cooldown = true
+var iner_peace = preload("res://scene/iner_peace.tscn")
 
 func _physics_process(delta):
 	
@@ -38,21 +40,38 @@ func _physics_process(delta):
 	if velocity.x > 0:
 		$AnimatedSprite2D.animation = "right"
 		$Area2D/CollisionShape2D2.rotation_degrees = 270
+		$Marker2D.rotation_degrees = 270
 	elif velocity.x < 0:
 		$AnimatedSprite2D.animation = "left"
 		$Area2D/CollisionShape2D2.rotation_degrees = 90
+		$Marker2D.rotation_degrees = 90
 	if velocity.y > 0:
 		$AnimatedSprite2D.animation = "down"
 		$Area2D/CollisionShape2D2.rotation_degrees = 0
+		$Marker2D.rotation_degrees = 0
 	elif velocity.y < 0:
 		$AnimatedSprite2D.animation = "up"
 		$Area2D/CollisionShape2D2.rotation_degrees = 180
-		
-	
+		$Marker2D.rotation_degrees = 180
+	if absf(velocity.x) == absf(velocity.y):
+			velocity = Vector2.ZERO
 	move_and_slide()
 	
 	##activar dialogos con NPC
 	SpeachVillage()
+	
+	##sistema de disparo
+	
+	
+	if Input.is_action_just_pressed("POWER") and iner_peace_cooldown:
+		iner_peace_cooldown = false
+		var iner_peace_instance = iner_peace.instantiate()
+		iner_peace_instance = $Marker2D.rotation
+		add_child(iner_peace_instance)
+		
+	await get_tree().create_timer(0.5).timeout
+	iner_peace_cooldown = true
+		
 
 		
 

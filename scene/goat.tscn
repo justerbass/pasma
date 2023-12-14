@@ -1,10 +1,105 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbx0qfngklng6"]
+[gd_scene load_steps=12 format=3 uid="uid://bbx0qfngklng6"]
 
 [ext_resource type="Texture2D" uid="uid://d0ei0jggdwsod" path="res://art/level 1/character/ANIMAL PACK/PNG/Square (outline)/goat.png" id="1_a1as6"]
 [ext_resource type="Script" path="res://script/goat.gd" id="1_cgvu6"]
 [ext_resource type="Texture2D" uid="uid://qyf524y0cpth" path="res://art/level 1/character/ANIMAL PACK/PNG/Round/goat.png" id="2_jru0g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bbhtf"]
+
+[sub_resource type="Animation" id="Animation_hqwv2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Goat:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Goat:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ir1er"]
+resource_name = "damage"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Goat:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Goat:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.862745, 0.0901961, 0.67451, 1), Color(1, 1, 1, 1), Color(0.862745, 0.0901961, 0.67451, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6mpy8"]
+resource_name = "enemy"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Goat:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.8)]
+}
+
+[sub_resource type="Animation" id="Animation_dbeuw"]
+resource_name = "half"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Goat:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.5, 0.3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ldvx2"]
+_data = {
+"RESET": SubResource("Animation_hqwv2"),
+"damage": SubResource("Animation_ir1er"),
+"enemy": SubResource("Animation_6mpy8"),
+"half": SubResource("Animation_dbeuw")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrbgo"]
 size = Vector2(10, 14.6)
@@ -26,6 +121,9 @@ scale = Vector2(7, 7)
 shape = SubResource("RectangleShape2D_bbhtf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ldvx2")
+}
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 8.0

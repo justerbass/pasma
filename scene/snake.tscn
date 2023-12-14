@@ -6,22 +6,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wd7fi"]
 
-[sub_resource type="Animation" id="Animation_3dq4p"]
-resource_name = "enemy"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Snake:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 0.8)]
-}
-
 [sub_resource type="Animation" id="Animation_jyepd"]
 length = 0.001
 tracks/0/type = "value"
@@ -47,22 +31,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_bq1lo"]
-resource_name = "half"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Snake:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0.5, 0.5), Vector2(0.5, 0.3)]
 }
 
 [sub_resource type="Animation" id="Animation_qfbvb"]
@@ -91,6 +59,38 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 0, 1, 1), Color(1, 1, 1, 1), Color(1, 0, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3dq4p"]
+resource_name = "enemy"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Snake:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.8)]
+}
+
+[sub_resource type="Animation" id="Animation_bq1lo"]
+resource_name = "half"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Snake:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.5, 0.3)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nblnn"]
@@ -143,5 +143,6 @@ scale = Vector2(100, 100)
 shape = SubResource("CircleShape2D_hrv7n")
 
 [connection signal="timeout" from="TimerMovement" to="." method="_on_timer_movement_timeout"]
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="AreaDetection" to="." method="_on_area_detection_body_entered"]
 [connection signal="body_exited" from="AreaDetection" to="." method="_on_area_detection_body_exited"]

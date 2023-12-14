@@ -1,10 +1,106 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwgn46h1uc2y"]
+[gd_scene load_steps=12 format=3 uid="uid://cwgn46h1uc2y"]
 
 [ext_resource type="Script" path="res://script/wolf.gd" id="1_7s4xx"]
 [ext_resource type="Texture2D" uid="uid://dorgy1hhmlxbx" path="res://art/level 1/character/ANIMAL PACK/PNG/Square (outline)/dog.png" id="1_8x62o"]
 [ext_resource type="Texture2D" uid="uid://bpc7cukojgkh0" path="res://art/level 1/character/ANIMAL PACK/PNG/Round/dog.png" id="2_3n8hl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rpyq8"]
+
+[sub_resource type="Animation" id="Animation_ejhiy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dog:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dog:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hrk1n"]
+resource_name = "damage"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dog:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dog:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.533333, 0, 1), Color(1, 1, 1, 1), Color(1, 0.533333, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2tyfe"]
+resource_name = "enemy"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dog:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.8)]
+}
+
+[sub_resource type="Animation" id="Animation_pxc21"]
+resource_name = "half"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dog:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.5, 0.3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1ueav"]
+_data = {
+"RESET": SubResource("Animation_ejhiy"),
+"damage": SubResource("Animation_hrk1n"),
+"enemy": SubResource("Animation_2tyfe"),
+"half": SubResource("Animation_pxc21")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yit5u"]
 size = Vector2(8.2, 14.3)
@@ -27,6 +123,9 @@ scale = Vector2(7, 7)
 shape = SubResource("RectangleShape2D_rpyq8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1ueav")
+}
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0

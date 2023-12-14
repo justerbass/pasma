@@ -13,7 +13,7 @@ var prey
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 func _ready():
-	pass
+	$AnimationPlayer.play("enemy")
 
 
 func _physics_process(delta):
