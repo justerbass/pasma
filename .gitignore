@@ -2,6 +2,7 @@
 .godot/
 .art/
 .android/
+.demos/
 
 # Godot - specific ignores
 
