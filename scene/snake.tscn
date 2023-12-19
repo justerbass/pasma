@@ -125,7 +125,7 @@ texture = ExtResource("2_2lxor")
 wait_time = 3.0
 autostart = true
 
-[node name="hitbox" type="Area2D" parent="."]
+[node name="hitbox" type="Area2D" parent="." groups=["enemy"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(0, 50)
@@ -143,6 +143,21 @@ shape = SubResource("CircleShape2D_hrv7n")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BodySnake"]
 scale = Vector2(7, 7)
 shape = SubResource("RectangleShape2D_wd7fi")
+
+[node name="RayCastDown" type="RayCast2D" parent="."]
+target_position = Vector2(0, 70)
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+target_position = Vector2(70, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+light_mask = 9
+visibility_layer = 9
+target_position = Vector2(-70, 0)
+collision_mask = 9
+
+[node name="RayCastUp" type="RayCast2D" parent="."]
+target_position = Vector2(0, -70)
 
 [connection signal="timeout" from="TimerMovement" to="." method="_on_timer_movement_timeout"]
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

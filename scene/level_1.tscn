@@ -5613,7 +5613,6 @@ position = Vector2(25, 780)
 scale = Vector2(0.15, 0.15)
 
 [node name="AreaVillage" type="Area2D" parent="."]
-visible = false
 position = Vector2(0, 1080)
 script = ExtResource("9_hswt1")
 
@@ -5630,7 +5629,6 @@ max_polyphony = 4
 bus = &"Areas2D"
 
 [node name="AreaForest" type="Area2D" parent="."]
-visible = false
 position = Vector2(650, 540)
 script = ExtResource("11_0v3ti")
 
@@ -5660,7 +5658,6 @@ attenuation = 0.6
 bus = &"Areas2D"
 
 [node name="AreaDesert" type="Area2D" parent="."]
-visible = false
 position = Vector2(1920, 540)
 script = ExtResource("14_w6aly")
 
@@ -5767,6 +5764,30 @@ scale = Vector2(0.1, 0.1)
 [node name="wolf3" parent="." instance=ExtResource("27_dbg5v")]
 position = Vector2(678, 87)
 scale = Vector2(0.1, 0.1)
+
+[node name="MarkerSnake" type="Marker2D" parent="."]
+position = Vector2(940, 970)
+
+[node name="MarkerElephan" type="Marker2D" parent="."]
+position = Vector2(1500, 575)
+
+[node name="MarkerCrocodile" type="Marker2D" parent="."]
+position = Vector2(490, 390)
+
+[node name="MarkerGoat" type="Marker2D" parent="."]
+position = Vector2(1000, 255)
+
+[node name="MarkerBear" type="Marker2D" parent="."]
+position = Vector2(660, 630)
+
+[node name="MarkerBisont" type="Marker2D" parent="."]
+position = Vector2(150, 515)
+
+[node name="MarkerRinho" type="Marker2D" parent="."]
+position = Vector2(1750, 580)
+
+[node name="MarkerWolf" type="Marker2D" parent="."]
+position = Vector2(1150, 415)
 
 [connection signal="body_entered" from="AreaVillage" to="AreaVillage" method="_on_body_entered"]
 [connection signal="body_exited" from="AreaVillage" to="AreaVillage" method="_on_body_exited"]

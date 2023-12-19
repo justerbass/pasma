@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 20
+var SPEED = 20
 var run = 60
 var health = 100
 var damage
@@ -16,7 +16,9 @@ func _ready():
 
 
 func _physics_process(delta):
+	
 	dead()
+	shock()
 	
 	velocity = Vector2.ZERO
 	
@@ -67,6 +69,7 @@ func dead():
 		$hitbox/CollisionShape2D.disabled = true
 		$BuffaloPace.show()
 		$Buffalo.hide()
+		SPEED = 2
 	else :
 		$AreaDetection/CollisionShape2D.disabled = false
 
@@ -75,3 +78,24 @@ func _on_body_bisont_area_entered(area):
 	if area.is_in_group("peace"):
 		health -= 50
 		$AnimationPlayer.play("damage")
+		
+	if area.is_in_group("clap"):
+		position = $"../MarkerBisont".position
+		health = 100
+
+func shock():
+	if $RayCastUp.is_colliding():
+		pos = 2
+		
+	elif $RayCastDown.is_colliding():
+		pos = 3
+		
+	elif $RayCastRight.is_colliding():
+		pos = 1
+		
+	elif $RayCastLeft.is_colliding():
+		pos = 0
+
+
+func _on_hitbox_area_entered(area):
+	pass # Replace with function body.

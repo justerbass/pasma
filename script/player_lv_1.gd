@@ -8,9 +8,13 @@ var vague_in_range = false
 var guard_in_range = false
 var iner_peace_cooldown = true
 var iner_peace = preload("res://scene/peace.tscn")
+var clap = preload("res://scene/clap.tscn")
+var healt = 100
 
 
 func _physics_process(delta):
+	
+	life()
 	
 	## movimento del personaje
 	var directions = Input.get_axis("UP", "DOWN")
@@ -41,22 +45,22 @@ func _physics_process(delta):
 	if velocity.x > 0:
 		$AnimatedSprite2D.animation = "right"
 		$Area2D/CollisionShape2D2.rotation_degrees = 270
-		$Marker2D.rotation_degrees = 270
+		
 		
 	elif velocity.x < 0:
 		$AnimatedSprite2D.animation = "left"
 		$Area2D/CollisionShape2D2.rotation_degrees = 90
-		$Marker2D.rotation_degrees = 90
+		
 		
 	if velocity.y > 0:
 		$AnimatedSprite2D.animation = "down"
 		$Area2D/CollisionShape2D2.rotation_degrees = 0
-		$Marker2D.rotation_degrees = 0
+		
 		
 	elif velocity.y < 0:
 		$AnimatedSprite2D.animation = "up"
 		$Area2D/CollisionShape2D2.rotation_degrees = 180
-		$Marker2D.rotation_degrees = 180
+		
 		
 	if absf(velocity.x) == absf(velocity.y):
 			velocity = Vector2.ZERO
@@ -139,3 +143,39 @@ func _input(event):
 		
 		await get_tree().create_timer(0.6).timeout
 		iner_peace_cooldown = true
+		
+	if event.is_action_pressed("ATTACK"):
+		var new_clap = clap.instantiate()
+		add_child(new_clap)
+		await get_tree().create_timer(0.7).timeout
+		new_clap.queue_free()
+		
+
+##sistema de daño
+func _on_area_damage_area_entered(area):
+	if area.is_in_group("enemy"):
+		healt -= 51
+		$AudioStreamPlayer.play()
+
+func life():
+	
+	if  healt == 149:
+		$"../UIControl"/CanvasLayer/Animatedheart200.play("heart")
+		await get_tree().create_timer(0.5).timeout
+		healt = 150
+	
+	if healt == 99:
+		$"../UIControl"/CanvasLayer/Animatedheart150.play("heart")
+		await get_tree().create_timer(0.5).timeout
+		healt = 100
+	
+	if  healt == 49:
+		$"../UIControl"/CanvasLayer/Animatedheart100.play("heart")
+		await get_tree().create_timer(0.5).timeout
+		healt = 50
+	
+	if healt <= 0:
+		$"../UIControl"/CanvasLayer/Animatedheart50.play("heart")
+		await get_tree().create_timer(1).timeout
+		get_tree().change_scene_to_file("res://scene/game_over.tscn")
+	

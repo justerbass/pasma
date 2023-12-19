@@ -6,35 +6,31 @@ func _process(delta):
 		
 	if global.player_peace_learned:
 		$CanvasLayer/peace_btn.show()
+		
+	
 
 func _on_peace_btn_pressed():
 	pass
 
-
 func _on_aplause_btn_pressed():
 	pass
-
 
 func _on_speak_btn_pressed():
 	$CanvasLayer/speak_btn.hide()
 
-
 func _on_quit_btn_pressed():
 	get_tree().quit()
-
 
 func _on_right_btn_pressed():
 	pass
 
-
 func _on_left_btn_pressed():
 	pass
-
 
 func _on_down_btn_pressed():
 	pass
 
-
 func _on_up_btn_pressed():
 	pass
+
 

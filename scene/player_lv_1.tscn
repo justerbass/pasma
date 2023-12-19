@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://4c4y0wctbyhw"]
+[gd_scene load_steps=19 format=3 uid="uid://4c4y0wctbyhw"]
 
 [ext_resource type="Script" path="res://script/player_lv_1.gd" id="1_k2ufn"]
 [ext_resource type="Texture2D" uid="uid://bfk4cx3h0q6vm" path="res://art/level 1/character/URBAN PACK/Tiles/tile_0024.png" id="1_rqkgg"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bitknmutrodk8" path="res://art/level 1/character/URBAN PACK/Tiles/tile_0025.png" id="11_1lq2p"]
 [ext_resource type="Texture2D" uid="uid://cr3ghwavmn453" path="res://art/level 1/character/URBAN PACK/Tiles/tile_0052.png" id="12_dcqcu"]
 [ext_resource type="Texture2D" uid="uid://dejj5ooum02ut" path="res://art/level 1/character/URBAN PACK/Tiles/tile_0079.png" id="13_sj058"]
+[ext_resource type="AudioStream" uid="uid://tdy8nxbe165a" path="res://audio/sfx/damage_taken.mp3" id="14_4gbnv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3x8r7"]
 animations = [{
@@ -91,6 +92,10 @@ size = Vector2(12, 6)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ldstm"]
 b = Vector2(0, 12)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p6wqe"]
+radius = 7.0
+height = 20.0
+
 [node name="PayerLv1" type="CharacterBody2D"]
 collision_layer = 3
 script = ExtResource("1_k2ufn")
@@ -119,7 +124,18 @@ drag_vertical_enabled = true
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("SegmentShape2D_ldstm")
 
-[node name="Marker2D" type="Marker2D" parent="."]
+[node name="AreaDamage" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDamage"]
+visibility_layer = 9
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_p6wqe")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_4gbnv")
+volume_db = 18.0
+bus = &"SFX"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="area_entered" from="AreaDamage" to="." method="_on_area_damage_area_entered"]
