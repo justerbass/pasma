@@ -4,8 +4,6 @@
 [ext_resource type="Script" path="res://script/bisont.gd" id="1_vgavi"]
 [ext_resource type="Texture2D" uid="uid://dnhtwxll5xf6s" path="res://art/level 1/character/ANIMAL PACK/PNG/Round/buffalo.png" id="2_eu3l3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5qma"]
-
 [sub_resource type="Animation" id="Animation_mrbxi"]
 length = 0.001
 tracks/0/type = "value"
@@ -36,7 +34,6 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_y0kxh"]
 resource_name = "damage"
 length = 0.5
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -107,6 +104,8 @@ size = Vector2(9.9, 13)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w2ion"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5qma"]
+
 [node name="bisont" type="CharacterBody2D"]
 script = ExtResource("1_vgavi")
 
@@ -116,10 +115,6 @@ texture = ExtResource("1_8clp7")
 [node name="BuffaloPace" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("2_eu3l3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(7, 7)
-shape = SubResource("RectangleShape2D_j5qma")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -143,6 +138,13 @@ shape = SubResource("RectangleShape2D_kslmg")
 scale = Vector2(100, 100)
 shape = SubResource("CircleShape2D_w2ion")
 
+[node name="BodyBisont" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyBisont"]
+scale = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_j5qma")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="AreaDetection" to="." method="_on_area_detection_body_entered"]
 [connection signal="body_exited" from="AreaDetection" to="." method="_on_area_detection_body_exited"]
+[connection signal="area_entered" from="BodyBisont" to="." method="_on_body_bisont_area_entered"]

@@ -4,8 +4,6 @@
 [ext_resource type="Script" path="res://script/snake.gd" id="1_rlrvj"]
 [ext_resource type="Texture2D" uid="uid://ciy7cj6ooa73j" path="res://art/level 1/character/ANIMAL PACK/PNG/Round/snake.png" id="2_2lxor"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wd7fi"]
-
 [sub_resource type="Animation" id="Animation_jyepd"]
 length = 0.001
 tracks/0/type = "value"
@@ -106,15 +104,13 @@ size = Vector2(10.5333, 15.2333)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hrv7n"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wd7fi"]
+
 [node name="snake" type="CharacterBody2D"]
 script = ExtResource("1_rlrvj")
 
 [node name="Snake" type="Sprite2D" parent="."]
 texture = ExtResource("1_eqy3h")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(7, 7)
-shape = SubResource("RectangleShape2D_wd7fi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -142,7 +138,14 @@ shape = SubResource("RectangleShape2D_8gifg")
 scale = Vector2(100, 100)
 shape = SubResource("CircleShape2D_hrv7n")
 
+[node name="BodySnake" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodySnake"]
+scale = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_wd7fi")
+
 [connection signal="timeout" from="TimerMovement" to="." method="_on_timer_movement_timeout"]
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="AreaDetection" to="." method="_on_area_detection_body_entered"]
 [connection signal="body_exited" from="AreaDetection" to="." method="_on_area_detection_body_exited"]
+[connection signal="area_entered" from="BodySnake" to="." method="_on_body_snake_area_entered"]

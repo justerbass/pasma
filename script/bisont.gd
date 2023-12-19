@@ -54,9 +54,24 @@ func _on_area_detection_body_exited(body):
 		player_in_area = false
 		
 func dead():
+	if health > 0 and health < 100:
+		await get_tree().create_timer(0.5).timeout
+		$AnimationPlayer.play("half")
+	
+	if health == 0:
+		death = true
+		
+		
 	if death:
 		$AreaDetection/CollisionShape2D.disabled = true
+		$hitbox/CollisionShape2D.disabled = true
 		$BuffaloPace.show()
 		$Buffalo.hide()
 	else :
 		$AreaDetection/CollisionShape2D.disabled = false
+
+
+func _on_body_bisont_area_entered(area):
+	if area.is_in_group("peace"):
+		health -= 50
+		$AnimationPlayer.play("damage")

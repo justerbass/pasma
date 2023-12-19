@@ -1,26 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6ivv0duks2rh"]
+[gd_scene load_steps=8 format=3 uid="uid://b6ivv0duks2rh"]
 
 [ext_resource type="Script" path="res://script/InerPeace.gd" id="1_s38rh"]
 [ext_resource type="Texture2D" uid="uid://cpaud8k1ilodn" path="res://art/level 1/air-burst-air-2 (1).png" id="2_uehia"]
+[ext_resource type="AudioStream" uid="uid://bh2rtxbtpma5t" path="res://audio/sfx/fire_sound_effect.mp3" id="3_ajv1s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihu7c"]
-
-[sub_resource type="Animation" id="Animation_y24ti"]
-resource_name = "fire"
-length = 0.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 1.5708, 3.14159, 4.71239, 6.28319]
-}
 
 [sub_resource type="Animation" id="Animation_iyikp"]
 length = 0.001
@@ -37,13 +21,30 @@ tracks/0/keys = {
 "values": [0.0]
 }
 
+[sub_resource type="Animation" id="Animation_y24ti"]
+resource_name = "fire"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vuwe1"]
 _data = {
 "RESET": SubResource("Animation_iyikp"),
 "fire": SubResource("Animation_y24ti")
 }
 
-[node name="InerPeace" type="Area2D"]
+[node name="InerPeace" type="Node2D"]
 script = ExtResource("1_s38rh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -63,4 +64,9 @@ libraries = {
 }
 autoplay = "fire"
 
+[node name="AudioPace" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ajv1s")
+bus = &"SFX"
+
+[connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

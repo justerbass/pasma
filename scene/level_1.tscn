@@ -5684,12 +5684,12 @@ texture = ExtResource("25_i8jcb")
 position = Vector2(230, 41)
 texture = ExtResource("26_agl45")
 
-[node name="snake2" parent="." instance=ExtResource("28_ot7jn")]
-position = Vector2(793, 1015)
-scale = Vector2(0.1, 0.1)
-
 [node name="snake" parent="." instance=ExtResource("28_ot7jn")]
 position = Vector2(984, 852)
+scale = Vector2(0.1, 0.1)
+
+[node name="snake2" parent="." instance=ExtResource("28_ot7jn")]
+position = Vector2(793, 1015)
 scale = Vector2(0.1, 0.1)
 
 [node name="elephant" parent="." instance=ExtResource("21_litfj")]

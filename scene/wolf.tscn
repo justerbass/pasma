@@ -4,8 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dorgy1hhmlxbx" path="res://art/level 1/character/ANIMAL PACK/PNG/Square (outline)/dog.png" id="1_8x62o"]
 [ext_resource type="Texture2D" uid="uid://bpc7cukojgkh0" path="res://art/level 1/character/ANIMAL PACK/PNG/Round/dog.png" id="2_3n8hl"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpyq8"]
-
 [sub_resource type="Animation" id="Animation_ejhiy"]
 length = 0.001
 tracks/0/type = "value"
@@ -36,7 +34,6 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_hrk1n"]
 resource_name = "damage"
 length = 0.5
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -107,6 +104,8 @@ size = Vector2(8.2, 14.3)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e800s"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpyq8"]
+
 [node name="wolf" type="CharacterBody2D"]
 script = ExtResource("1_7s4xx")
 
@@ -116,11 +115,6 @@ texture = ExtResource("1_8x62o")
 [node name="DogPace" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("2_3n8hl")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 12)
-scale = Vector2(7, 7)
-shape = SubResource("RectangleShape2D_rpyq8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -144,6 +138,18 @@ shape = SubResource("RectangleShape2D_yit5u")
 scale = Vector2(100, 100)
 shape = SubResource("CircleShape2D_e800s")
 
+[node name="TimerDamage" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="BodyWolf" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyWolf"]
+position = Vector2(1, 12)
+scale = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_rpyq8")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="AreaDetection" to="." method="_on_area_detection_body_entered"]
 [connection signal="body_exited" from="AreaDetection" to="." method="_on_area_detection_body_exited"]
+[connection signal="timeout" from="TimerDamage" to="." method="_on_timer_damage_timeout"]
+[connection signal="area_entered" from="BodyWolf" to="." method="_on_body_wolf_area_entered"]

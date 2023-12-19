@@ -54,9 +54,24 @@ func _on_timer_movement_timeout():
 	pos = int(randf_range(0, 5))
 
 func dead():
+	if health > 0 and health < 100:
+		await get_tree().create_timer(0.5).timeout
+		$AnimationPlayer.play("half")
+	
+	if health == 0:
+		death = true
+	
 	if death:
 		$AreaDetection/CollisionShape2D.disabled = true
+		$hitbox/CollisionShape2D.disabled = true
 		$ElephantPace.show()
 		$Elephant.hide()
 	else:
 		$AreaDetection/CollisionShape2D.disabled = false
+
+
+func _on_body_elephant_area_entered(area):
+	if area.is_in_group("peace"):
+		health -= 50
+		$AnimationPlayer.play("damage")
+		

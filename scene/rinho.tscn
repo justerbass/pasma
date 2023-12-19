@@ -4,8 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://cs3upei5l6est" path="res://art/level 1/character/ANIMAL PACK/PNG/Square (outline)/rhino.png" id="1_l25n5"]
 [ext_resource type="Texture2D" uid="uid://df1uh7bo47l57" path="res://art/level 1/character/ANIMAL PACK/PNG/Round/rhino.png" id="3_hicqt"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8pehc"]
-
 [sub_resource type="Animation" id="Animation_btcfa"]
 length = 0.001
 tracks/0/type = "value"
@@ -106,6 +104,8 @@ size = Vector2(9.5, 13.5437)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vqwi6"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8pehc"]
+
 [node name="rinho" type="CharacterBody2D"]
 script = ExtResource("1_8gqin")
 
@@ -115,10 +115,6 @@ texture = ExtResource("1_l25n5")
 [node name="RhinoPace" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("3_hicqt")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(7, 7)
-shape = SubResource("RectangleShape2D_8pehc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -142,6 +138,13 @@ shape = SubResource("RectangleShape2D_7arbc")
 scale = Vector2(100, 100)
 shape = SubResource("CircleShape2D_vqwi6")
 
+[node name="BodyRinho" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyRinho"]
+scale = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_8pehc")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="AreaDetection" to="." method="_on_area_detection_body_entered"]
 [connection signal="body_exited" from="AreaDetection" to="." method="_on_area_detection_body_exited"]
+[connection signal="area_entered" from="BodyRinho" to="." method="_on_body_rinho_area_entered"]

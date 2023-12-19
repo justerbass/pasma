@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://bhik5e50q51bb"]
+
+[ext_resource type="Script" path="res://script/Peace.gd" id="1_ec7ex"]
+[ext_resource type="Texture2D" uid="uid://cpaud8k1ilodn" path="res://art/level 1/air-burst-air-2 (1).png" id="2_m4whc"]
+[ext_resource type="AudioStream" uid="uid://bh2rtxbtpma5t" path="res://audio/sfx/fire_sound_effect.mp3" id="3_gdpli"]
+
+[sub_resource type="Animation" id="Animation_nr8ff"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_xpmcg"]
+resource_name = "spin"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1vbxi"]
+_data = {
+"RESET": SubResource("Animation_nr8ff"),
+"spin": SubResource("Animation_xpmcg")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g3jvx"]
+
+[node name="Peace" type="Node2D"]
+script = ExtResource("1_ec7ex")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_m4whc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1vbxi")
+}
+autoplay = "spin"
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_gdpli")
+volume_db = -8.0
+bus = &"SFX"
+
+[node name="PeaceHitBox" type="Area2D" parent="." groups=["peace"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PeaceHitBox"]
+scale = Vector2(1.3, 1.3)
+shape = SubResource("CircleShape2D_g3jvx")
+
+[connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
+[connection signal="body_entered" from="PeaceHitBox" to="." method="_on_peace_hit_box_body_entered"]
