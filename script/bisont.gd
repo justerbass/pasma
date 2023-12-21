@@ -78,13 +78,16 @@ func _on_body_bisont_area_entered(area):
 	if area.is_in_group("peace"):
 		health -= 50
 		$AnimationPlayer.play("damage")
+		global.enemigos_faltantes = global.enemigos_faltantes + 0.5
 		
 	if area.is_in_group("clap"):
+		
 		position = $"../MarkerBisont".position
 		health = 100
 		_ready()
 		
 	if area.is_in_group("resticted"):
+		
 		position = ($"../MarkerBisont".position)
 		health = 100
 		_ready()

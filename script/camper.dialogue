@@ -6,7 +6,7 @@ if global.camper_tres:
 		camper: felicidades, ahora tu misión es devolver la paz a todos los animales.
 		camper: cuando lo logres podrás ir al desierto a recibir tu recompensa.
 		set global.player_peace_learned = true
-		set global.enemigos_faltanes = true
+		set global.enemigos_faltantes_score = true
 		=> END
 	- que paso, ya no siento la paz interior saliendo.
 		camper: solo respira profundo y exhala con fuerza.
@@ -23,7 +23,8 @@ else:
 				camper: tendrás que aprender a sacar tu paz interior, y compartirla con los animales.
 				- cómo lo hago?
 					camper: solo respira profundo y exhala con fuerza.
-					camper: pruéee	balo con los animales del campamento
+					camper: pruébalo con los animales del campamento.
+					camper: hasta que esten redonditos y abrazables.
 					set global.camper_tres = true
 					set global.player_peace_teach = true
 					=> END

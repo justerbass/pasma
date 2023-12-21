@@ -9,5 +9,6 @@ var camper_uno = true
 var camper_dos = false
 var camper_tres = false
 
-var enemigos_faltantes = false
+var enemigos_faltantes = 0
+var enemigos_faltantes_score = false
 var end_level = false

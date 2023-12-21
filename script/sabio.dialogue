@@ -12,8 +12,9 @@ if global.sabio_teaching_village == false:
 				Sabio : "Te resulto útil...",
 				- No entendi nada de nada.
 					set global.sabio_teaching_village = true
-					Sabio : Bueno es lo que te puedo enseñar, si necesitas más anda al campamento al norte del pueblo. 
+					Sabio : Bueno es lo que te puedo enseñar, si necesitas más anda al campamento al norte del pueblo cerca del lago.
 					Sabio : Para auyentar a los animales aplaudirles en la cara funcionara.
+					Sabio : Ten cuidado con el bosque, no te lleva a nada, perderte en ese lugar. 
 					set global.player_aplause_learned = true
 					Sabio : Buen Viaje, Joven Aventurero y no olvides.... 
 	- irse 

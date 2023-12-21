@@ -77,13 +77,16 @@ func _on_area_2d_area_entered(area):
 	if area.is_in_group("peace"):
 		health -= 50
 		$AnimationPlayer.play("damage")
+		global.enemigos_faltantes = global.enemigos_faltantes + 0.5
 		
 	if area.is_in_group("clap"):
+		
 		position = $"../MarkerCrocodile".position
 		health = 100
 		_ready()
 		
 	if area.is_in_group("resticted"):
+		
 		position = ($"../MarkerCrocodile".position)
 		health = 100
 		_ready()

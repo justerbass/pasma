@@ -4,6 +4,7 @@ extends Control
 
 func _process(delta):
 	
+	score()
 	
 	if global.player_aplause_learned:
 		$CanvasLayer/aplause_btn.show()
@@ -16,9 +17,12 @@ func _process(delta):
 		else:
 			$CanvasLayer/peace_btn.hide()
 			
-	if global.enemigos_faltantes:
+	if global.enemigos_faltantes_score:
 		$CanvasLayer/rest.show()
-
+		$CanvasLayer/Label.show()
+		$CanvasLayer/total.show()
+		
+		
 func _on_peace_btn_pressed():
 	pass
 
@@ -43,3 +47,9 @@ func _on_down_btn_pressed():
 func _on_up_btn_pressed():
 	pass
 
+func score():
+	
+	$CanvasLayer/rest.text = str(int(global.enemigos_faltantes))
+
+func _on_take_btn_pressed():
+	get_tree().change_scene_to_file("res://scene/end_level.tscn")

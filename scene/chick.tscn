@@ -4,9 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://c8iu84ao85gta" path="res://art/level 1/character/ANIMAL PACK/PNG/Square (outline)/chick.png" id="1_gi4m6"]
 [ext_resource type="Texture2D" uid="uid://cuq8fe56is8jd" path="res://art/level 1/character/ANIMAL PACK/PNG/Round/chick.png" id="2_8w37q"]
 
-[sub_resource type="Animation" id="Animation_rfiim"]
-resource_name = "enemy"
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_nt1i0"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -14,26 +13,22 @@ tracks/0/path = NodePath("Chick:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 0.8)]
+"values": [Vector2(1, 1)]
 }
-
-[sub_resource type="Animation" id="Animation_xwgpf"]
-resource_name = "half"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Chick:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Chick:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.5, 0.5), Vector2(0.5, 0.3)]
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_06cqs"]
@@ -64,8 +59,9 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1), Color(0.0117647, 0.239216, 0.427451, 1), Color(1, 1, 1, 1), Color(0.0117647, 0.239216, 0.427451, 1), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_nt1i0"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_rfiim"]
+resource_name = "enemy"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -73,22 +69,26 @@ tracks/0/path = NodePath("Chick:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(1, 1), Vector2(1, 0.8)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Chick:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+
+[sub_resource type="Animation" id="Animation_xwgpf"]
+resource_name = "half"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Chick:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(0.5, 0.5), Vector2(0.5, 0.3)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wd7lg"]

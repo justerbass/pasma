@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://d1u1o1eqddlb8"]
+[gd_scene load_steps=53 format=3 uid="uid://d1u1o1eqddlb8"]
 
 [ext_resource type="Texture2D" uid="uid://c7oo4pe355g8o" path="res://art/controls/Sprites/transparentDark/transparentDark24.png" id="1_8vi0f"]
 [ext_resource type="Script" path="res://script/ui_control.gd" id="1_vnkc4"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://dpxb3n665plwl" path="res://art/controls/peace black.png" id="15_fskni"]
 [ext_resource type="Texture2D" uid="uid://cc4cy44n6nif0" path="res://art/controls/peace white.png" id="16_xromg"]
 [ext_resource type="Texture2D" uid="uid://d3o2h7rmct0hd" path="res://art/controls/hp heart.png" id="17_weh0w"]
+[ext_resource type="Texture2D" uid="uid://c3j5xtq3rkyo5" path="res://art/controls/take_black_button.png" id="18_2pnr8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1qinq"]
 atlas = ExtResource("17_weh0w")
@@ -267,20 +268,47 @@ script = ExtResource("1_vnkc4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="rest" type="Label" parent="CanvasLayer"]
+[node name="Label" type="Label" parent="CanvasLayer"]
 visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -24.0
-offset_right = 24.0
+offset_left = -180.0
+offset_right = 56.0
 offset_bottom = 54.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.501961, 0.0313726, 0.313726, 1)
 theme_override_fonts/font = ExtResource("2_ssh8n")
 theme_override_font_sizes/font_size = 30
-text = "000	"
+text = "Animales calmados"
+
+[node name="rest" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 70.0
+offset_right = 118.0
+offset_bottom = 54.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.501961, 0.0313726, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_ssh8n")
+theme_override_font_sizes/font_size = 30
 vertical_alignment = 1
+
+[node name="total" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 130.0
+offset_right = 198.0
+offset_bottom = 54.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.501961, 0.0313726, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_ssh8n")
+theme_override_font_sizes/font_size = 30
+text = "de 23"
 
 [node name="up_btn" type="TouchScreenButton" parent="CanvasLayer"]
 modulate = Color(0.627451, 0.627451, 0.627451, 1)
@@ -342,6 +370,12 @@ texture_normal = ExtResource("15_fskni")
 texture_pressed = ExtResource("16_xromg")
 action = "POWER"
 
+[node name="take_btn" type="TouchScreenButton" parent="CanvasLayer"]
+visible = false
+position = Vector2(726, 377)
+scale = Vector2(0.08, 0.08)
+texture_normal = ExtResource("18_2pnr8")
+
 [node name="Animatedheart50" type="AnimatedSprite2D" parent="CanvasLayer"]
 position = Vector2(35, 35)
 sprite_frames = SubResource("SpriteFrames_sfidf")
@@ -370,3 +404,4 @@ animation = &"heart"
 [connection signal="pressed" from="CanvasLayer/speak_btn" to="." method="_on_speak_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/aplause_btn" to="." method="_on_aplause_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/peace_btn" to="." method="_on_peace_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/take_btn" to="." method="_on_take_btn_pressed"]

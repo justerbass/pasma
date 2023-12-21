@@ -1,0 +1,191 @@
+[gd_scene load_steps=9 format=3 uid="uid://7ux5dyo6nlhr"]
+
+[ext_resource type="Script" path="res://script/EndLevel.gd" id="1_82gt5"]
+[ext_resource type="Texture2D" uid="uid://ce05jjvl8f6cy" path="res://art/controls/rectangle_restart_button (1).png" id="2_jbth7"]
+[ext_resource type="Texture2D" uid="uid://c358jvw26a6bm" path="res://art/controls/rectangle_exit_game_button.png" id="3_828hj"]
+[ext_resource type="FontFile" uid="uid://clwisbpne2e21" path="res://Pacifico-Regular.ttf" id="4_l33eq"]
+[ext_resource type="Script" path="res://script/Congrats.gd" id="5_roflj"]
+
+[sub_resource type="Animation" id="Animation_hhpx2"]
+resource_name = "fin"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LevelComplete:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TouchScreenRestart:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TouchScreenExit:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.5, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_r6qkt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LevelComplete:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TouchScreenRestart:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TouchScreenExit:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4gfxf"]
+_data = {
+"RESET": SubResource("Animation_r6qkt"),
+"fin": SubResource("Animation_hhpx2")
+}
+
+[node name="EndLevel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_82gt5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="TouchScreenRestart" type="TouchScreenButton" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(350, 380)
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("2_jbth7")
+
+[node name="TouchScreenExit" type="TouchScreenButton" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(732, 340)
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("3_828hj")
+
+[node name="LevelComplete" type="Label" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 310.0
+offset_top = 50.0
+offset_right = 652.0
+offset_bottom = 110.0
+theme_override_fonts/font = ExtResource("4_l33eq")
+theme_override_font_sizes/font_size = 30
+text = "  LEVEL   COMPLETE"
+
+[node name="TimerLetter" type="Timer" parent="CanvasLayer"]
+wait_time = 1.5
+autostart = true
+
+[node name="TimerEndGame" type="Timer" parent="CanvasLayer"]
+wait_time = 0.05
+
+[node name="Congrats" type="Sprite2D" parent="CanvasLayer"]
+script = ExtResource("5_roflj")
+texto = "Felicidades"
+
+[node name="Yuhu" type="Label" parent="CanvasLayer/Congrats"]
+offset_left = 260.0
+offset_top = 150.0
+offset_right = 720.0
+offset_bottom = 340.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_l33eq")
+theme_override_font_sizes/font_size = 25
+text = "Felicidades, haz logrado devolver la armonia a esta región. aún queda mucho mundo por armonizar, pero eso será para el 2024."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_4gfxf")
+}
+autoplay = "fin"
+
+[connection signal="pressed" from="CanvasLayer/TouchScreenRestart" to="." method="_on_touch_screen_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/TouchScreenExit" to="." method="_on_touch_screen_exit_pressed"]
+[connection signal="timeout" from="CanvasLayer/TimerLetter" to="CanvasLayer/Congrats" method="_on_timer_letter_timeout"]
+[connection signal="timeout" from="CanvasLayer/TimerEndGame" to="CanvasLayer/Congrats" method="_on_timer_end_game_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://vstitko5efi4"]
+[gd_scene load_steps=34 format=3 uid="uid://vstitko5efi4"]
 
 [ext_resource type="Texture2D" uid="uid://c8saisffefl2l" path="res://art/level 1/world/RPG/Spritesheet/roguelikeSheet_transparent.png" id="1_2m64g"]
 [ext_resource type="PackedScene" uid="uid://4c4y0wctbyhw" path="res://scene/player_lv_1.tscn" id="2_gwy1d"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://cwgn46h1uc2y" path="res://scene/wolf.tscn" id="27_dbg5v"]
 [ext_resource type="PackedScene" uid="uid://dvck7uyw3g317" path="res://scene/camper.tscn" id="28_eumh5"]
 [ext_resource type="PackedScene" uid="uid://cnnbcqdgs068h" path="res://scene/snake.tscn" id="28_ot7jn"]
+[ext_resource type="PackedScene" uid="uid://dklnmvyp0k4yc" path="res://scene/prize.tscn" id="29_bnfjj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sygqo"]
 size = Vector2(1920, 10)
@@ -5617,7 +5618,6 @@ scale = Vector2(0.15, 0.15)
 position = Vector2(190, 98)
 
 [node name="AreaVillage" type="Area2D" parent="." groups=["resticted"]]
-visible = false
 position = Vector2(0, 1080)
 script = ExtResource("9_hswt1")
 
@@ -5793,6 +5793,10 @@ position = Vector2(1750, 580)
 
 [node name="MarkerWolf" type="Marker2D" parent="."]
 position = Vector2(1150, 415)
+
+[node name="prize" parent="." instance=ExtResource("29_bnfjj")]
+position = Vector2(1800, 1000)
+scale = Vector2(0.1, 0.1)
 
 [connection signal="body_entered" from="AreaVillage" to="AreaVillage" method="_on_body_entered"]
 [connection signal="body_exited" from="AreaVillage" to="AreaVillage" method="_on_body_exited"]

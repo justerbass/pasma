@@ -20,6 +20,7 @@ func dead():
 		await get_tree().create_timer(0.5).timeout
 		$AnimationPlayer.play("half")
 		
+		
 	if health == 0:
 		
 		death = true
@@ -37,6 +38,7 @@ func _on_body_chick_area_entered(area):
 	if area.is_in_group("peace"):
 		health -= 50
 		$AnimationPlayer.play("damage")
+		global.enemigos_faltantes = global.enemigos_faltantes + 0.5
 	
 	if area.is_in_group("clap"):
 

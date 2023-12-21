@@ -117,6 +117,8 @@ func _on_area_2d_body_entered(body):
 	if body is camper:
 		camper_in_range = true
 		$"../UIControl/CanvasLayer/speak_btn".show()
+	if body is prize:
+		$"../UIControl/CanvasLayer/take_btn".show()
 
 
 func _on_area_2d_body_exited(body):
@@ -136,6 +138,8 @@ func _on_area_2d_body_exited(body):
 	if body is camper:
 		camper_in_range = false
 		$"../UIControl/CanvasLayer/speak_btn".hide()
+	if body is prize:
+		$"../UIControl/CanvasLayer/take_btn".hide()
 
 ##Sistema de ataques
 func _input(event):
@@ -192,47 +196,45 @@ func life():
 		get_tree().change_scene_to_file("res://scene/game_over.tscn")
 		
 
-	if global.player_peace_learned:
-		pass
+
+	if healt < 50 and healt >= 0:
+		healt += 0.05
+		$"../UIControl"/CanvasLayer/Animatedheart50.play("recover")
+		$"../UIControl"/CanvasLayer/Animatedheart100.stop()
+		$"../UIControl"/CanvasLayer/Animatedheart150.stop()
+		$"../UIControl"/CanvasLayer/Animatedheart200.stop()
 	else:
-		if healt < 50 and healt >= 0:
+		if healt < 100 and healt >= 50:
 			healt += 0.05
-			$"../UIControl"/CanvasLayer/Animatedheart50.play("recover")
-			$"../UIControl"/CanvasLayer/Animatedheart100.stop()
+			$"../UIControl"/CanvasLayer/Animatedheart100.play("recover")
 			$"../UIControl"/CanvasLayer/Animatedheart150.stop()
 			$"../UIControl"/CanvasLayer/Animatedheart200.stop()
 		else:
-			if healt < 100 and healt >= 50:
+			if healt < 150 and healt >= 100:
 				healt += 0.05
-				$"../UIControl"/CanvasLayer/Animatedheart100.play("recover")
-				$"../UIControl"/CanvasLayer/Animatedheart150.stop()
+				$"../UIControl"/CanvasLayer/Animatedheart150.play("recover")
 				$"../UIControl"/CanvasLayer/Animatedheart200.stop()
 			else:
-				if healt < 150 and healt >= 100:
+				if healt < 200 and healt >= 150:
 					healt += 0.05
-					$"../UIControl"/CanvasLayer/Animatedheart150.play("recover")
-					$"../UIControl"/CanvasLayer/Animatedheart200.stop()
-				else:
-					if healt < 200 and healt >= 150:
-						healt += 0.05
-						$"../UIControl"/CanvasLayer/Animatedheart200.play("recover")
+					$"../UIControl"/CanvasLayer/Animatedheart200.play("recover")
 
-		if healt >= 200:
-			$"../UIControl"/CanvasLayer/Animatedheart200.stop()
-			$"../UIControl"/CanvasLayer/Animatedheart200.play("heart")
-			$"../UIControl"/CanvasLayer/Animatedheart200.stop()
+	if healt >= 200:
+		$"../UIControl"/CanvasLayer/Animatedheart200.stop()
+		$"../UIControl"/CanvasLayer/Animatedheart200.play("heart")
+		$"../UIControl"/CanvasLayer/Animatedheart200.stop()
+	else:
+		if healt >= 150:
+			$"../UIControl"/CanvasLayer/Animatedheart150.stop()
+			$"../UIControl"/CanvasLayer/Animatedheart150.play("heart")
+			$"../UIControl"/CanvasLayer/Animatedheart150.stop()
 		else:
-			if healt >= 150:
-				$"../UIControl"/CanvasLayer/Animatedheart150.stop()
-				$"../UIControl"/CanvasLayer/Animatedheart150.play("heart")
-				$"../UIControl"/CanvasLayer/Animatedheart150.stop()
+			if healt >= 100:
+				$"../UIControl"/CanvasLayer/Animatedheart100.stop()
+				$"../UIControl"/CanvasLayer/Animatedheart100.play("heart")
+				$"../UIControl"/CanvasLayer/Animatedheart100.stop()
 			else:
-				if healt >= 100:
-					$"../UIControl"/CanvasLayer/Animatedheart100.stop()
-					$"../UIControl"/CanvasLayer/Animatedheart100.play("heart")
-					$"../UIControl"/CanvasLayer/Animatedheart100.stop()
-				else:
-					if healt >= 50:
-						$"../UIControl"/CanvasLayer/Animatedheart50.stop()
-						$"../UIControl"/CanvasLayer/Animatedheart50.play("heart")
-						$"../UIControl"/CanvasLayer/Animatedheart50.stop()
+				if healt >= 50:
+					$"../UIControl"/CanvasLayer/Animatedheart50.stop()
+					$"../UIControl"/CanvasLayer/Animatedheart50.play("heart")
+					$"../UIControl"/CanvasLayer/Animatedheart50.stop()
