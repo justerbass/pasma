@@ -80,7 +80,12 @@ func _on_body_elephant_area_entered(area):
 	if area.is_in_group("clap"):
 		position = $"../MarkerElephan".position
 		health = 100
+		_ready()
 		
+	if area.is_in_group("resticted"):
+		position = ($"../MarkerElephan".position)
+		health = 100
+		_ready()
 
 func shock():
 	if $RayCastUp.is_colliding():
@@ -98,3 +103,4 @@ func shock():
 
 func _on_hitbox_area_entered(area):
 	pass # Replace with function body.
+

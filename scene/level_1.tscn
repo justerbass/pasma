@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://vstitko5efi4"]
+[gd_scene load_steps=33 format=3 uid="uid://vstitko5efi4"]
 
 [ext_resource type="Texture2D" uid="uid://c8saisffefl2l" path="res://art/level 1/world/RPG/Spritesheet/roguelikeSheet_transparent.png" id="1_2m64g"]
 [ext_resource type="PackedScene" uid="uid://4c4y0wctbyhw" path="res://scene/player_lv_1.tscn" id="2_gwy1d"]
@@ -21,11 +21,12 @@
 [ext_resource type="PackedScene" uid="uid://dkp3k0ook2a0i" path="res://scene/crocodile.tscn" id="22_ymbsp"]
 [ext_resource type="PackedScene" uid="uid://bbx0qfngklng6" path="res://scene/goat.tscn" id="23_7aa2u"]
 [ext_resource type="PackedScene" uid="uid://c3pd1hci3q055" path="res://scene/bear.tscn" id="24_c4ov8"]
-[ext_resource type="Texture2D" uid="uid://c8iu84ao85gta" path="res://art/level 1/character/ANIMAL PACK/PNG/Square (outline)/chick.png" id="25_i8jcb"]
 [ext_resource type="PackedScene" uid="uid://dendwhgs3peic" path="res://scene/bisont.tscn" id="25_ulpxh"]
-[ext_resource type="Texture2D" uid="uid://bud6esvacqwmd" path="res://art/level 1/character/ANIMAL PACK/PNG/Square (outline)/chicken.png" id="26_agl45"]
+[ext_resource type="PackedScene" uid="uid://cwd2jlbb5l41l" path="res://scene/chick.tscn" id="26_5kxlt"]
 [ext_resource type="PackedScene" uid="uid://bim7srmlkmfop" path="res://scene/rinho.tscn" id="26_inhj3"]
+[ext_resource type="PackedScene" uid="uid://dw3dx87rj5u1f" path="res://scene/chiken.tscn" id="27_43d42"]
 [ext_resource type="PackedScene" uid="uid://cwgn46h1uc2y" path="res://scene/wolf.tscn" id="27_dbg5v"]
+[ext_resource type="PackedScene" uid="uid://dvck7uyw3g317" path="res://scene/camper.tscn" id="28_eumh5"]
 [ext_resource type="PackedScene" uid="uid://cnnbcqdgs068h" path="res://scene/snake.tscn" id="28_ot7jn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sygqo"]
@@ -5593,7 +5594,7 @@ layer_2/tile_data = PackedInt32Array(4128794, 1900544, 19, 3604487, 3276800, 23,
 
 [node name="PayerLv1" parent="." instance=ExtResource("2_gwy1d")]
 z_index = 5
-position = Vector2(433, 1063)
+position = Vector2(432, 1063)
 
 [node name="BallPlayer" parent="." instance=ExtResource("6_3cqj4")]
 position = Vector2(53, 884)
@@ -5612,7 +5613,11 @@ position = Vector2(263, 887)
 position = Vector2(25, 780)
 scale = Vector2(0.15, 0.15)
 
-[node name="AreaVillage" type="Area2D" parent="."]
+[node name="camper" parent="." instance=ExtResource("28_eumh5")]
+position = Vector2(190, 98)
+
+[node name="AreaVillage" type="Area2D" parent="." groups=["resticted"]]
+visible = false
 position = Vector2(0, 1080)
 script = ExtResource("9_hswt1")
 
@@ -5643,7 +5648,7 @@ max_distance = 300.0
 attenuation = 0.6
 bus = &"Areas2D"
 
-[node name="AreaCamp" type="Area2D" parent="."]
+[node name="AreaCamp" type="Area2D" parent="." groups=["resticted"]]
 script = ExtResource("13_xqvc0")
 
 [node name="CollisionPolygonCamp" type="CollisionPolygon2D" parent="AreaCamp"]
@@ -5672,14 +5677,6 @@ attenuation = 0.6
 bus = &"Areas2D"
 
 [node name="UIControl" parent="." instance=ExtResource("8_16enq")]
-
-[node name="Chick" type="Sprite2D" parent="."]
-position = Vector2(41, 43)
-texture = ExtResource("25_i8jcb")
-
-[node name="Chicken" type="Sprite2D" parent="."]
-position = Vector2(230, 41)
-texture = ExtResource("26_agl45")
 
 [node name="snake" parent="." instance=ExtResource("28_ot7jn")]
 position = Vector2(984, 852)
@@ -5763,6 +5760,14 @@ scale = Vector2(0.1, 0.1)
 
 [node name="wolf3" parent="." instance=ExtResource("27_dbg5v")]
 position = Vector2(678, 87)
+scale = Vector2(0.1, 0.1)
+
+[node name="chick" parent="." instance=ExtResource("26_5kxlt")]
+position = Vector2(124, 51)
+scale = Vector2(0.1, 0.1)
+
+[node name="chicken" parent="." instance=ExtResource("27_43d42")]
+position = Vector2(184, 21)
 scale = Vector2(0.1, 0.1)
 
 [node name="MarkerSnake" type="Marker2D" parent="."]

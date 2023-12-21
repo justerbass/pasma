@@ -1,19 +1,44 @@
 extends CharacterBody2D
 
 
-const SPEED = 0
-var run = 60
+
 var health = 100
-var damage
+
 var death = false
-var pos
-var runing
-var player_in_area = false
-var prey
+
 
 func _ready():
-	pass
+	$AnimationPlayer.play("enemy")
 
 
 func _physics_process(delta):
-	pass
+	dead()
+
+func dead():
+	
+	if health > 0 and health < 100:
+		await get_tree().create_timer(0.5).timeout
+		$AnimationPlayer.play("half")
+		
+	if health == 0:
+		
+		death = true
+	
+	if death:
+		$hitbox/CollisionShape2D.disabled = true
+		$ChickenPace.show()
+		$Chicken.hide()
+		
+func _on_hitbox_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_body_chiken_area_entered(area):
+	if area.is_in_group("peace"):
+		health -= 50
+		$AnimationPlayer.play("damage")
+	
+	if area.is_in_group("clap"):
+		health = 100
+		_ready()
+

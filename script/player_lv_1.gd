@@ -6,16 +6,17 @@ var sabio_in_range = false
 var ballplayer_in_range = false
 var vague_in_range = false
 var guard_in_range = false
+var camper_in_range = false
 var iner_peace_cooldown = true
 var iner_peace = preload("res://scene/peace.tscn")
 var clap = preload("res://scene/clap.tscn")
-var healt = 100
+var healt = 200
 
 
 func _physics_process(delta):
 	
 	life()
-	
+		
 	## movimento del personaje
 	var directions = Input.get_axis("UP", "DOWN")
 	if directions:
@@ -70,7 +71,7 @@ func _physics_process(delta):
 	SpeachVillage()
 	
 
-##sistema de dialogo de la villa
+##sistema de dialogo
 
 func SpeachVillage():
 	
@@ -95,6 +96,10 @@ func SpeachVillage():
 			DialogueManager.show_example_dialogue_balloon(load("res://script/vague.dialogue"), "start_vague")
 			return
 		
+	if camper_in_range:
+		if Input.is_action_just_pressed("SPEAK"):
+			DialogueManager.show_example_dialogue_balloon(load("res://script/camper.dialogue"), "start_camper")
+			return
 
 func _on_area_2d_body_entered(body):
 	if body is sabio:
@@ -108,6 +113,9 @@ func _on_area_2d_body_entered(body):
 		$"../UIControl/CanvasLayer/speak_btn".show()
 	if body is ballplayer:
 		ballplayer_in_range = true
+		$"../UIControl/CanvasLayer/speak_btn".show()
+	if body is camper:
+		camper_in_range = true
 		$"../UIControl/CanvasLayer/speak_btn".show()
 
 
@@ -124,6 +132,9 @@ func _on_area_2d_body_exited(body):
 		$"../UIControl/CanvasLayer/speak_btn".hide()
 	if body is ballplayer:
 		ballplayer_in_range = false
+		$"../UIControl/CanvasLayer/speak_btn".hide()
+	if body is camper:
+		camper_in_range = false
 		$"../UIControl/CanvasLayer/speak_btn".hide()
 
 ##Sistema de ataques
@@ -159,6 +170,7 @@ func _on_area_damage_area_entered(area):
 
 func life():
 	
+	
 	if  healt == 149:
 		$"../UIControl"/CanvasLayer/Animatedheart200.play("heart")
 		await get_tree().create_timer(0.5).timeout
@@ -178,4 +190,49 @@ func life():
 		$"../UIControl"/CanvasLayer/Animatedheart50.play("heart")
 		await get_tree().create_timer(1).timeout
 		get_tree().change_scene_to_file("res://scene/game_over.tscn")
-	
+		
+
+	if global.player_peace_learned:
+		pass
+	else:
+		if healt < 50 and healt >= 0:
+			healt += 0.05
+			$"../UIControl"/CanvasLayer/Animatedheart50.play("recover")
+			$"../UIControl"/CanvasLayer/Animatedheart100.stop()
+			$"../UIControl"/CanvasLayer/Animatedheart150.stop()
+			$"../UIControl"/CanvasLayer/Animatedheart200.stop()
+		else:
+			if healt < 100 and healt >= 50:
+				healt += 0.05
+				$"../UIControl"/CanvasLayer/Animatedheart100.play("recover")
+				$"../UIControl"/CanvasLayer/Animatedheart150.stop()
+				$"../UIControl"/CanvasLayer/Animatedheart200.stop()
+			else:
+				if healt < 150 and healt >= 100:
+					healt += 0.05
+					$"../UIControl"/CanvasLayer/Animatedheart150.play("recover")
+					$"../UIControl"/CanvasLayer/Animatedheart200.stop()
+				else:
+					if healt < 200 and healt >= 150:
+						healt += 0.05
+						$"../UIControl"/CanvasLayer/Animatedheart200.play("recover")
+
+		if healt >= 200:
+			$"../UIControl"/CanvasLayer/Animatedheart200.stop()
+			$"../UIControl"/CanvasLayer/Animatedheart200.play("heart")
+			$"../UIControl"/CanvasLayer/Animatedheart200.stop()
+		else:
+			if healt >= 150:
+				$"../UIControl"/CanvasLayer/Animatedheart150.stop()
+				$"../UIControl"/CanvasLayer/Animatedheart150.play("heart")
+				$"../UIControl"/CanvasLayer/Animatedheart150.stop()
+			else:
+				if healt >= 100:
+					$"../UIControl"/CanvasLayer/Animatedheart100.stop()
+					$"../UIControl"/CanvasLayer/Animatedheart100.play("heart")
+					$"../UIControl"/CanvasLayer/Animatedheart100.stop()
+				else:
+					if healt >= 50:
+						$"../UIControl"/CanvasLayer/Animatedheart50.stop()
+						$"../UIControl"/CanvasLayer/Animatedheart50.play("heart")
+						$"../UIControl"/CanvasLayer/Animatedheart50.stop()

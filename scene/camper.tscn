@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvck7uyw3g317"]
+
+[ext_resource type="Texture2D" uid="uid://cin24smjlmiea" path="res://art/level 1/character/URBAN PACK/Tiles/tile_0105.png" id="1_ikmaf"]
+[ext_resource type="Script" path="res://script/camper.gd" id="1_kxp4t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2pl51"]
+radius = 6.0
+height = 16.0
+
+[sub_resource type="Animation" id="Animation_0horr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hqtml"]
+resource_name = "idel"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_taecd"]
+_data = {
+"RESET": SubResource("Animation_0horr"),
+"idel": SubResource("Animation_hqtml")
+}
+
+[node name="camper" type="CharacterBody2D"]
+script = ExtResource("1_kxp4t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ikmaf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_2pl51")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_taecd")
+}

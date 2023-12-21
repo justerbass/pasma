@@ -1,13 +1,108 @@
-[gd_scene load_steps=6 format=3 uid="uid://dw3dx87rj5u1f"]
+[gd_scene load_steps=11 format=3 uid="uid://dw3dx87rj5u1f"]
 
 [ext_resource type="Texture2D" uid="uid://bud6esvacqwmd" path="res://art/level 1/character/ANIMAL PACK/PNG/Square (outline)/chicken.png" id="1_m1lcy"]
 [ext_resource type="Script" path="res://script/chiken.gd" id="1_m21sq"]
 [ext_resource type="Texture2D" uid="uid://y10b6cbm5fjb" path="res://art/level 1/character/ANIMAL PACK/PNG/Round/chicken.png" id="2_71uie"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bcy4d"]
+[sub_resource type="Animation" id="Animation_pity2"]
+resource_name = "enemy"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Chicken:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.8)]
+}
+
+[sub_resource type="Animation" id="Animation_abry6"]
+resource_name = "half"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Chicken:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.5, 0.3)]
+}
+
+[sub_resource type="Animation" id="Animation_hlevt"]
+resource_name = "damage"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Chicken:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../Chicken:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.788235, 0.109804, 0.360784, 1), Color(1, 1, 1, 1), Color(0.788235, 0.109804, 0.360784, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_80aut"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Chicken:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../Chicken:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vndjm"]
+_data = {
+"RESET": SubResource("Animation_80aut"),
+"damage": SubResource("Animation_hlevt"),
+"enemy": SubResource("Animation_pity2"),
+"half": SubResource("Animation_abry6")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7542c"]
 size = Vector2(10, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bcy4d"]
 
 [node name="chicken" type="CharacterBody2D"]
 script = ExtResource("1_m21sq")
@@ -19,16 +114,24 @@ texture = ExtResource("1_m1lcy")
 visible = false
 texture = ExtResource("2_71uie")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(7, 7)
-shape = SubResource("RectangleShape2D_bcy4d")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../CollisionShape2D")
+root_node = NodePath("../BodyChiken/CollisionShape2D")
+libraries = {
+"": SubResource("AnimationLibrary_vndjm")
+}
 
-[node name="hitbox" type="Area2D" parent="."]
+[node name="hitbox" type="Area2D" parent="." groups=["enemy"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(0, 50)
 scale = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_7542c")
+
+[node name="BodyChiken" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyChiken"]
+scale = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_bcy4d")
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_entered" from="BodyChiken" to="." method="_on_body_chiken_area_entered"]

@@ -1,13 +1,23 @@
 extends Control
 
+	
+
 func _process(delta):
+	
+	
 	if global.player_aplause_learned:
 		$CanvasLayer/aplause_btn.show()
 		
 	if global.player_peace_learned:
 		$CanvasLayer/peace_btn.show()
-		
-	
+	else:
+		if global.player_peace_teach:
+			$CanvasLayer/peace_btn.show()
+		else:
+			$CanvasLayer/peace_btn.hide()
+			
+	if global.enemigos_faltantes:
+		$CanvasLayer/rest.show()
 
 func _on_peace_btn_pressed():
 	pass
@@ -32,5 +42,4 @@ func _on_down_btn_pressed():
 
 func _on_up_btn_pressed():
 	pass
-
 

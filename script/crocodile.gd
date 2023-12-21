@@ -81,7 +81,12 @@ func _on_area_2d_area_entered(area):
 	if area.is_in_group("clap"):
 		position = $"../MarkerCrocodile".position
 		health = 100
+		_ready()
 		
+	if area.is_in_group("resticted"):
+		position = ($"../MarkerCrocodile".position)
+		health = 100
+		_ready()
 
 func shock():
 	if $RayCastUp.is_colliding():
@@ -99,3 +104,4 @@ func shock():
 
 func _on_hitbox_area_entered(area):
 	pass # Replace with function body.
+

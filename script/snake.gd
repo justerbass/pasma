@@ -18,7 +18,7 @@ func _physics_process(delta):
 	
 	dead()
 	shock()
-	print(position)
+	
 	velocity = Vector2.ZERO
 	
 	if player_in_area:
@@ -87,6 +87,12 @@ func _on_body_snake_area_entered(area):
 	if area.is_in_group("clap"):
 		position = ($"../MarkerSnake".position)
 		health = 100
+		_ready()
+		
+	if area.is_in_group("resticted"):
+		position = ($"../MarkerSnake".position)
+		health = 100
+		_ready()
 
 ## función detección de colisión.
 func shock():
@@ -101,3 +107,4 @@ func shock():
 		
 	elif $RayCastLeft.is_colliding():
 		pos = 0
+
