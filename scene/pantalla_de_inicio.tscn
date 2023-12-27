@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cbytrw00q60ge"]
 
 [ext_resource type="Script" path="res://script/pantalla_de_inicio.gd" id="1_0bnp8"]
-[ext_resource type="Texture2D" uid="uid://fra8yj52vb5b" path="res://art/title_with_text_pasma_in_the_wonderland_tim_bu.png" id="1_oaatn"]
 [ext_resource type="FontFile" uid="uid://clwisbpne2e21" path="res://Pacifico-Regular.ttf" id="2_jgoe4"]
+[ext_resource type="Texture2D" uid="uid://bjqxtuyd5ww1s" path="res://art/nice_logo_with_text_Pasma_in_The_Wonderland (1).png" id="2_vyyb3"]
 [ext_resource type="Script" path="res://script/Sprite2D.gd" id="4_qr7hm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efpi6"]
@@ -28,7 +28,7 @@ color = Color(0, 0, 0, 1)
 [node name="TitleWithTextPasmaInTheWonderlandTimBu" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(480, 200)
 scale = Vector2(0.35, 0.35)
-texture = ExtResource("1_oaatn")
+texture = ExtResource("2_vyyb3")
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 visible = false
@@ -64,7 +64,7 @@ offset_bottom = 177.0
 rotation = -0.401426
 theme_override_fonts/font = ExtResource("2_jgoe4")
 theme_override_font_sizes/font_size = 20
-text = "apreta \"shift\" para comenzar."
+text = "\"spacebar\" para comenzar."
 
 [node name="Label5" type="Label" parent="CanvasLayer"]
 visible = false
@@ -76,11 +76,11 @@ offset_bottom = 75.0
 rotation = 0.401426
 theme_override_fonts/font = ExtResource("2_jgoe4")
 theme_override_font_sizes/font_size = 20
-text = "apreta \"shift\" para comenzar."
+text = "\"spacebar\" para comenzar."
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 script = ExtResource("4_qr7hm")
-texto = "Este juego esta en desarrollo para Android, por lo que puede no ser comodos los controles . Para mover el personaje aún se pueden usar \"wasd\".  Para interacturar \"shift\"."
+texto = "Este juego está en desarrollo para Android, por lo que puede no ser comodos los controles . Para mover el personaje aún se pueden usar \"wasd\". "
 
 [node name="Label2" type="Label" parent="CanvasLayer/Sprite2D"]
 offset_left = 100.0

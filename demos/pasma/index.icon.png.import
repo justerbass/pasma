@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fra8yj52vb5b"
-path="res://.godot/imported/title_with_text_pasma_in_the_wonderland_tim_bu.png-a018d5e63b95a5ff016de69e6c11119b.ctex"
+uid="uid://co67coh0jyf5y"
+path="res://.godot/imported/index.icon.png-4ab7865d4316cd23a449b3a0956527d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/title_with_text_pasma_in_the_wonderland_tim_bu.png"
-dest_files=["res://.godot/imported/title_with_text_pasma_in_the_wonderland_tim_bu.png-a018d5e63b95a5ff016de69e6c11119b.ctex"]
+source_file="res://demos/pasma/index.icon.png"
+dest_files=["res://.godot/imported/index.icon.png-4ab7865d4316cd23a449b3a0956527d1.ctex"]
 
 [params]
 

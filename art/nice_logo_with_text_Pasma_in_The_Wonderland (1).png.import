@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dekqulwc7pwwt"
-path="res://.godot/imported/index.apple-touch-icon.png-9f0dff1476daea02c9da092f06308180.ctex"
+uid="uid://bjqxtuyd5ww1s"
+path="res://.godot/imported/nice_logo_with_text_Pasma_in_The_Wonderland (1).png-c93c546302eaa0cc70ded3f8c733118d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://demos/index.apple-touch-icon.png"
-dest_files=["res://.godot/imported/index.apple-touch-icon.png-9f0dff1476daea02c9da092f06308180.ctex"]
+source_file="res://art/nice_logo_with_text_Pasma_in_The_Wonderland (1).png"
+dest_files=["res://.godot/imported/nice_logo_with_text_Pasma_in_The_Wonderland (1).png-c93c546302eaa0cc70ded3f8c733118d.ctex"]
 
 [params]
 

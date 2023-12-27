@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqa37pcrhfnlu"
-path="res://.godot/imported/index.png-325e45ebd52f404cd75220d9272f9a4f.ctex"
+uid="uid://dbjy1bar05hba"
+path="res://.godot/imported/nice_logo_with_text_Pasma_in_The_Wonderland.png-60827803346b44c9f6e0cb11778c6bd8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://demos/index.png"
-dest_files=["res://.godot/imported/index.png-325e45ebd52f404cd75220d9272f9a4f.ctex"]
+source_file="res://android/nice_logo_with_text_Pasma_in_The_Wonderland.png"
+dest_files=["res://.godot/imported/nice_logo_with_text_Pasma_in_The_Wonderland.png-60827803346b44c9f6e0cb11778c6bd8.ctex"]
 
 [params]
 

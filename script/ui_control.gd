@@ -20,8 +20,11 @@ func _process(delta):
 	if global.enemigos_faltantes_score:
 		$CanvasLayer/rest.show()
 		$CanvasLayer/Label.show()
-		$CanvasLayer/total.show()
 		
+	if global.enemigos_faltantes > 15:
+		$CanvasLayer/Label.hide()
+		$CanvasLayer/rest.hide()
+		$CanvasLayer/ready.show()
 		
 func _on_peace_btn_pressed():
 	pass
@@ -49,7 +52,10 @@ func _on_up_btn_pressed():
 
 func score():
 	
-	$CanvasLayer/rest.text = str(int(global.enemigos_faltantes))
+	if global.enemigos_faltantes > 2:
+		$CanvasLayer/rest.text = str(int(global.enemigos_faltantes))
+	else :
+		$CanvasLayer/rest.text = str(2)
 
 func _on_take_btn_pressed():
 	get_tree().change_scene_to_file("res://scene/end_level.tscn")

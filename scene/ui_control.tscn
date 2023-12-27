@@ -296,19 +296,19 @@ theme_override_fonts/font = ExtResource("2_ssh8n")
 theme_override_font_sizes/font_size = 30
 vertical_alignment = 1
 
-[node name="total" type="Label" parent="CanvasLayer"]
+[node name="ready" type="Label" parent="CanvasLayer"]
 visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 130.0
-offset_right = 198.0
+offset_left = -96.0
+offset_right = 96.0
 offset_bottom = 54.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.501961, 0.0313726, 0.313726, 1)
 theme_override_fonts/font = ExtResource("2_ssh8n")
 theme_override_font_sizes/font_size = 30
-text = "de 23"
+text = "Región Calmada."
 
 [node name="up_btn" type="TouchScreenButton" parent="CanvasLayer"]
 modulate = Color(0.627451, 0.627451, 0.627451, 1)

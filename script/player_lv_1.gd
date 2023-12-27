@@ -118,7 +118,10 @@ func _on_area_2d_body_entered(body):
 		camper_in_range = true
 		$"../UIControl/CanvasLayer/speak_btn".show()
 	if body is prize:
-		$"../UIControl/CanvasLayer/take_btn".show()
+		if global.enemigos_faltantes > 12:
+			$"../UIControl/CanvasLayer/take_btn".show()
+		else:
+			$"../UIControl/CanvasLayer/take_btn".hide()
 
 
 func _on_area_2d_body_exited(body):
