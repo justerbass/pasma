@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtgx52u2d1efw"]
+
+[ext_resource type="Script" path="res://scene/greenDialogue.gd" id="1_nivqp"]
+
+[node name="greenDialogue" type="Node2D"]
+script = ExtResource("1_nivqp")

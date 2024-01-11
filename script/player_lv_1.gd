@@ -101,6 +101,7 @@ func SpeachVillage():
 			DialogueManager.show_example_dialogue_balloon(load("res://script/camper.dialogue"), "start_camper")
 			return
 
+## Mostrar y esconder botones de dialogo
 func _on_area_2d_body_entered(body):
 	if body is sabio:
 		sabio_in_range = true
@@ -144,7 +145,7 @@ func _on_area_2d_body_exited(body):
 	if body is prize:
 		$"../UIControl/CanvasLayer/take_btn".hide()
 
-##Sistema de ataques
+## Sistema de ataques
 func _input(event):
 	if event.is_action_pressed("POWER") and iner_peace_cooldown:
 		var new_iner_peace = iner_peace.instantiate()
@@ -169,7 +170,7 @@ func _input(event):
 		new_clap.queue_free()
 		
 
-##sistema de daño
+## sistema de daño
 func _on_area_damage_area_entered(area):
 	if area.is_in_group("enemy"):
 		healt -= 51

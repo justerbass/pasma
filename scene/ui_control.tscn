@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://d1u1o1eqddlb8"]
+[gd_scene load_steps=54 format=3 uid="uid://d1u1o1eqddlb8"]
 
 [ext_resource type="Texture2D" uid="uid://c7oo4pe355g8o" path="res://art/controls/Sprites/transparentDark/transparentDark24.png" id="1_8vi0f"]
 [ext_resource type="Script" path="res://script/ui_control.gd" id="1_vnkc4"]
@@ -11,14 +11,15 @@
 [ext_resource type="Texture2D" uid="uid://beutumc6clxjc" path="res://art/controls/Sprites/transparentDark/transparentDark23.png" id="7_w6x3t"]
 [ext_resource type="Texture2D" uid="uid://bn8ls5qr624my" path="res://art/controls/Sprites/transparentLight/transparentLight23.png" id="8_u4cog"]
 [ext_resource type="Texture2D" uid="uid://dw7r0pyusvsor" path="res://art/controls/Sprites/transparentDark/transparentDark33.png" id="9_76vig"]
-[ext_resource type="Texture2D" uid="uid://csqqn84ntaryk" path="res://art/controls/speak_black (1).png" id="10_rxc6l"]
-[ext_resource type="Texture2D" uid="uid://bduesojswj4qk" path="res://art/controls/speak_white (1).png" id="11_fnlr1"]
-[ext_resource type="Texture2D" uid="uid://cwfns3beogwnr" path="res://art/controls/clap black.png" id="13_dnlj1"]
-[ext_resource type="Texture2D" uid="uid://cd6fft8k6hcdh" path="res://art/controls/clap white.png" id="14_4g81l"]
-[ext_resource type="Texture2D" uid="uid://dpxb3n665plwl" path="res://art/controls/peace black.png" id="15_fskni"]
-[ext_resource type="Texture2D" uid="uid://cc4cy44n6nif0" path="res://art/controls/peace white.png" id="16_xromg"]
+[ext_resource type="Texture2D" uid="uid://4n8fqtggnm88" path="res://art/controls/Sprites/transparentDark/transparentDark48.png" id="12_cafcc"]
+[ext_resource type="Texture2D" uid="uid://b1o8arasmlb3f" path="res://art/controls/Sprites/transparentLight/transparentLight48.png" id="13_b4j6r"]
+[ext_resource type="Texture2D" uid="uid://c4lob6e7a36l5" path="res://art/controls/Sprites/transparentDark/transparentDark46.png" id="14_emui5"]
+[ext_resource type="Texture2D" uid="uid://nhf834ywonmh" path="res://art/controls/Sprites/transparentLight/transparentLight46.png" id="15_ataev"]
+[ext_resource type="Texture2D" uid="uid://s34av48kibt7" path="res://art/controls/Sprites/transparentDark/transparentDark47.png" id="16_7kqwl"]
+[ext_resource type="Texture2D" uid="uid://cx2kqsnp84h4t" path="res://art/controls/Sprites/transparentLight/transparentLight47.png" id="17_6r06q"]
 [ext_resource type="Texture2D" uid="uid://d3o2h7rmct0hd" path="res://art/controls/hp heart.png" id="17_weh0w"]
-[ext_resource type="Texture2D" uid="uid://c3j5xtq3rkyo5" path="res://art/controls/take_black_button.png" id="18_2pnr8"]
+[ext_resource type="Texture2D" uid="uid://cxvyvlnnyxk8f" path="res://art/controls/Sprites/transparentDark/transparentDark43.png" id="18_vtv21"]
+[ext_resource type="Texture2D" uid="uid://cckl7f3te0hm6" path="res://art/controls/Sprites/transparentLight/transparentLight43.png" id="19_wdktk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1qinq"]
 atlas = ExtResource("17_weh0w")
@@ -310,6 +311,57 @@ theme_override_fonts/font = ExtResource("2_ssh8n")
 theme_override_font_sizes/font_size = 30
 text = "Región Calmada."
 
+[node name="Mision 1" type="Label" parent="CanvasLayer"]
+offset_top = 85.0
+offset_right = 220.0
+offset_bottom = 210.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.745098)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ssh8n")
+theme_override_font_sizes/font_size = 30
+text = "Habla con la gente del pueblo"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Mision 2" type="Label" parent="CanvasLayer"]
+visible = false
+offset_top = 85.0
+offset_right = 220.0
+offset_bottom = 253.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.745098)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ssh8n")
+theme_override_font_sizes/font_size = 30
+text = "Busca el campamento del norte"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Mision 3" type="Label" parent="CanvasLayer"]
+visible = false
+offset_top = 85.0
+offset_right = 220.0
+offset_bottom = 210.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.745098)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ssh8n")
+theme_override_font_sizes/font_size = 30
+text = "Calma a los animales"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Mision 4" type="Label" parent="CanvasLayer"]
+visible = false
+offset_top = 85.0
+offset_right = 220.0
+offset_bottom = 210.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.745098)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ssh8n")
+theme_override_font_sizes/font_size = 30
+text = "Busca el premio en el desierto"
+horizontal_alignment = 1
+autowrap_mode = 3
+
 [node name="up_btn" type="TouchScreenButton" parent="CanvasLayer"]
 modulate = Color(0.627451, 0.627451, 0.627451, 1)
 position = Vector2(100, 300)
@@ -349,32 +401,33 @@ texture_normal = ExtResource("9_76vig")
 [node name="speak_btn" type="TouchScreenButton" parent="CanvasLayer"]
 visible = false
 position = Vector2(726, 377)
-scale = Vector2(0.08, 0.08)
-texture_normal = ExtResource("10_rxc6l")
-texture_pressed = ExtResource("11_fnlr1")
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("18_vtv21")
+texture_pressed = ExtResource("19_wdktk")
 action = "SPEAK"
 
 [node name="aplause_btn" type="TouchScreenButton" parent="CanvasLayer"]
 visible = false
 position = Vector2(849, 310)
-scale = Vector2(0.0800781, 0.08)
-texture_normal = ExtResource("13_dnlj1")
-texture_pressed = ExtResource("14_4g81l")
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("14_emui5")
+texture_pressed = ExtResource("15_ataev")
 action = "ATTACK"
 
 [node name="peace_btn" type="TouchScreenButton" parent="CanvasLayer"]
 visible = false
 position = Vector2(851, 438)
-scale = Vector2(0.08, 0.08)
-texture_normal = ExtResource("15_fskni")
-texture_pressed = ExtResource("16_xromg")
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("16_7kqwl")
+texture_pressed = ExtResource("17_6r06q")
 action = "POWER"
 
 [node name="take_btn" type="TouchScreenButton" parent="CanvasLayer"]
 visible = false
 position = Vector2(726, 377)
-scale = Vector2(0.08, 0.08)
-texture_normal = ExtResource("18_2pnr8")
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("12_cafcc")
+texture_pressed = ExtResource("13_b4j6r")
 
 [node name="Animatedheart50" type="AnimatedSprite2D" parent="CanvasLayer"]
 position = Vector2(35, 35)

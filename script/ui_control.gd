@@ -5,6 +5,7 @@ extends Control
 func _process(delta):
 	
 	score()
+	mision()
 	
 	if global.player_aplause_learned:
 		$CanvasLayer/aplause_btn.show()
@@ -59,3 +60,15 @@ func score():
 
 func _on_take_btn_pressed():
 	get_tree().change_scene_to_file("res://scene/end_level.tscn")
+
+## Mostrar Misiones activas
+func mision() -> void:
+	if global.player_aplause_learned:
+		$"CanvasLayer/Mision 1".hide()
+		$"CanvasLayer/Mision 2".show()
+	if global.player_peace_learned:
+		$"CanvasLayer/Mision 2".hide()
+		$"CanvasLayer/Mision 3".show()
+	if global.enemigos_faltantes > 15:
+		$"CanvasLayer/Mision 3".hide()
+		$"CanvasLayer/Mision 4".show()
