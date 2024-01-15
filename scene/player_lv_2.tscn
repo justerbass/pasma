@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dybgygqspn87n"]
+
+[ext_resource type="Texture2D" uid="uid://b6c5ehlcupds" path="res://art/level 1/character/CHARACTERS PLAT/PNG/Adventurer/Poses/adventurer_idle.png" id="1_40x4f"]
+[ext_resource type="Script" path="res://script/player_lv_2.gd" id="1_ltal2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l0i22"]
+radius = 18.0
+height = 64.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tvg84"]
+size = Vector2(42, 88)
+
+[node name="PlayerLv2" type="CharacterBody2D"]
+script = ExtResource("1_ltal2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_40x4f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visibility_layer = 255
+position = Vector2(1, 30)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_l0i22")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+visibility_layer = 255
+position = Vector2(0, 11)
+shape = SubResource("RectangleShape2D_tvg84")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_speed = 30.0
