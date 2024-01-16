@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkojhlnx1ntqr"]
+
+[ext_resource type="Texture2D" uid="uid://cy514d5385cwr" path="res://art/level 2/world/backgrounds.png" id="1_in1t4"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="fondo gris" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1155, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="fondo gris"]
+position = Vector2(480, 150)
+scale = Vector2(5, 30)
+texture = ExtResource("1_in1t4")
+vframes = 3
+frame = 2
+
+[node name="fondo blanco" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(1155, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="fondo blanco"]
+modulate = Color(1, 1, 1, 0.745098)
+position = Vector2(480, 150)
+scale = Vector2(5, 30)
+texture = ExtResource("1_in1t4")
+vframes = 3
+
+[node name="fondo verde" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.9, 0.9)
+motion_mirroring = Vector2(1155, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="fondo verde"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(480, 150)
+scale = Vector2(5, 30)
+texture = ExtResource("1_in1t4")
+vframes = 3
+frame = 1

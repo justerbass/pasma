@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cnhaw54t1pcof"
+path="res://.godot/imported/level 2 ambient.ogg-5aee7db216e6ec6951c71a835a70dab6.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/sound/level 2 ambient.ogg"
+dest_files=["res://.godot/imported/level 2 ambient.ogg-5aee7db216e6ec6951c71a835a70dab6.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

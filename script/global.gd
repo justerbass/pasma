@@ -12,3 +12,10 @@ var camper_tres = false
 var enemigos_faltantes = 0
 var enemigos_faltantes_score = false
 var end_level = false
+
+var level = 1
+
+var paper_count = 0
+var plastic_count = 0
+var metal_count = 0
+var glass_count = 0

@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://0udcq4ljk3nj"]
+[gd_scene load_steps=10 format=3 uid="uid://0udcq4ljk3nj"]
 
 [ext_resource type="Texture2D" uid="uid://c543c8r0ppqkn" path="res://art/level 2/world/PNG Grass/Spritesheet/sheet.png" id="1_e2od3"]
+[ext_resource type="Script" path="res://script/level_2.gd" id="1_yt3ak"]
 [ext_resource type="PackedScene" uid="uid://dybgygqspn87n" path="res://scene/player_lv_2.tscn" id="2_nurof"]
-[ext_resource type="Texture2D" uid="uid://vsuwqitlvh8i" path="res://art/level 2/Materiales/papel/Tiles/tile_0007.png" id="3_nu8kg"]
+[ext_resource type="PackedScene" uid="uid://k1phbr4cgpon" path="res://scene/paper.tscn" id="4_10e2u"]
+[ext_resource type="PackedScene" uid="uid://bkojhlnx1ntqr" path="res://scene/parallax_background.tscn" id="5_pad8f"]
+[ext_resource type="AudioStream" uid="uid://cnhaw54t1pcof" path="res://audio/sound/level 2 ambient.ogg" id="6_ncwlu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_04leq"]
 texture = ExtResource("1_e2od3")
@@ -668,7 +671,11 @@ physics_layer_6/collision_layer = 1
 physics_layer_7/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_04leq")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gdd15"]
+size = Vector2(11568, 236)
+
 [node name="level_2" type="Node2D"]
+script = ExtResource("1_yt3ak")
 
 [node name="platformer" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_y2a86")
@@ -679,72 +686,65 @@ layer_0/tile_data = PackedInt32Array(393216, 262145, 3, 393217, 262145, 3, 39321
 [node name="PlayerLv2" parent="." instance=ExtResource("2_nurof")]
 position = Vector2(33, 364)
 
-[node name="Tile0007" type="Sprite2D" parent="."]
-position = Vector2(515, 359)
-scale = Vector2(3, 3)
-texture = ExtResource("3_nu8kg")
+[node name="paper" parent="." instance=ExtResource("4_10e2u")]
+position = Vector2(514, 155)
 
-[node name="Tile0008" type="Sprite2D" parent="."]
-position = Vector2(513, 156)
-scale = Vector2(3, 3)
-texture = ExtResource("3_nu8kg")
+[node name="paper2" parent="." instance=ExtResource("4_10e2u")]
+position = Vector2(514, 362)
 
-[node name="Tile0009" type="Sprite2D" parent="."]
-position = Vector2(1629, 61)
-scale = Vector2(3, 3)
-texture = ExtResource("3_nu8kg")
+[node name="paper3" parent="." instance=ExtResource("4_10e2u")]
+position = Vector2(1630, 61)
 
-[node name="Tile0010" type="Sprite2D" parent="."]
-position = Vector2(2480, 228)
-scale = Vector2(3, 3)
-texture = ExtResource("3_nu8kg")
+[node name="paper4" parent="." instance=ExtResource("4_10e2u")]
+position = Vector2(2245, 424)
 
-[node name="Tile0011" type="Sprite2D" parent="."]
-position = Vector2(2245, 423)
-scale = Vector2(3, 3)
-texture = ExtResource("3_nu8kg")
+[node name="paper5" parent="." instance=ExtResource("4_10e2u")]
+position = Vector2(2481, 232)
 
-[node name="Tile0012" type="Sprite2D" parent="."]
-position = Vector2(2937, 588)
-scale = Vector2(3, 3)
-texture = ExtResource("3_nu8kg")
+[node name="paper6" parent="." instance=ExtResource("4_10e2u")]
+position = Vector2(2937, 589)
 
-[node name="Tile0013" type="Sprite2D" parent="."]
-position = Vector2(4558, -218)
-scale = Vector2(3, 3)
-texture = ExtResource("3_nu8kg")
+[node name="paper7" parent="." instance=ExtResource("4_10e2u")]
+position = Vector2(4560, -217)
 
-[node name="Tile0014" type="Sprite2D" parent="."]
-position = Vector2(4599, 349)
-scale = Vector2(3, 3)
-texture = ExtResource("3_nu8kg")
+[node name="paper8" parent="." instance=ExtResource("4_10e2u")]
+position = Vector2(5311, -203)
 
-[node name="Tile0015" type="Sprite2D" parent="."]
-position = Vector2(5113, 355)
-scale = Vector2(3, 3)
-texture = ExtResource("3_nu8kg")
+[node name="paper9" parent="." instance=ExtResource("4_10e2u")]
+position = Vector2(4600, 350)
 
-[node name="Tile0016" type="Sprite2D" parent="."]
-position = Vector2(5310, -204)
-scale = Vector2(3, 3)
-texture = ExtResource("3_nu8kg")
+[node name="paper10" parent="." instance=ExtResource("4_10e2u")]
+position = Vector2(5111, 356)
 
-[node name="Tile0017" type="Sprite2D" parent="."]
-position = Vector2(6178, 150)
-scale = Vector2(3, 3)
-texture = ExtResource("3_nu8kg")
+[node name="paper11" parent="." instance=ExtResource("4_10e2u")]
+position = Vector2(6179, 151)
 
-[node name="Tile0018" type="Sprite2D" parent="."]
-position = Vector2(7258, -82)
-scale = Vector2(3, 3)
-texture = ExtResource("3_nu8kg")
+[node name="paper12" parent="." instance=ExtResource("4_10e2u")]
+position = Vector2(6840, -83)
 
-[node name="Tile0019" type="Sprite2D" parent="."]
-position = Vector2(6841, -85)
-scale = Vector2(3, 3)
-texture = ExtResource("3_nu8kg")
+[node name="paper13" parent="." instance=ExtResource("4_10e2u")]
+position = Vector2(7259, -80)
 
-[node name="Tile0020" type="Sprite2D" parent="."]
-position = Vector2(7050, 332)
-scale = Vector2(3, 3)
-texture = ExtResource("3_nu8kg")
+[node name="paper14" parent="." instance=ExtResource("4_10e2u")]
+position = Vector2(7047, 334)
+
+[node name="paper15" parent="." instance=ExtResource("4_10e2u")]
+position = Vector2(8075, 194)
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("5_pad8f")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ncwlu")
+volume_db = -8.0
+autoplay = true
+bus = &"Backgroud"
+
+[node name="muerte" type="Area2D" parent="." groups=["died"]]
+position = Vector2(4, 1100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="muerte"]
+position = Vector2(5774, 108)
+shape = SubResource("RectangleShape2D_gdd15")
+
+[node name="Reset" type="Marker2D" parent="."]
+position = Vector2(40, 371)

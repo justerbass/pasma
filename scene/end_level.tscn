@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://7ux5dyo6nlhr"]
+[gd_scene load_steps=10 format=3 uid="uid://7ux5dyo6nlhr"]
 
 [ext_resource type="Script" path="res://script/EndLevel.gd" id="1_82gt5"]
 [ext_resource type="Texture2D" uid="uid://ce05jjvl8f6cy" path="res://art/controls/rectangle_restart_button (1).png" id="2_jbth7"]
 [ext_resource type="Texture2D" uid="uid://c358jvw26a6bm" path="res://art/controls/rectangle_exit_game_button.png" id="3_828hj"]
 [ext_resource type="FontFile" uid="uid://clwisbpne2e21" path="res://Pacifico-Regular.ttf" id="4_l33eq"]
+[ext_resource type="FontFile" uid="uid://duyjtsnnhl67i" path="res://PixelifySans-VariableFont_wght.ttf" id="4_mbb8k"]
 [ext_resource type="Script" path="res://script/Congrats.gd" id="5_roflj"]
 
 [sub_resource type="Animation" id="Animation_r6qkt"]
@@ -173,7 +174,7 @@ offset_top = 150.0
 offset_right = 720.0
 offset_bottom = 340.0
 theme_override_colors/font_color = Color(1, 1, 0, 1)
-theme_override_fonts/font = ExtResource("4_l33eq")
+theme_override_fonts/font = ExtResource("4_mbb8k")
 theme_override_font_sizes/font_size = 25
 vertical_alignment = 1
 autowrap_mode = 3
