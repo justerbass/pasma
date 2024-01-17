@@ -92,7 +92,11 @@ func score():
 		$CanvasLayer/glass_count.hide()
 
 func _on_take_btn_pressed():
-	get_tree().change_scene_to_file("res://scene/end_level.tscn")
+	if global.level == 1:
+		get_tree().change_scene_to_file("res://scene/end_level.tscn")
+		
+	elif global.level == 2:
+		pass
 
 ## Mostrar Misiones activas
 func mision() -> void:
@@ -114,9 +118,12 @@ func ui_for_levels():
 		$"CanvasLayer/Mision 4".hide()
 		$CanvasLayer/up_btn.hide()
 		$CanvasLayer/down_btn.hide()
-		$CanvasLayer/speak_btn.show()
 		$CanvasLayer/Animatedheart50.hide()
 		$CanvasLayer/Animatedheart100.hide()
 		$CanvasLayer/Animatedheart150.hide()
 		$CanvasLayer/Animatedheart200.hide()
+		if global.recycler:
+			$CanvasLayer/speak_btn.hide()
+		else:
+			$CanvasLayer/speak_btn.show()
 	

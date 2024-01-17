@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://bogi5hqjxml7m"
+path="res://.godot/imported/recycler.dialogue-4323363a4ec7d8e590750a2d671eeffd.tres"
+
+[deps]
+
+source_file="res://script/recycler.dialogue"
+dest_files=["res://.godot/imported/recycler.dialogue-4323363a4ec7d8e590750a2d671eeffd.tres"]
+
+[params]
+
+defaults=true

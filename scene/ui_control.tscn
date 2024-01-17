@@ -435,6 +435,7 @@ position = Vector2(726, 377)
 scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("12_cafcc")
 texture_pressed = ExtResource("13_b4j6r")
+action = "TAKE"
 
 [node name="Animatedheart50" type="AnimatedSprite2D" parent="CanvasLayer"]
 position = Vector2(35, 35)
