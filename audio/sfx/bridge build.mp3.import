@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dt7slrrvrmm0f"
+path="res://.godot/imported/bridge build.mp3-32a632a82fa38806d466d440acd042b8.mp3str"
+
+[deps]
+
+source_file="res://audio/sfx/bridge build.mp3"
+dest_files=["res://.godot/imported/bridge build.mp3-32a632a82fa38806d466d440acd042b8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

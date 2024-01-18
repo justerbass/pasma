@@ -1,6 +1,7 @@
-[gd_scene load_steps=34 format=3 uid="uid://vstitko5efi4"]
+[gd_scene load_steps=35 format=3 uid="uid://vstitko5efi4"]
 
 [ext_resource type="Texture2D" uid="uid://c8saisffefl2l" path="res://art/level 1/world/RPG/Spritesheet/roguelikeSheet_transparent.png" id="1_2m64g"]
+[ext_resource type="Script" path="res://script/level_1.gd" id="1_ypbcg"]
 [ext_resource type="PackedScene" uid="uid://4c4y0wctbyhw" path="res://scene/player_lv_1.tscn" id="2_gwy1d"]
 [ext_resource type="PackedScene" uid="uid://d0g1h027xfuit" path="res://scene/guard.tscn" id="5_ivrmp"]
 [ext_resource type="PackedScene" uid="uid://dl8dgdt605cpo" path="res://scene/ball_player.tscn" id="6_3cqj4"]
@@ -5506,6 +5507,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_6swco")
 
 [node name="Level 1" type="Node2D"]
+script = ExtResource("1_ypbcg")
 
 [node name="back green" type="ColorRect" parent="."]
 offset_left = -40.0

@@ -29,6 +29,7 @@ func paper_recycled():
 				$CollisionShape2D.disabled = true
 				$"baliza azul".hide()
 				$"baliza roja".show()
+				$"../puente papel/AnimationPlayer".play("build")
 				##falta hacer aparecer el puente"""
 		else:
 			DialogueManager.show_example_dialogue_balloon(load("res://script/recycler.dialogue"), "start_recycler")

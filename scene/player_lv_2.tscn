@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dybgygqspn87n"]
+[gd_scene load_steps=22 format=3 uid="uid://dybgygqspn87n"]
 
 [ext_resource type="Script" path="res://script/player_lv_2.gd" id="1_ltal2"]
 [ext_resource type="Texture2D" uid="uid://ca8xxae62ihea" path="res://art/level 1/character/CHARACTERS PLAT/PNG/Adventurer/adventurer_tilesheet.png" id="2_ekemy"]
@@ -128,6 +128,58 @@ size = Vector2(42, 88)
 a = Vector2(93, 1.62606e-05)
 b = Vector2(0, 0)
 
+[sub_resource type="Animation" id="Animation_h0261"]
+resource_name = "zoom_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(0.9, 0.9), Vector2(0.73, 0.73), Vector2(0.73, 0.73)]
+}
+
+[sub_resource type="Animation" id="Animation_5ele1"]
+resource_name = "zoom_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(0.73, 0.73), Vector2(0.9, 0.9), Vector2(0.9, 0.9)]
+}
+
+[sub_resource type="Animation" id="Animation_13o36"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.5),
+"update": 0,
+"values": [Vector2(0.9, 0.9)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vfbmt"]
+_data = {
+"RESET": SubResource("Animation_13o36"),
+"zoom_in": SubResource("Animation_5ele1"),
+"zoom_out": SubResource("Animation_h0261")
+}
+
 [node name="PlayerLv2" type="CharacterBody2D"]
 script = ExtResource("1_ltal2")
 
@@ -147,6 +199,7 @@ position = Vector2(0, 11)
 shape = SubResource("RectangleShape2D_tvg84")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.9, 0.9)
 limit_top = -750
 limit_bottom = 1000
 position_smoothing_speed = 30.0
@@ -168,6 +221,11 @@ shape = SubResource("RectangleShape2D_tvg84")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection"]
 shape = SubResource("SegmentShape2D_su7vs")
+
+[node name="AnimationCameraPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vfbmt")
+}
 
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]

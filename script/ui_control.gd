@@ -113,6 +113,10 @@ func mision() -> void:
 ## UI por levels
 
 func ui_for_levels():
+	if global.level == 0:
+		$CanvasLayer.hide()
+	if global.level == 1:
+		$CanvasLayer.show()
 	if global.level == 2:
 		$"CanvasLayer/Mision 1".hide()
 		$"CanvasLayer/Mision 4".hide()
