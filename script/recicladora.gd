@@ -13,6 +13,8 @@ func _process(delta):
 
 func paper_recycled():
 	if Input.is_action_just_pressed("TAKE"):
+		$"../UIControl/CanvasLayer/take_btn".hide()
+		
 		if global.paper_count > 10:
 			#ciclo de animacion de entregar papel
 			while global.paper_count != 0:
@@ -30,7 +32,8 @@ func paper_recycled():
 				$"baliza azul".hide()
 				$"baliza roja".show()
 				$"../puente papel/AnimationPlayer".play("build")
-				##falta hacer aparecer el puente"""
+				$"../PlayerLv2/AnimationCameraPlayer".play("bridge")
+				
 		else:
 			DialogueManager.show_example_dialogue_balloon(load("res://script/recycler.dialogue"), "start_recycler")
 			return
