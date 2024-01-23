@@ -83,8 +83,9 @@ func move_pl2():
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("died"):
 		position = $"../Reset".position
-		
-
+	
+	if area.is_in_group("died2"):
+		position = $"../Reset2".position
 
 func _on_detection_body_entered(body):
 	if body is recycler:

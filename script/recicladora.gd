@@ -17,10 +17,13 @@ func paper_recycled():
 		
 		if global.paper_count > 10:
 			#ciclo de animacion de entregar papel
-			while global.paper_count != 0:
+			while global.paper_count > 0:
 				$"../PlayerLv2/AnimatedSprite2D".play("deliver")
 				await get_tree().create_timer(1).timeout
 				global.paper_count -= 1
+				if global.paper_count < 0:
+					global.paper_count = 0
+				
 			#hacer funcionar la maquina
 			if global.paper_count == 0:
 				$AnimationPlayer.play("work")
