@@ -9,4 +9,6 @@ func _process(delta):
 
 func _on_detection_area_entered(area):
 	$"../AnimationPlayer".play("fall")
+	await get_tree().create_timer(2).timeout
+	queue_free()
 	

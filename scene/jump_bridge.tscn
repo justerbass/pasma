@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=3 uid="uid://k3m1hof5xsor"]
+
+[ext_resource type="Texture2D" uid="uid://bfjssq87utt4a" path="res://art/level 2/world/PNG Castle/castleHalfLeft.png" id="1_tlis4"]
+[ext_resource type="Script" path="res://script/jump_bridge.gd" id="1_u2b35"]
+[ext_resource type="Texture2D" uid="uid://cxxnqj8nby5x7" path="res://art/level 2/world/PNG Castle/castleHalfMid.png" id="2_m0bow"]
+[ext_resource type="Texture2D" uid="uid://dxm4843q4u35e" path="res://art/level 2/world/PNG Castle/castleHalfRight.png" id="3_1lik5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j51py"]
+size = Vector2(1048, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8d34m"]
+size = Vector2(1048, 20)
+
+[node name="jump bridge" type="CharacterBody2D"]
+script = ExtResource("1_u2b35")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tlis4")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(70, 0)
+texture = ExtResource("2_m0bow")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(140, 0)
+texture = ExtResource("2_m0bow")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(210, 0)
+texture = ExtResource("2_m0bow")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(280, 0)
+texture = ExtResource("2_m0bow")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(350, 0)
+texture = ExtResource("2_m0bow")
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+position = Vector2(420, 0)
+texture = ExtResource("2_m0bow")
+
+[node name="Sprite2D8" type="Sprite2D" parent="."]
+position = Vector2(490, 0)
+texture = ExtResource("2_m0bow")
+
+[node name="Sprite2D9" type="Sprite2D" parent="."]
+position = Vector2(560, 0)
+texture = ExtResource("2_m0bow")
+
+[node name="Sprite2D10" type="Sprite2D" parent="."]
+position = Vector2(630, 0)
+texture = ExtResource("2_m0bow")
+
+[node name="Sprite2D11" type="Sprite2D" parent="."]
+position = Vector2(700, 0)
+texture = ExtResource("2_m0bow")
+
+[node name="Sprite2D12" type="Sprite2D" parent="."]
+position = Vector2(770, 0)
+texture = ExtResource("2_m0bow")
+
+[node name="Sprite2D13" type="Sprite2D" parent="."]
+position = Vector2(840, 0)
+texture = ExtResource("2_m0bow")
+
+[node name="Sprite2D14" type="Sprite2D" parent="."]
+position = Vector2(910, 0)
+texture = ExtResource("2_m0bow")
+
+[node name="Sprite2D15" type="Sprite2D" parent="."]
+position = Vector2(980, 0)
+texture = ExtResource("3_1lik5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(490, -14)
+shape = SubResource("RectangleShape2D_j51py")
+
+[node name="detection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection"]
+position = Vector2(490, -40)
+shape = SubResource("RectangleShape2D_8d34m")
+
+[connection signal="area_entered" from="detection" to="." method="_on_detection_area_entered"]
+[connection signal="area_exited" from="detection" to="." method="_on_detection_area_exited"]

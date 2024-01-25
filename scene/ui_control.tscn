@@ -489,7 +489,6 @@ theme_override_fonts/font = ExtResource("2_ssh8n")
 theme_override_font_sizes/font_size = 30
 
 [node name="metal" type="Sprite2D" parent="CanvasLayer"]
-visible = false
 position = Vector2(500, 40)
 scale = Vector2(2, 2)
 texture = ExtResource("23_n5yya")

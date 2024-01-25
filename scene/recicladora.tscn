@@ -337,10 +337,10 @@ shape = SubResource("RectangleShape2D_gqiqe")
 
 [node name="audio cut" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_y4w7t")
-volume_db = -5.0
+volume_db = -13.0
 bus = &"SFX"
 
 [node name="audio smash" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_i5q7c")
-volume_db = 3.0
+volume_db = -10.0
 bus = &"SFX"
