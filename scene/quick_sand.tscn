@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://deevk1xu3716f"]
+
+[ext_resource type="Script" path="res://script/Quick Sand.gd" id="1_iglrw"]
+[ext_resource type="Texture2D" uid="uid://o6rf06v7j1sn" path="res://art/level 2/world/PNG Sand/slice03_03.png" id="2_6jd0k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_77yhu"]
+size = Vector2(70, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x46wl"]
+size = Vector2(69, 20)
+
+[node name="Quick Sand" type="AnimatableBody2D"]
+script = ExtResource("1_iglrw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_6jd0k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_77yhu")
+
+[node name="detection" type="Area2D" parent="."]
+position = Vector2(0, -48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection"]
+shape = SubResource("RectangleShape2D_x46wl")
+
+[connection signal="area_entered" from="detection" to="." method="_on_detection_area_entered"]
