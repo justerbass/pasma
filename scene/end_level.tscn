@@ -166,7 +166,7 @@ wait_time = 0.05
 
 [node name="Congrats" type="Sprite2D" parent="CanvasLayer"]
 script = ExtResource("5_roflj")
-texto = "Felicidades, haz logrado devolver la armonia a esta región. aún queda mucho mundo por armonizar, pero eso será para el 2024."
+texto = "Felicidades, haz logrado devolver la armonia a esta región. aún queda mucho mundo por armonizar."
 
 [node name="Yuhu" type="Label" parent="CanvasLayer/Congrats"]
 offset_left = 260.0

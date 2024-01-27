@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://d1u1o1eqddlb8"]
+[gd_scene load_steps=60 format=3 uid="uid://d1u1o1eqddlb8"]
 
 [ext_resource type="Texture2D" uid="uid://c7oo4pe355g8o" path="res://art/controls/Sprites/transparentDark/transparentDark24.png" id="1_8vi0f"]
 [ext_resource type="Script" path="res://script/ui_control.gd" id="1_vnkc4"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://btyu0hp2ijftp" path="res://art/level 2/Materiales/plastico y vidrio/Tiles/tile_0042.png" id="22_s5vqc"]
 [ext_resource type="Texture2D" uid="uid://bjm3jor4hxkoc" path="res://art/level 2/Materiales/metal/Tiles/tile_0040.png" id="23_n5yya"]
 [ext_resource type="Texture2D" uid="uid://diyout6i718r6" path="res://art/level 2/Materiales/plastico y vidrio/Tiles/tile_0098.png" id="24_4xnnb"]
+[ext_resource type="Texture2D" uid="uid://docdjyt25xynd" path="res://art/controls/Sprites/transparentDark/transparentDark12.png" id="26_n103i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1qinq"]
 atlas = ExtResource("17_weh0w")
@@ -489,6 +490,7 @@ theme_override_fonts/font = ExtResource("2_ssh8n")
 theme_override_font_sizes/font_size = 30
 
 [node name="metal" type="Sprite2D" parent="CanvasLayer"]
+visible = false
 position = Vector2(500, 40)
 scale = Vector2(2, 2)
 texture = ExtResource("23_n5yya")
@@ -516,6 +518,10 @@ offset_right = 475.0
 offset_bottom = 64.0
 theme_override_fonts/font = ExtResource("2_ssh8n")
 theme_override_font_sizes/font_size = 30
+
+[node name="pause_btn" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2(800, 24)
+texture_normal = ExtResource("26_n103i")
 
 [connection signal="pressed" from="CanvasLayer/up_btn" to="." method="_on_up_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/down_btn" to="." method="_on_down_btn_pressed"]

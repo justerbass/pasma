@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://deevk1xu3716f"]
+[gd_scene load_steps=8 format=3 uid="uid://deevk1xu3716f"]
 
 [ext_resource type="Script" path="res://script/Quick Sand.gd" id="1_iglrw"]
 [ext_resource type="Texture2D" uid="uid://o6rf06v7j1sn" path="res://art/level 2/world/PNG Sand/slice03_03.png" id="2_6jd0k"]
@@ -9,19 +9,133 @@ size = Vector2(70, 70)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x46wl"]
 size = Vector2(69, 20)
 
-[node name="Quick Sand" type="AnimatableBody2D"]
-script = ExtResource("1_iglrw")
+[sub_resource type="Animation" id="Animation_bxnhm"]
+resource_name = "fall"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 140)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 140)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_6jd0k")
+[sub_resource type="Animation" id="Animation_scl7n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d1ssn"]
+_data = {
+"RESET": SubResource("Animation_scl7n"),
+"fall": SubResource("Animation_bxnhm")
+}
+
+[node name="Quick Sand" type="CharacterBody2D"]
+script = ExtResource("1_iglrw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_77yhu")
 
-[node name="detection" type="Area2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_6jd0k")
+
+[node name="detection" type="Area2D" parent="Sprite2D"]
 position = Vector2(0, -48)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="detection"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/detection"]
 shape = SubResource("RectangleShape2D_x46wl")
 
-[connection signal="area_entered" from="detection" to="." method="_on_detection_area_entered"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_d1ssn")
+}
+
+[connection signal="area_entered" from="Sprite2D/detection" to="." method="_on_detection_area_entered"]

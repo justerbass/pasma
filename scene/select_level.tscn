@@ -1,8 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://bllhw14lvc4rj"]
+[gd_scene load_steps=10 format=3 uid="uid://bllhw14lvc4rj"]
 
 [ext_resource type="Script" path="res://script/select_level.gd" id="1_fn5fs"]
 [ext_resource type="FontFile" uid="uid://duyjtsnnhl67i" path="res://PixelifySans-VariableFont_wght.ttf" id="1_k6d7p"]
 [ext_resource type="FontFile" uid="uid://clwisbpne2e21" path="res://Pacifico-Regular.ttf" id="2_wr4b1"]
+
+[sub_resource type="Gradient" id="Gradient_3hipu"]
+offsets = PackedFloat32Array(0.181818, 0.87013)
+colors = PackedColorArray(0.501961, 0.745098, 0.121569, 1, 0.905882, 0.87451, 0.760784, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nt5jt"]
+gradient = SubResource("Gradient_3hipu")
+fill_from = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_okl7h"]
+offsets = PackedFloat32Array(0, 0.402597, 0.655844, 0.941558)
+colors = PackedColorArray(0.501961, 0.745098, 0.121569, 1, 0.905882, 0.87451, 0.760784, 1, 0.52549, 0.584314, 0.584314, 1, 0.611765, 0.45098, 0.682353, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ak7lj"]
+gradient = SubResource("Gradient_okl7h")
+fill_from = Vector2(0, 0.0504587)
+fill_to = Vector2(0.857798, 0.83945)
+
+[sub_resource type="Gradient" id="Gradient_e72l5"]
+offsets = PackedFloat32Array(0, 0.350649, 0.746753, 1)
+colors = PackedColorArray(0.890196, 0.623529, 0.105882, 1, 0, 0.12549, 0, 1, 0, 0.12549, 0, 1, 0.890196, 0.623529, 0.105882, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c6y7a"]
+gradient = SubResource("Gradient_e72l5")
+width = 220
+fill_to = Vector2(1, 1)
 
 [node name="select level" type="Node2D"]
 script = ExtResource("1_fn5fs")
@@ -31,13 +57,17 @@ text = "Selecciona Nivel"
 [node name="Button" type="Button" parent="."]
 offset_left = 203.0
 offset_top = 186.0
-offset_right = 393.0
-offset_bottom = 376.0
-theme_override_colors/font_color = Color(1, 1, 0, 1)
+offset_right = 388.0
+offset_bottom = 371.0
+theme_override_colors/font_color = Color(0.666667, 0.313726, 0, 1)
 theme_override_fonts/font = ExtResource("2_wr4b1")
 theme_override_font_sizes/font_size = 100
-text = "1
+text = "Olu
 "
+icon = SubResource("GradientTexture2D_nt5jt")
+flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="Button2" type="Button" parent="."]
 offset_left = 576.0
@@ -47,7 +77,25 @@ offset_bottom = 373.0
 theme_override_colors/font_color = Color(0, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_wr4b1")
 theme_override_font_sizes/font_size = 100
-text = "2"
+text = "Rek"
+icon = SubResource("GradientTexture2D_ak7lj")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 370.0
+offset_top = 450.0
+offset_right = 590.0
+offset_bottom = 520.0
+theme_override_colors/font_color = Color(0.854902, 0.262745, 0.207843, 1)
+theme_override_fonts/font = ExtResource("1_k6d7p")
+theme_override_font_sizes/font_size = 50
+action_mode = 0
+text = "Opciones"
+icon = SubResource("GradientTexture2D_c6y7a")
+flat = true
+icon_alignment = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

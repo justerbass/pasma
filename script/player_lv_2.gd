@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 var SPEED = 300.0
-const JUMP_VELOCITY = -750.0
+var JUMP_VELOCITY = -750.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -40,7 +40,6 @@ func move_pl2():
 	if not is_on_floor():
 		if velocity.y < 0:
 			$AnimatedSprite2D.play("jump")
-			$AnimationCameraPlayer.play("zoom_out")
 			if velocity.x > 0:
 				$AnimatedSprite2D.flip_h = false
 				$detection/CollisionShape2D.rotation_degrees = 0
@@ -55,14 +54,14 @@ func move_pl2():
 			elif velocity.x < 0:
 				$AnimatedSprite2D.flip_h = true
 				$detection/CollisionShape2D.rotation_degrees = 180
-		if $AnimationCameraPlayer.current_animation == "zoom_out" and velocity.y > 0:
-				$AnimationCameraPlayer.play("zoom_in")
 	else:
 		if $AnimationCameraPlayer.current_animation == "bridge":
 			SPEED = 0
+			JUMP_VELOCITY = 0
 		else:
 			$AnimationCameraPlayer.play("RESET")
 			SPEED = 300
+			JUMP_VELOCITY = -750
 		if velocity.x > 0:
 			$AnimatedSprite2D.play("walk")
 			$AnimatedSprite2D.flip_h = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://0udcq4ljk3nj"]
+[gd_scene load_steps=64 format=3 uid="uid://0udcq4ljk3nj"]
 
 [ext_resource type="Texture2D" uid="uid://c543c8r0ppqkn" path="res://art/level 2/world/PNG Grass/Spritesheet/sheet.png" id="1_e2od3"]
 [ext_resource type="Script" path="res://script/level_2.gd" id="1_yt3ak"]
@@ -15,13 +15,13 @@
 [ext_resource type="PackedScene" uid="uid://o2socu0whm6k" path="res://scene/puente_plastico.tscn" id="13_ew80b"]
 [ext_resource type="PackedScene" uid="uid://bnah43pklrrvo" path="res://scene/step.tscn" id="14_comj3"]
 [ext_resource type="Texture2D" uid="uid://dblc8e0airohs" path="res://art/level 2/world/PNG Castle/Spritesheet/sheet.png" id="15_0hxfu"]
-[ext_resource type="PackedScene" uid="uid://deevk1xu3716f" path="res://scene/quick_sand.tscn" id="15_eh3uf"]
 [ext_resource type="PackedScene" uid="uid://btjfan01rc3sl" path="res://scene/pasillo_secreto.tscn" id="17_jdv5s"]
 [ext_resource type="PackedScene" uid="uid://k3m1hof5xsor" path="res://scene/jump_bridge.tscn" id="17_ypht8"]
 [ext_resource type="PackedScene" uid="uid://bowwy6gpexnqs" path="res://scene/block.tscn" id="18_5dbqn"]
 [ext_resource type="PackedScene" uid="uid://brlww6j81df21" path="res://scene/metal.tscn" id="18_7lg3k"]
 [ext_resource type="PackedScene" uid="uid://c1clk0lsiwbxm" path="res://scene/punete_metal.tscn" id="21_d47m3"]
 [ext_resource type="Texture2D" uid="uid://2dgrualqa7iu" path="res://art/level 2/world/PNG Purple/Spritesheet/sheet.png" id="21_sjciw"]
+[ext_resource type="PackedScene" uid="uid://deevk1xu3716f" path="res://scene/quick_sand.tscn" id="22_elg64"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_04leq"]
 texture = ExtResource("1_e2od3")
@@ -1415,97 +1415,6 @@ _data = {
 "movement": SubResource("Animation_ytk3y")
 }
 
-[sub_resource type="Curve2D" id="Curve2D_hml5o"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 70)
-}
-point_count = 2
-
-[sub_resource type="Animation" id="Animation_idrga"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:progress_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Quick Sand:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Quick Sand:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_g2txg"]
-resource_name = "fall"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:progress_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Quick Sand:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Quick Sand:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pbiat"]
-_data = {
-"RESET": SubResource("Animation_idrga"),
-"fall": SubResource("Animation_g2txg")
-}
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2t2tc"]
 texture = ExtResource("15_0hxfu")
 texture_region_size = Vector2i(70, 70)
@@ -2345,7 +2254,7 @@ position = Vector2(34150, 482)
 scale = Vector2(3, 3)
 
 [node name="PlayerLv2" parent="." instance=ExtResource("2_nurof")]
-position = Vector2(9000, 500)
+position = Vector2(40, 371)
 
 [node name="paper" parent="." instance=ExtResource("4_10e2u")]
 position = Vector2(514, 155)
@@ -2438,7 +2347,7 @@ position = Vector2(16135, 431)
 position = Vector2(20840, 488)
 
 [node name="paper31" parent="." instance=ExtResource("4_10e2u")]
-position = Vector2(25074, 976)
+position = Vector2(25454, 791)
 
 [node name="paper32" parent="." instance=ExtResource("4_10e2u")]
 position = Vector2(26591, 560)
@@ -2739,186 +2648,6 @@ libraries = {
 }
 autoplay = "movement"
 
-[node name="PathQuickSand" type="Path2D" parent="."]
-position = Vector2(16765, -315)
-curve = SubResource("Curve2D_hml5o")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="PathQuickSand"]
-rotates = false
-
-[node name="Quick Sand" parent="PathQuickSand/PathFollow2D" instance=ExtResource("15_eh3uf")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PathQuickSand/PathFollow2D"]
-libraries = {
-"": SubResource("AnimationLibrary_pbiat")
-}
-movie_quit_on_finish = true
-
-[node name="PathQuickSand2" type="Path2D" parent="."]
-position = Vector2(16835, -315)
-curve = SubResource("Curve2D_hml5o")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="PathQuickSand2"]
-rotates = false
-
-[node name="Quick Sand" parent="PathQuickSand2/PathFollow2D" instance=ExtResource("15_eh3uf")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PathQuickSand2/PathFollow2D"]
-libraries = {
-"": SubResource("AnimationLibrary_pbiat")
-}
-movie_quit_on_finish = true
-
-[node name="PathQuickSand3" type="Path2D" parent="."]
-position = Vector2(16905, -315)
-curve = SubResource("Curve2D_hml5o")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="PathQuickSand3"]
-rotates = false
-
-[node name="Quick Sand" parent="PathQuickSand3/PathFollow2D" instance=ExtResource("15_eh3uf")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PathQuickSand3/PathFollow2D"]
-libraries = {
-"": SubResource("AnimationLibrary_pbiat")
-}
-movie_quit_on_finish = true
-
-[node name="PathQuickSand4" type="Path2D" parent="."]
-position = Vector2(16975, -315)
-curve = SubResource("Curve2D_hml5o")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="PathQuickSand4"]
-rotates = false
-
-[node name="Quick Sand" parent="PathQuickSand4/PathFollow2D" instance=ExtResource("15_eh3uf")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PathQuickSand4/PathFollow2D"]
-libraries = {
-"": SubResource("AnimationLibrary_pbiat")
-}
-movie_quit_on_finish = true
-
-[node name="PathQuickSand5" type="Path2D" parent="."]
-position = Vector2(17465, -315)
-curve = SubResource("Curve2D_hml5o")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="PathQuickSand5"]
-rotates = false
-
-[node name="Quick Sand" parent="PathQuickSand5/PathFollow2D" instance=ExtResource("15_eh3uf")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PathQuickSand5/PathFollow2D"]
-libraries = {
-"": SubResource("AnimationLibrary_pbiat")
-}
-movie_quit_on_finish = true
-
-[node name="PathQuickSand6" type="Path2D" parent="."]
-position = Vector2(17535, -315)
-curve = SubResource("Curve2D_hml5o")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="PathQuickSand6"]
-rotates = false
-
-[node name="Quick Sand" parent="PathQuickSand6/PathFollow2D" instance=ExtResource("15_eh3uf")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PathQuickSand6/PathFollow2D"]
-libraries = {
-"": SubResource("AnimationLibrary_pbiat")
-}
-movie_quit_on_finish = true
-
-[node name="PathQuickSand7" type="Path2D" parent="."]
-position = Vector2(17605, -315)
-curve = SubResource("Curve2D_hml5o")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="PathQuickSand7"]
-rotates = false
-
-[node name="Quick Sand" parent="PathQuickSand7/PathFollow2D" instance=ExtResource("15_eh3uf")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PathQuickSand7/PathFollow2D"]
-libraries = {
-"": SubResource("AnimationLibrary_pbiat")
-}
-movie_quit_on_finish = true
-
-[node name="PathQuickSand8" type="Path2D" parent="."]
-position = Vector2(17675, -315)
-curve = SubResource("Curve2D_hml5o")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="PathQuickSand8"]
-rotates = false
-
-[node name="Quick Sand" parent="PathQuickSand8/PathFollow2D" instance=ExtResource("15_eh3uf")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PathQuickSand8/PathFollow2D"]
-libraries = {
-"": SubResource("AnimationLibrary_pbiat")
-}
-movie_quit_on_finish = true
-
-[node name="PathQuickSand9" type="Path2D" parent="."]
-position = Vector2(18235, -315)
-curve = SubResource("Curve2D_hml5o")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="PathQuickSand9"]
-rotates = false
-
-[node name="Quick Sand" parent="PathQuickSand9/PathFollow2D" instance=ExtResource("15_eh3uf")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PathQuickSand9/PathFollow2D"]
-libraries = {
-"": SubResource("AnimationLibrary_pbiat")
-}
-movie_quit_on_finish = true
-
-[node name="PathQuickSand10" type="Path2D" parent="."]
-position = Vector2(18305, -315)
-curve = SubResource("Curve2D_hml5o")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="PathQuickSand10"]
-rotates = false
-
-[node name="Quick Sand" parent="PathQuickSand10/PathFollow2D" instance=ExtResource("15_eh3uf")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PathQuickSand10/PathFollow2D"]
-libraries = {
-"": SubResource("AnimationLibrary_pbiat")
-}
-movie_quit_on_finish = true
-
-[node name="PathQuickSand11" type="Path2D" parent="."]
-position = Vector2(18375, -315)
-curve = SubResource("Curve2D_hml5o")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="PathQuickSand11"]
-rotates = false
-
-[node name="Quick Sand" parent="PathQuickSand11/PathFollow2D" instance=ExtResource("15_eh3uf")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PathQuickSand11/PathFollow2D"]
-libraries = {
-"": SubResource("AnimationLibrary_pbiat")
-}
-movie_quit_on_finish = true
-
-[node name="PathQuickSand12" type="Path2D" parent="."]
-position = Vector2(18445, -315)
-curve = SubResource("Curve2D_hml5o")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="PathQuickSand12"]
-rotates = false
-
-[node name="Quick Sand" parent="PathQuickSand12/PathFollow2D" instance=ExtResource("15_eh3uf")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PathQuickSand12/PathFollow2D"]
-libraries = {
-"": SubResource("AnimationLibrary_pbiat")
-}
-movie_quit_on_finish = true
-
 [node name="plataformer stg 3" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_dur0b")
 rendering_quadrant_size = 70
@@ -3025,7 +2754,7 @@ position = Vector2(24500, 750)
 position = Vector2(24842, 755)
 
 [node name="metal3" parent="." instance=ExtResource("18_7lg3k")]
-position = Vector2(25642, 949)
+position = Vector2(25833, 863)
 
 [node name="metal4" parent="." instance=ExtResource("18_7lg3k")]
 position = Vector2(26873, 276)
@@ -3064,8 +2793,44 @@ position = Vector2(33647, 513)
 tile_set = SubResource("TileSet_f5wap")
 rendering_quadrant_size = 70
 format = 2
-layer_0/tile_data = PackedInt32Array(196663, 196608, 1, 524807, 196608, 1, 590343, 0, 5, 524808, 262144, 6, 524809, 262144, 6, 524810, 262144, 6, 524811, 262144, 6, 524812, 262144, 6, 524813, 262144, 6, 524814, 262144, 6, 524815, 262144, 6, 524816, 262144, 6, 524817, 262144, 6, 524818, 262144, 6, 590344, 0, 5, 590345, 0, 5, 590346, 0, 5, 590347, 0, 5, 590348, 0, 5, 590349, 0, 5, 590350, 0, 5, 590351, 0, 5, 590352, 0, 5, 590353, 0, 5, 590354, 0, 5, 524819, 262144, 6, 524820, 262144, 6, 524821, 262144, 6, 524822, 196608, 2, 459286, 131072, 4, 393750, 131072, 4, 328214, 131072, 4, 262678, 131072, 4, 197142, 131072, 4, 131606, 131072, 4, 66070, 131072, 4, 534, 131072, 4, -65002, 131072, 4, -130538, 131072, 4, -196074, 131072, 4, 524823, 131072, 2, 393751, 131072, 2, 262679, 131072, 2, 131607, 131072, 2, 535, 131072, 2, -130537, 131072, 2, -196073, 65536, 0, -65001, 65536, 0, 66071, 65536, 0, 197143, 65536, 0, 328215, 65536, 0, 459287, 65536, 0, 590355, 0, 5, 590356, 0, 5, 590357, 0, 5, 590358, 131072, 2)
+layer_0/tile_data = PackedInt32Array(524807, 196608, 1, 590343, 0, 5, 524808, 262144, 6, 524809, 262144, 6, 524810, 262144, 6, 524811, 262144, 6, 524812, 262144, 6, 524813, 262144, 6, 524814, 262144, 6, 524815, 262144, 6, 524816, 262144, 6, 524817, 262144, 6, 524818, 262144, 6, 590344, 0, 5, 590345, 0, 5, 590346, 0, 5, 590347, 0, 5, 590348, 0, 5, 590349, 0, 5, 590350, 0, 5, 590351, 0, 5, 590352, 0, 5, 590353, 0, 5, 590354, 0, 5, 524819, 262144, 6, 524820, 262144, 6, 524821, 262144, 6, 524822, 196608, 2, 459286, 131072, 4, 393750, 131072, 4, 328214, 131072, 4, 262678, 131072, 4, 197142, 131072, 4, 131606, 131072, 4, 66070, 131072, 4, 534, 131072, 4, -65002, 131072, 4, -130538, 131072, 4, -196074, 131072, 4, 524823, 131072, 2, 393751, 131072, 2, 262679, 131072, 2, 131607, 131072, 2, 535, 131072, 2, -130537, 131072, 2, -196073, 65536, 0, -65001, 65536, 0, 66071, 65536, 0, 197143, 65536, 0, 328215, 65536, 0, 459287, 65536, 0, 590355, 0, 5, 590356, 0, 5, 590357, 0, 5, 590358, 131072, 2)
 
 [node name="punete metal" parent="." instance=ExtResource("21_d47m3")]
 position = Vector2(34345, 560)
 scale = Vector2(5, 5)
+
+[node name="Quick Sand" parent="." instance=ExtResource("22_elg64")]
+position = Vector2(16765, -315)
+
+[node name="Quick Sand2" parent="." instance=ExtResource("22_elg64")]
+position = Vector2(16835, -315)
+
+[node name="Quick Sand3" parent="." instance=ExtResource("22_elg64")]
+position = Vector2(16905, -315)
+
+[node name="Quick Sand4" parent="." instance=ExtResource("22_elg64")]
+position = Vector2(16975, -315)
+
+[node name="Quick Sand5" parent="." instance=ExtResource("22_elg64")]
+position = Vector2(17465, -315)
+
+[node name="Quick Sand6" parent="." instance=ExtResource("22_elg64")]
+position = Vector2(17535, -315)
+
+[node name="Quick Sand7" parent="." instance=ExtResource("22_elg64")]
+position = Vector2(17605, -315)
+
+[node name="Quick Sand8" parent="." instance=ExtResource("22_elg64")]
+position = Vector2(17675, -315)
+
+[node name="Quick Sand9" parent="." instance=ExtResource("22_elg64")]
+position = Vector2(18235, -315)
+
+[node name="Quick Sand10" parent="." instance=ExtResource("22_elg64")]
+position = Vector2(18305, -315)
+
+[node name="Quick Sand11" parent="." instance=ExtResource("22_elg64")]
+position = Vector2(18375, -315)
+
+[node name="Quick Sand12" parent="." instance=ExtResource("22_elg64")]
+position = Vector2(18445, -315)
