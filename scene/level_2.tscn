@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://0udcq4ljk3nj"]
+[gd_scene load_steps=63 format=3 uid="uid://0udcq4ljk3nj"]
 
 [ext_resource type="Texture2D" uid="uid://c543c8r0ppqkn" path="res://art/level 2/world/PNG Grass/Spritesheet/sheet.png" id="1_e2od3"]
 [ext_resource type="Script" path="res://script/level_2.gd" id="1_yt3ak"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://d1u1o1eqddlb8" path="res://scene/ui_control.tscn" id="8_l1qwx"]
 [ext_resource type="PackedScene" uid="uid://c80bbjj33cbj6" path="res://scene/puente_papel.tscn" id="9_1j8cp"]
 [ext_resource type="Texture2D" uid="uid://30sf7128761u" path="res://art/level 2/world/PNG Sand/Spritesheet/sheet.png" id="10_i5fxf"]
-[ext_resource type="FontFile" uid="uid://duyjtsnnhl67i" path="res://PixelifySans-VariableFont_wght.ttf" id="11_3tpkl"]
 [ext_resource type="PackedScene" uid="uid://hrdr6cbp1mu0" path="res://scene/bottle.tscn" id="12_6o12a"]
 [ext_resource type="PackedScene" uid="uid://o2socu0whm6k" path="res://scene/puente_plastico.tscn" id="13_ew80b"]
 [ext_resource type="PackedScene" uid="uid://bnah43pklrrvo" path="res://scene/step.tscn" id="14_comj3"]
@@ -21,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://brlww6j81df21" path="res://scene/metal.tscn" id="18_7lg3k"]
 [ext_resource type="PackedScene" uid="uid://c1clk0lsiwbxm" path="res://scene/punete_metal.tscn" id="21_d47m3"]
 [ext_resource type="Texture2D" uid="uid://2dgrualqa7iu" path="res://art/level 2/world/PNG Purple/Spritesheet/sheet.png" id="21_sjciw"]
+[ext_resource type="PackedScene" uid="uid://dklnmvyp0k4yc" path="res://scene/prize.tscn" id="22_5tsbo"]
 [ext_resource type="PackedScene" uid="uid://deevk1xu3716f" path="res://scene/quick_sand.tscn" id="22_elg64"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_04leq"]
@@ -1207,14 +1207,6 @@ physics_layer_3/collision_layer = 1
 physics_layer_4/collision_layer = 1
 physics_layer_5/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ydtri")
-
-[sub_resource type="LabelSettings" id="LabelSettings_oj215"]
-line_spacing = 5.0
-font_size = 30
-outline_size = 2
-outline_color = Color(1, 0, 0, 1)
-shadow_size = 5
-shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_brdor"]
 size = Vector2(12229, 236)
@@ -2418,28 +2410,6 @@ layer_0/tile_data = PackedInt32Array(524452, 131072, 4, 589988, 65536, 2, 524453
 position = Vector2(9520, 560)
 scale = Vector2(5, 5)
 
-[node name="Label" type="Label" parent="."]
-offset_left = 11800.0
-offset_top = 475.0
-offset_right = 12213.0
-offset_bottom = 512.0
-theme_override_colors/font_color = Color(0.717647, 0.439216, 0.243137, 1)
-theme_override_fonts/font = ExtResource("11_3tpkl")
-theme_override_font_sizes/font_size = 50
-text = "presiona \"shift\" para saltar"
-label_settings = SubResource("LabelSettings_oj215")
-
-[node name="Label2" type="Label" parent="."]
-offset_left = 36750.0
-offset_top = 475.0
-offset_right = 37180.0
-offset_bottom = 512.0
-theme_override_colors/font_color = Color(0.717647, 0.439216, 0.243137, 1)
-theme_override_fonts/font = ExtResource("11_3tpkl")
-theme_override_font_sizes/font_size = 50
-text = "Hasta aqui mi avance semanal"
-label_settings = SubResource("LabelSettings_oj215")
-
 [node name="muerte2" type="Area2D" parent="." groups=["died2"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="muerte2"]
@@ -2520,12 +2490,6 @@ position = Vector2(26109, 856)
 
 [node name="bottle24" parent="." instance=ExtResource("12_6o12a")]
 position = Vector2(27368, 0)
-
-[node name="bottle25" parent="." instance=ExtResource("12_6o12a")]
-position = Vector2(27647, 0)
-
-[node name="bottle26" parent="." instance=ExtResource("12_6o12a")]
-position = Vector2(27929, 0)
 
 [node name="bottle27" parent="." instance=ExtResource("12_6o12a")]
 position = Vector2(28208, 0)
@@ -2759,6 +2723,12 @@ position = Vector2(25833, 863)
 [node name="metal4" parent="." instance=ExtResource("18_7lg3k")]
 position = Vector2(26873, 276)
 
+[node name="metal16" parent="." instance=ExtResource("18_7lg3k")]
+position = Vector2(27649, 0)
+
+[node name="metal17" parent="." instance=ExtResource("18_7lg3k")]
+position = Vector2(27928, 0)
+
 [node name="metal5" parent="." instance=ExtResource("18_7lg3k")]
 position = Vector2(29571, 407)
 
@@ -2834,3 +2804,7 @@ position = Vector2(18375, -315)
 
 [node name="Quick Sand12" parent="." instance=ExtResource("22_elg64")]
 position = Vector2(18445, -315)
+
+[node name="prize" parent="." instance=ExtResource("22_5tsbo")]
+position = Vector2(36750, 500)
+scale = Vector2(0.5, 0.5)

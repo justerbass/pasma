@@ -93,9 +93,17 @@ func _on_detection_body_entered(body):
 	if body is recycler:
 		$"../UIControl/CanvasLayer/take_btn".show()
 		global.recycler = true
+		
+	if body is prize:
+		$"../UIControl/CanvasLayer/take_btn".show()
+		$"../UIControl/CanvasLayer/speak_btn".hide()
 
 
 func _on_detection_body_exited(body):
 	if body is recycler:
 		$"../UIControl/CanvasLayer/take_btn".hide()
 		global.recycler = false
+		
+	if body is prize:
+		$"../UIControl/CanvasLayer/take_btn".hide()
+	

@@ -16,8 +16,8 @@ func paper_recycled():
 		$"../UIControl/CanvasLayer/take_btn".hide()
 		
 		##requisistos nivel metal
-		if global.metal_count > 1  and global.plastic_count > 1 and global.paper_count > 1:
-			"""metal 10, plastic 9, paper 9"""
+		if global.metal_count > 10  and global.plastic_count > 8 and global.paper_count > 8:
+			
 			#ciclo de animacion de entrega de materiales
 			while global.metal_count > 0:
 				$"../PlayerLv2/AnimatedSprite2D".play("deliver")
@@ -49,8 +49,8 @@ func paper_recycled():
 		else:
 			
 			##requisitos nivel plastico
-			if global.plastic_count > 1 and global.paper_count > 1:
-				"""plastic 13, paper 10"""
+			if global.plastic_count > 13 and global.paper_count > 10:
+				
 				#ciclo de animacion de entrega de materiales
 				while global.plastic_count > 0:
 					$"../PlayerLv2/AnimatedSprite2D".play("deliver")

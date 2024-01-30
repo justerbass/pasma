@@ -1,0 +1,273 @@
+[gd_scene load_steps=11 format=3 uid="uid://b2360awdkmf24"]
+
+[ext_resource type="FontFile" uid="uid://duyjtsnnhl67i" path="res://PixelifySans-VariableFont_wght.ttf" id="1_f5egc"]
+[ext_resource type="Script" path="res://script/Audio.gd" id="2_rdi6u"]
+[ext_resource type="FontFile" uid="uid://clwisbpne2e21" path="res://Pacifico-Regular.ttf" id="3_ec3x5"]
+[ext_resource type="PackedScene" uid="uid://db0axx58jdmu3" path="res://scene/action_button.tscn" id="4_glroq"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_xigoo"]
+color = Color(0.890196, 0.623529, 0.105882, 1)
+thickness = 7
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_4wpm4"]
+color = Color(0.854902, 0.262745, 0.207843, 1)
+thickness = 7
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_0qh4p"]
+color = Color(0.890196, 0.623529, 0.105882, 1)
+thickness = 7
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_msunn"]
+color = Color(0.854902, 0.262745, 0.207843, 1)
+thickness = 7
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_30hmh"]
+color = Color(0.890196, 0.623529, 0.105882, 1)
+thickness = 7
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_16awv"]
+color = Color(0.854902, 0.262745, 0.207843, 1)
+thickness = 7
+
+[node name="Options" type="Node2D"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Settings" type="TabContainer" parent="UI"]
+self_modulate = Color(1, 1, 1, 0.392157)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_f5egc")
+theme_override_font_sizes/font_size = 50
+
+[node name="Audio" type="TabBar" parent="UI/Settings"]
+layout_mode = 2
+size_flags_stretch_ratio = 11.97
+theme_override_fonts/font = ExtResource("1_f5egc")
+theme_override_font_sizes/font_size = 30
+script = ExtResource("2_rdi6u")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Settings/Audio"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -244.5
+offset_top = -136.0
+offset_right = 255.5
+offset_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Settings/Audio/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Master" type="Label" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 98)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_ec3x5")
+theme_override_font_sizes/font_size = 30
+text = "Master"
+
+[node name="Music" type="Label" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 98)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_ec3x5")
+theme_override_font_sizes/font_size = 30
+text = "Music"
+
+[node name="SFX" type="Label" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_ec3x5")
+theme_override_font_sizes/font_size = 30
+text = "SFX"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/Settings/Audio/HBoxContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Master" type="HSlider" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/slider = SubResource("StyleBoxLine_xigoo")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_4wpm4")
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Music" type="HSlider" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/slider = SubResource("StyleBoxLine_0qh4p")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_msunn")
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="SFX" type="HSlider" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/slider = SubResource("StyleBoxLine_30hmh")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_16awv")
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Label" type="Label" parent="UI/Settings/Audio"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -105.5
+offset_top = 30.0
+offset_right = 105.5
+offset_bottom = 90.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.890196, 0.623529, 0.105882, 1)
+theme_override_fonts/font = ExtResource("1_f5egc")
+theme_override_font_sizes/font_size = 50
+text = "VOLUMEN"
+
+[node name="Controls" type="TabBar" parent="UI/Settings"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Settings/Controls"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -52.0
+offset_right = 28.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Settings/Controls/HBoxContainer"]
+layout_mode = 2
+
+[node name="Up" type="Label" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("3_ec3x5")
+theme_override_font_sizes/font_size = 25
+text = "UP"
+
+[node name="Down" type="Label" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("3_ec3x5")
+theme_override_font_sizes/font_size = 25
+text = "DOWN"
+
+[node name="Left" type="Label" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("3_ec3x5")
+theme_override_font_sizes/font_size = 25
+text = "LEFT"
+
+[node name="Right" type="Label" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("3_ec3x5")
+theme_override_font_sizes/font_size = 25
+text = "RIGHT"
+
+[node name="Action" type="Label" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("3_ec3x5")
+theme_override_font_sizes/font_size = 25
+text = "ACTION"
+
+[node name="Defend" type="Label" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("3_ec3x5")
+theme_override_font_sizes/font_size = 25
+text = "DEFEND"
+
+[node name="Power" type="Label" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("3_ec3x5")
+theme_override_font_sizes/font_size = 25
+text = "POWER"
+
+[node name="Take" type="Label" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("3_ec3x5")
+theme_override_font_sizes/font_size = 25
+text = "TAKE"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/Settings/Controls/HBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+
+[node name="ActionButton" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("4_glroq")]
+layout_mode = 2
+size_flags_vertical = 7
+
+[node name="ActionButton2" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("4_glroq")]
+layout_mode = 2
+size_flags_vertical = 7
+action = "DOWN"
+
+[node name="ActionButton3" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("4_glroq")]
+layout_mode = 2
+size_flags_vertical = 7
+action = "LEFT"
+
+[node name="ActionButton4" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("4_glroq")]
+layout_mode = 2
+size_flags_vertical = 7
+action = "RIGHT"
+
+[node name="ActionButton5" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("4_glroq")]
+layout_mode = 2
+size_flags_vertical = 7
+action = "SPEAK"
+
+[node name="ActionButton6" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("4_glroq")]
+layout_mode = 2
+size_flags_vertical = 7
+action = "ATTACK"
+
+[node name="ActionButton7" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("4_glroq")]
+layout_mode = 2
+size_flags_vertical = 7
+action = "POWER"
+
+[node name="ActionButton8" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("4_glroq")]
+layout_mode = 2
+size_flags_vertical = 7
+action = "TAKE"
+
+[connection signal="value_changed" from="UI/Settings/Audio/HBoxContainer/VBoxContainer2/Master" to="UI/Settings/Audio" method="_on_master_value_changed"]
+[connection signal="value_changed" from="UI/Settings/Audio/HBoxContainer/VBoxContainer2/Music" to="UI/Settings/Audio" method="_on_music_value_changed"]
+[connection signal="value_changed" from="UI/Settings/Audio/HBoxContainer/VBoxContainer2/SFX" to="UI/Settings/Audio" method="_on_sfx_value_changed"]

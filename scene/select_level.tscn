@@ -52,7 +52,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("1_k6d7p")
 theme_override_font_sizes/font_size = 50
-text = "Selecciona Nivel"
+text = "Selecciona Región"
 
 [node name="Button" type="Button" parent="."]
 offset_left = 203.0

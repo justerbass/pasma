@@ -210,6 +210,7 @@ shape = SubResource("RectangleShape2D_tvg84")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.75, 0.75)
 limit_top = -750
+limit_right = 37300
 limit_bottom = 1075
 position_smoothing_speed = 30.0
 

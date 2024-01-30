@@ -95,8 +95,8 @@ func _on_take_btn_pressed():
 	if global.level == 1:
 		get_tree().change_scene_to_file("res://scene/end_level.tscn")
 		
-	elif global.level == 2:
-		pass
+	elif global.level == 2 and global.recycler == false:
+		get_tree().change_scene_to_file("res://scene/end_level.tscn")
 
 ## Mostrar Misiones activas
 func mision() -> void:
@@ -118,6 +118,7 @@ func ui_for_levels():
 	if global.level == 1:
 		$CanvasLayer.show()
 	if global.level == 2:
+		$CanvasLayer.show()
 		$"CanvasLayer/Mision 1".hide()
 		$"CanvasLayer/Mision 4".hide()
 		$CanvasLayer/up_btn.hide()
