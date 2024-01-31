@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://d1u1o1eqddlb8"]
+[gd_scene load_steps=61 format=3 uid="uid://d1u1o1eqddlb8"]
 
 [ext_resource type="Texture2D" uid="uid://c7oo4pe355g8o" path="res://art/controls/Sprites/transparentDark/transparentDark24.png" id="1_8vi0f"]
 [ext_resource type="Script" path="res://script/ui_control.gd" id="1_vnkc4"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://bjm3jor4hxkoc" path="res://art/level 2/Materiales/metal/Tiles/tile_0040.png" id="23_n5yya"]
 [ext_resource type="Texture2D" uid="uid://diyout6i718r6" path="res://art/level 2/Materiales/plastico y vidrio/Tiles/tile_0098.png" id="24_4xnnb"]
 [ext_resource type="Texture2D" uid="uid://docdjyt25xynd" path="res://art/controls/Sprites/transparentDark/transparentDark12.png" id="26_n103i"]
+[ext_resource type="PackedScene" uid="uid://b2360awdkmf24" path="res://scene/options.tscn" id="27_sh2qr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1qinq"]
 atlas = ExtResource("17_weh0w")
@@ -519,9 +520,19 @@ offset_bottom = 64.0
 theme_override_fonts/font = ExtResource("2_ssh8n")
 theme_override_font_sizes/font_size = 30
 
-[node name="pause_btn" type="TouchScreenButton" parent="CanvasLayer"]
-position = Vector2(800, 24)
-texture_normal = ExtResource("26_n103i")
+[node name="pause_btn" type="Button" parent="CanvasLayer"]
+offset_left = 800.0
+offset_top = 24.0
+offset_right = 848.0
+offset_bottom = 72.0
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/pause_btn"]
+position = Vector2(24, 24)
+texture = ExtResource("26_n103i")
+
+[node name="Options" parent="CanvasLayer" instance=ExtResource("27_sh2qr")]
+visible = false
 
 [connection signal="pressed" from="CanvasLayer/up_btn" to="." method="_on_up_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/down_btn" to="." method="_on_down_btn_pressed"]
@@ -532,3 +543,4 @@ texture_normal = ExtResource("26_n103i")
 [connection signal="pressed" from="CanvasLayer/aplause_btn" to="." method="_on_aplause_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/peace_btn" to="." method="_on_peace_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/take_btn" to="." method="_on_take_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/pause_btn" to="." method="_on_pause_btn_pressed"]

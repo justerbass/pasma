@@ -132,3 +132,10 @@ func ui_for_levels():
 		else:
 			$CanvasLayer/speak_btn.show()
 	
+
+
+func _on_pause_btn_pressed():
+	$"CanvasLayer/Options/UI".show()
+	get_tree().paused = true
+	
+

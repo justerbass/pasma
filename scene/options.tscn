@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://b2360awdkmf24"]
+[gd_scene load_steps=12 format=3 uid="uid://b2360awdkmf24"]
 
+[ext_resource type="Script" path="res://script/options.gd" id="1_0hrkl"]
 [ext_resource type="FontFile" uid="uid://duyjtsnnhl67i" path="res://PixelifySans-VariableFont_wght.ttf" id="1_f5egc"]
 [ext_resource type="Script" path="res://script/Audio.gd" id="2_rdi6u"]
 [ext_resource type="FontFile" uid="uid://clwisbpne2e21" path="res://Pacifico-Regular.ttf" id="3_ec3x5"]
@@ -30,11 +31,31 @@ color = Color(0.854902, 0.262745, 0.207843, 1)
 thickness = 7
 
 [node name="Options" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_0hrkl")
 
 [node name="UI" type="CanvasLayer" parent="."]
+visible = false
+offset = Vector2(120, 65)
+scale = Vector2(0.75, 0.75)
+transform = Transform2D(0.75, 0, 0, 0.75, 120, 65)
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+custom_minimum_size = Vector2(960, 540)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -625.0
+offset_top = -350.0
+offset_right = 625.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.12549, 0, 0.752941)
 
 [node name="Settings" type="TabContainer" parent="UI"]
-self_modulate = Color(1, 1, 1, 0.392157)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -151,10 +172,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -28.5
-offset_top = -52.0
-offset_right = 28.5
-offset_bottom = 52.0
+offset_left = -247.0
+offset_top = -120.0
+offset_right = 247.0
+offset_bottom = 72.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -193,38 +214,6 @@ theme_override_fonts/font = ExtResource("3_ec3x5")
 theme_override_font_sizes/font_size = 25
 text = "RIGHT"
 
-[node name="Action" type="Label" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("3_ec3x5")
-theme_override_font_sizes/font_size = 25
-text = "ACTION"
-
-[node name="Defend" type="Label" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("3_ec3x5")
-theme_override_font_sizes/font_size = 25
-text = "DEFEND"
-
-[node name="Power" type="Label" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("3_ec3x5")
-theme_override_font_sizes/font_size = 25
-text = "POWER"
-
-[node name="Take" type="Label" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("3_ec3x5")
-theme_override_font_sizes/font_size = 25
-text = "TAKE"
-
 [node name="VBoxContainer2" type="VBoxContainer" parent="UI/Settings/Controls/HBoxContainer"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
@@ -248,26 +237,87 @@ layout_mode = 2
 size_flags_vertical = 7
 action = "RIGHT"
 
-[node name="ActionButton5" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("4_glroq")]
+[node name="VBoxContainer5" type="VBoxContainer" parent="UI/Settings/Controls/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="UI/Settings/Controls/HBoxContainer"]
+layout_mode = 2
+
+[node name="Action" type="Label" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("3_ec3x5")
+theme_override_font_sizes/font_size = 25
+text = "ACTION"
+
+[node name="Defend" type="Label" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("3_ec3x5")
+theme_override_font_sizes/font_size = 25
+text = "DEFEND"
+
+[node name="Power" type="Label" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("3_ec3x5")
+theme_override_font_sizes/font_size = 25
+text = "POWER"
+
+[node name="Take" type="Label" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("3_ec3x5")
+theme_override_font_sizes/font_size = 25
+text = "TAKE"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="UI/Settings/Controls/HBoxContainer"]
+layout_mode = 2
+
+[node name="ActionButton5" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer4" instance=ExtResource("4_glroq")]
 layout_mode = 2
 size_flags_vertical = 7
 action = "SPEAK"
 
-[node name="ActionButton6" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("4_glroq")]
+[node name="ActionButton6" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer4" instance=ExtResource("4_glroq")]
 layout_mode = 2
 size_flags_vertical = 7
 action = "ATTACK"
 
-[node name="ActionButton7" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("4_glroq")]
+[node name="ActionButton7" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer4" instance=ExtResource("4_glroq")]
 layout_mode = 2
 size_flags_vertical = 7
 action = "POWER"
 
-[node name="ActionButton8" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("4_glroq")]
+[node name="ActionButton8" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer4" instance=ExtResource("4_glroq")]
 layout_mode = 2
 size_flags_vertical = 7
 action = "TAKE"
 
+[node name="resume" type="Button" parent="UI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = -72.0
+offset_right = 77.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.890196, 0.623529, 0.105882, 1)
+theme_override_fonts/font = ExtResource("1_f5egc")
+theme_override_font_sizes/font_size = 40
+text = "RESUME"
+flat = true
+
 [connection signal="value_changed" from="UI/Settings/Audio/HBoxContainer/VBoxContainer2/Master" to="UI/Settings/Audio" method="_on_master_value_changed"]
 [connection signal="value_changed" from="UI/Settings/Audio/HBoxContainer/VBoxContainer2/Music" to="UI/Settings/Audio" method="_on_music_value_changed"]
 [connection signal="value_changed" from="UI/Settings/Audio/HBoxContainer/VBoxContainer2/SFX" to="UI/Settings/Audio" method="_on_sfx_value_changed"]
+[connection signal="pressed" from="UI/resume" to="." method="_on_resume_pressed"]

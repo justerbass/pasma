@@ -2383,6 +2383,7 @@ position = Vector2(33703, 645)
 [node name="ParallaxBackground" parent="." instance=ExtResource("5_pad8f")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("6_ncwlu")
 volume_db = -15.0
 autoplay = true

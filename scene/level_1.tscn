@@ -5553,6 +5553,7 @@ grow_vertical = 2
 color = Color(0.901961, 0.854902, 0.74902, 1)
 
 [node name="AudioLevel" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("16_xbpdv")
 volume_db = -10.0
 autoplay = true
@@ -5627,6 +5628,7 @@ script = ExtResource("9_hswt1")
 polygon = PackedVector2Array(0, -335, 207, -283, 332, -222, 366, -206, 368, -158, 414, -157, 476, -126, 576, -95, 690, -67, 690, 0, 0, 0)
 
 [node name="AudioVillage" type="AudioStreamPlayer2D" parent="AreaVillage"]
+process_mode = 3
 stream = ExtResource("9_o4v1k")
 volume_db = -5.0
 autoplay = true
@@ -5643,6 +5645,7 @@ script = ExtResource("11_0v3ti")
 polygon = PackedVector2Array(-105, -155, 128, -154, 230, -104, 245, 36, 162, 221, 105, 228, 44, 211, 1, 199, -105, 163, -246, 78, -280, 32, -281, -8, -248, -71, -183, -125)
 
 [node name="AudioForest" type="AudioStreamPlayer2D" parent="AreaForest"]
+process_mode = 3
 stream = ExtResource("11_hq418")
 volume_db = 10.0
 autoplay = true
@@ -5657,6 +5660,7 @@ script = ExtResource("13_xqvc0")
 polygon = PackedVector2Array(284, 1, 285, 30, 306, 64, 306, 64, 370, 53, 522, 48, 589, 67, 588, 204, 572, 257, 560, 268, 526, 303, 458, 334, 322, 335, 291, 304, 285, 288, 194, 286, 165, 271, 162, 177, 85, 175, 32, 147, 0, 147, 3, -4)
 
 [node name="AudioCamp" type="AudioStreamPlayer2D" parent="AreaCamp"]
+process_mode = 3
 stream = ExtResource("14_i6swj")
 volume_db = 10.0
 autoplay = true
@@ -5672,6 +5676,7 @@ script = ExtResource("14_w6aly")
 polygon = PackedVector2Array(-6, -540, 0, 547, -886, 551, -882, 500, -821, 483, -782, 469, -746, 430, -693, 399, -720, 366, -732, 275, -762, 236, -817, 138, -809, 98, -692, 28, -572, -156, -527, -396, -493, -542)
 
 [node name="AudioDesert" type="AudioStreamPlayer2D" parent="AreaDesert"]
+process_mode = 3
 stream = ExtResource("15_evrn7")
 autoplay = true
 max_distance = 890.0

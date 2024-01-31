@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bllhw14lvc4rj"]
+[gd_scene load_steps=12 format=3 uid="uid://bllhw14lvc4rj"]
 
 [ext_resource type="Script" path="res://script/select_level.gd" id="1_fn5fs"]
 [ext_resource type="FontFile" uid="uid://duyjtsnnhl67i" path="res://PixelifySans-VariableFont_wght.ttf" id="1_k6d7p"]
 [ext_resource type="FontFile" uid="uid://clwisbpne2e21" path="res://Pacifico-Regular.ttf" id="2_wr4b1"]
+[ext_resource type="PackedScene" uid="uid://b2360awdkmf24" path="res://scene/options.tscn" id="4_s6tya"]
+[ext_resource type="AudioStream" uid="uid://107mss45qhr5" path="res://audio/sound/intro.mp3" id="5_sfk72"]
 
 [sub_resource type="Gradient" id="Gradient_3hipu"]
 offsets = PackedFloat32Array(0.181818, 0.87013)
@@ -95,6 +97,15 @@ text = "Opciones"
 icon = SubResource("GradientTexture2D_c6y7a")
 flat = true
 icon_alignment = 1
+
+[node name="Options" parent="." instance=ExtResource("4_s6tya")]
+visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("5_sfk72")
+volume_db = -15.0
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

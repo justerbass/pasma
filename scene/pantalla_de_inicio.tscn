@@ -275,7 +275,7 @@ horizontal_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 script = ExtResource("4_qr7hm")
-texto = "Este juego está en desarrollo para Android, por lo que puede no ser comodos los controles ."
+texto = "Este juego está diseñado para Android, por lo que puede no ser comodos los controles ."
 
 [node name="Label2" type="Label" parent="CanvasLayer/Sprite2D"]
 offset_left = 100.0
@@ -316,7 +316,7 @@ autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_t7w6j")
-volume_db = -5.0
+volume_db = -15.0
 autoplay = true
 
 [connection signal="timeout" from="Timer3" to="CanvasLayer/Sprite2D" method="_on_timer_3_timeout"]
