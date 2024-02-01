@@ -96,7 +96,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_ec3x5")
 theme_override_font_sizes/font_size = 30
-text = "Master"
+text = "Music"
 
 [node name="Music" type="Label" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 98)
@@ -104,7 +104,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_ec3x5")
 theme_override_font_sizes/font_size = 30
-text = "Music"
+text = "Audio"
 
 [node name="SFX" type="Label" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 0)
@@ -120,31 +120,31 @@ layout_mode = 2
 size_flags_horizontal = 0
 
 [node name="Master" type="HSlider" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/slider = SubResource("StyleBoxLine_xigoo")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_4wpm4")
 max_value = 1.0
 step = 0.05
-value = 1.0
 
 [node name="Music" type="HSlider" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/slider = SubResource("StyleBoxLine_0qh4p")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_msunn")
 max_value = 1.0
 step = 0.05
-value = 1.0
 
 [node name="SFX" type="HSlider" parent="UI/Settings/Audio/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/slider = SubResource("StyleBoxLine_30hmh")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_16awv")
 max_value = 1.0
 step = 0.05
-value = 1.0
 
 [node name="Label" type="Label" parent="UI/Settings/Audio"]
 layout_mode = 1
@@ -159,10 +159,10 @@ grow_horizontal = 2
 theme_override_colors/font_color = Color(0.890196, 0.623529, 0.105882, 1)
 theme_override_fonts/font = ExtResource("1_f5egc")
 theme_override_font_sizes/font_size = 50
-text = "VOLUMEN"
+text = "VOLUME"
+horizontal_alignment = 1
 
 [node name="Controls" type="TabBar" parent="UI/Settings"]
-visible = false
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Settings/Controls"]
@@ -186,6 +186,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.890196, 0.623529, 0.105882, 1)
 theme_override_fonts/font = ExtResource("3_ec3x5")
 theme_override_font_sizes/font_size = 25
 text = "UP"
@@ -194,6 +195,7 @@ text = "UP"
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.890196, 0.623529, 0.105882, 1)
 theme_override_fonts/font = ExtResource("3_ec3x5")
 theme_override_font_sizes/font_size = 25
 text = "DOWN"
@@ -202,6 +204,7 @@ text = "DOWN"
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.890196, 0.623529, 0.105882, 1)
 theme_override_fonts/font = ExtResource("3_ec3x5")
 theme_override_font_sizes/font_size = 25
 text = "LEFT"
@@ -210,6 +213,7 @@ text = "LEFT"
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.890196, 0.623529, 0.105882, 1)
 theme_override_fonts/font = ExtResource("3_ec3x5")
 theme_override_font_sizes/font_size = 25
 text = "RIGHT"
@@ -221,20 +225,24 @@ layout_mode = 2
 [node name="ActionButton" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("4_glroq")]
 layout_mode = 2
 size_flags_vertical = 7
+theme_override_colors/font_color = Color(0.890196, 0.623529, 0.105882, 1)
 
 [node name="ActionButton2" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("4_glroq")]
 layout_mode = 2
 size_flags_vertical = 7
+theme_override_colors/font_color = Color(0.890196, 0.623529, 0.105882, 1)
 action = "DOWN"
 
 [node name="ActionButton3" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("4_glroq")]
 layout_mode = 2
 size_flags_vertical = 7
+theme_override_colors/font_color = Color(0.890196, 0.623529, 0.105882, 1)
 action = "LEFT"
 
 [node name="ActionButton4" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer2" instance=ExtResource("4_glroq")]
 layout_mode = 2
 size_flags_vertical = 7
+theme_override_colors/font_color = Color(0.890196, 0.623529, 0.105882, 1)
 action = "RIGHT"
 
 [node name="VBoxContainer5" type="VBoxContainer" parent="UI/Settings/Controls/HBoxContainer"]
@@ -248,6 +256,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.890196, 0.623529, 0.105882, 1)
 theme_override_fonts/font = ExtResource("3_ec3x5")
 theme_override_font_sizes/font_size = 25
 text = "ACTION"
@@ -256,6 +265,7 @@ text = "ACTION"
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.890196, 0.623529, 0.105882, 1)
 theme_override_fonts/font = ExtResource("3_ec3x5")
 theme_override_font_sizes/font_size = 25
 text = "DEFEND"
@@ -264,6 +274,7 @@ text = "DEFEND"
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.890196, 0.623529, 0.105882, 1)
 theme_override_fonts/font = ExtResource("3_ec3x5")
 theme_override_font_sizes/font_size = 25
 text = "POWER"
@@ -272,6 +283,7 @@ text = "POWER"
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.890196, 0.623529, 0.105882, 1)
 theme_override_fonts/font = ExtResource("3_ec3x5")
 theme_override_font_sizes/font_size = 25
 text = "TAKE"
@@ -282,21 +294,25 @@ layout_mode = 2
 [node name="ActionButton5" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer4" instance=ExtResource("4_glroq")]
 layout_mode = 2
 size_flags_vertical = 7
+theme_override_colors/font_color = Color(0.890196, 0.623529, 0.105882, 1)
 action = "SPEAK"
 
 [node name="ActionButton6" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer4" instance=ExtResource("4_glroq")]
 layout_mode = 2
 size_flags_vertical = 7
+theme_override_colors/font_color = Color(0.890196, 0.623529, 0.105882, 1)
 action = "ATTACK"
 
 [node name="ActionButton7" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer4" instance=ExtResource("4_glroq")]
 layout_mode = 2
 size_flags_vertical = 7
+theme_override_colors/font_color = Color(0.890196, 0.623529, 0.105882, 1)
 action = "POWER"
 
 [node name="ActionButton8" parent="UI/Settings/Controls/HBoxContainer/VBoxContainer4" instance=ExtResource("4_glroq")]
 layout_mode = 2
 size_flags_vertical = 7
+theme_override_colors/font_color = Color(0.890196, 0.623529, 0.105882, 1)
 action = "TAKE"
 
 [node name="resume" type="Button" parent="UI"]

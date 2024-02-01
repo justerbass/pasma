@@ -1,11 +1,29 @@
-[gd_scene load_steps=10 format=3 uid="uid://7ux5dyo6nlhr"]
+[gd_scene load_steps=12 format=3 uid="uid://7ux5dyo6nlhr"]
 
 [ext_resource type="Script" path="res://script/EndLevel.gd" id="1_82gt5"]
-[ext_resource type="Texture2D" uid="uid://ce05jjvl8f6cy" path="res://art/controls/rectangle_restart_button (1).png" id="2_jbth7"]
-[ext_resource type="Texture2D" uid="uid://c358jvw26a6bm" path="res://art/controls/rectangle_exit_game_button.png" id="3_828hj"]
 [ext_resource type="FontFile" uid="uid://clwisbpne2e21" path="res://Pacifico-Regular.ttf" id="4_l33eq"]
 [ext_resource type="FontFile" uid="uid://duyjtsnnhl67i" path="res://PixelifySans-VariableFont_wght.ttf" id="4_mbb8k"]
 [ext_resource type="Script" path="res://script/Congrats.gd" id="5_roflj"]
+
+[sub_resource type="Gradient" id="Gradient_f5who"]
+offsets = PackedFloat32Array(0, 0.305195, 0.62987, 1)
+colors = PackedColorArray(0.890196, 0.623529, 0.105882, 1, 0, 0.12549, 0, 1, 0, 0.12549, 0, 1, 0.890196, 0.623529, 0.105882, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2chsd"]
+gradient = SubResource("Gradient_f5who")
+width = 500
+height = 250
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_oubqx"]
+offsets = PackedFloat32Array(0, 0.409091, 0.681818, 1)
+colors = PackedColorArray(0.890196, 0.623529, 0.105882, 1, 0, 0.12549, 0, 1, 0, 0.12549, 0, 1, 0.890196, 0.623529, 0.105882, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dhbsq"]
+gradient = SubResource("Gradient_oubqx")
+width = 500
+height = 250
+fill_to = Vector2(1, 1)
 
 [sub_resource type="Animation" id="Animation_r6qkt"]
 length = 0.001
@@ -137,15 +155,35 @@ color = Color(0, 0, 0, 0)
 
 [node name="TouchScreenRestart" type="TouchScreenButton" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(350, 380)
+position = Vector2(400, 380)
 scale = Vector2(0.3, 0.3)
-texture_normal = ExtResource("2_jbth7")
+texture_normal = SubResource("GradientTexture2D_2chsd")
+
+[node name="Label" type="Label" parent="CanvasLayer/TouchScreenRestart"]
+offset_right = 490.0
+offset_bottom = 253.0
+theme_override_colors/font_color = Color(0.854902, 0.262745, 0.207843, 1)
+theme_override_fonts/font = ExtResource("4_mbb8k")
+theme_override_font_sizes/font_size = 90
+text = "MAIN MENU"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TouchScreenExit" type="TouchScreenButton" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(732, 340)
-scale = Vector2(0.2, 0.2)
-texture_normal = ExtResource("3_828hj")
+position = Vector2(735, 380)
+scale = Vector2(0.3, 0.3)
+texture_normal = SubResource("GradientTexture2D_dhbsq")
+
+[node name="Label" type="Label" parent="CanvasLayer/TouchScreenExit"]
+offset_right = 510.0
+offset_bottom = 247.0
+theme_override_colors/font_color = Color(0.854902, 0.262745, 0.207843, 1)
+theme_override_fonts/font = ExtResource("4_mbb8k")
+theme_override_font_sizes/font_size = 100
+text = "EXIT"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="LevelComplete" type="Label" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0)

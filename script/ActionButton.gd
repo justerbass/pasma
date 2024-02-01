@@ -14,6 +14,9 @@ func remap_action_t0(event):
 	InputMap.action_erase_events(action)
 	InputMap.action_add_event(action, event)
 	
+	Menu.config.set_value("Controls", action, event)
+	Menu.save_data()
+	
 	text = event.as_text()
 
 func _on_pressed():

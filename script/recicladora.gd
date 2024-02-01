@@ -49,7 +49,7 @@ func paper_recycled():
 		else:
 			
 			##requisitos nivel plastico
-			if global.plastic_count > 13 and global.paper_count > 10:
+			if global.plastic_count > 10 and global.paper_count > 10:
 				
 				#ciclo de animacion de entrega de materiales
 				while global.plastic_count > 0:
