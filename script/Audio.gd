@@ -3,11 +3,6 @@ extends TabBar
 
 func _ready():
 	
-	print(Menu.config.get_value("Audio", "0"))
-	print(Menu.config.get_value("Audio", "1"))
-	print(Menu.config.get_value("Audio", "2"))
-	print(Menu.config.get_value("Audio", "3"))
-	
 	for i in range(4):
 		Menu.config.get_value("Audio", str(i))
 		if Menu.config.get_value("Audio", str(i)) != null:

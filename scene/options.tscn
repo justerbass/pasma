@@ -163,6 +163,7 @@ text = "VOLUME"
 horizontal_alignment = 1
 
 [node name="Controls" type="TabBar" parent="UI/Settings"]
+visible = false
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Settings/Controls"]

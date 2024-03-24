@@ -2227,6 +2227,8 @@ sources/0 = SubResource("TileSetAtlasSource_efsps")
 [node name="level_2" type="Node2D"]
 script = ExtResource("1_yt3ak")
 
+[node name="ParallaxBackground" parent="." instance=ExtResource("5_pad8f")]
+
 [node name="platformer stg 1" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_y2a86")
 rendering_quadrant_size = 70
@@ -2379,8 +2381,6 @@ position = Vector2(32812, 371)
 
 [node name="paper44" parent="." instance=ExtResource("4_10e2u")]
 position = Vector2(33703, 645)
-
-[node name="ParallaxBackground" parent="." instance=ExtResource("5_pad8f")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3

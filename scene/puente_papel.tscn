@@ -542,6 +542,114 @@ tracks/9/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("TileMap:layer_0/enabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("TileMap2:layer_0/enabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("TileMap3:layer_0/enabled")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("TileMap4:layer_0/enabled")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("TileMap5:layer_0/enabled")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("TileMap6:layer_0/enabled")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("TileMap7:layer_0/enabled")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("TileMap8:layer_0/enabled")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("TileMap9:layer_0/enabled")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_fhjah"]
 resource_name = "build"
@@ -666,6 +774,114 @@ tracks/9/keys = {
 "update": 1,
 "values": [true, true, true, true, true, true, true, true, true, false]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("TileMap:layer_0/enabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("TileMap2:layer_0/enabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("TileMap3:layer_0/enabled")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("TileMap4:layer_0/enabled")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("TileMap5:layer_0/enabled")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("TileMap6:layer_0/enabled")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("TileMap7:layer_0/enabled")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("TileMap8:layer_0/enabled")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("TileMap9:layer_0/enabled")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bjxwf"]
 _data = {
@@ -679,60 +895,70 @@ _data = {
 visible = false
 tile_set = SubResource("TileSet_mob2x")
 format = 2
+layer_0/enabled = false
 layer_0/tile_data = PackedInt32Array(131072, 0, 2, 196608, 0, 3, 262144, 0, 2, 327680, 0, 3, 393216, 0, 2, 458752, 0, 3, 524288, 0, 2, 589824, 0, 3, 131096, 0, 2, 196632, 0, 3, 262168, 0, 2, 327704, 0, 3, 393240, 0, 2, 458776, 0, 3, 524312, 0, 2, 589848, 0, 3, 131084, 0, 2, 196620, 0, 3, 262156, 0, 2, 327692, 0, 3, 393228, 0, 2, 458764, 0, 3, 524300, 0, 2, 589836, 0, 3)
 
 [node name="TileMap2" type="TileMap" parent="."]
 visible = false
 tile_set = SubResource("TileSet_mob2x")
 format = 2
+layer_0/enabled = false
 layer_0/tile_data = PackedInt32Array(0, 0, 2, 65536, 0, 3, 1, 65536, 2, 65537, 65536, 3, 2, 131072, 2, 65538, 131072, 3, 3, 196608, 2, 65539, 196608, 3, 4, 0, 2, 65540, 0, 3)
 
 [node name="TileMap3" type="TileMap" parent="."]
 visible = false
 tile_set = SubResource("TileSet_mob2x")
 format = 2
+layer_0/enabled = false
 layer_0/tile_data = PackedInt32Array(5, 65536, 2, 65541, 65536, 3, 6, 131072, 2, 65542, 131072, 3, 7, 196608, 2, 65543, 196608, 3, 8, 0, 2, 65544, 0, 3, 9, 65536, 2, 65545, 65536, 3, 10, 131072, 2, 65546, 131072, 3, 11, 196608, 2, 65547, 196608, 3, 12, 0, 2, 65548, 0, 3)
 
 [node name="TileMap4" type="TileMap" parent="."]
 visible = false
 tile_set = SubResource("TileSet_mob2x")
 format = 2
+layer_0/enabled = false
 layer_0/tile_data = PackedInt32Array(13, 65536, 2, 65549, 65536, 3, 14, 131072, 2, 65550, 131072, 3, 15, 196608, 2, 65551, 196608, 3, 16, 0, 2, 65552, 0, 3, 17, 65536, 2, 65553, 65536, 3, 18, 131072, 2, 65554, 131072, 3, 19, 196608, 2, 65555, 196608, 3, 20, 0, 2, 65556, 0, 3)
 
 [node name="TileMap5" type="TileMap" parent="."]
 visible = false
 tile_set = SubResource("TileSet_mob2x")
 format = 2
+layer_0/enabled = false
 layer_0/tile_data = PackedInt32Array(21, 65536, 2, 65557, 65536, 3, 22, 131072, 2, 65558, 131072, 3, 23, 196608, 2, 65559, 196608, 3, 24, 0, 2, 65560, 0, 3)
 
 [node name="TileMap6" type="TileMap" parent="."]
 visible = false
 tile_set = SubResource("TileSet_mob2x")
 format = 2
+layer_0/enabled = false
 layer_0/tile_data = PackedInt32Array(131073, 0, 2, 196610, 0, 2, 262147, 0, 2, 327684, 0, 2, 393221, 0, 2, 458758, 0, 2)
 
 [node name="TileMap7" type="TileMap" parent="."]
 visible = false
 tile_set = SubResource("TileSet_mob2x")
 format = 2
+layer_0/enabled = false
 layer_0/tile_data = PackedInt32Array(393223, 0, 3, 131083, 0, 3, 196618, 0, 3, 262153, 0, 3, 327688, 0, 3)
 
 [node name="TileMap8" type="TileMap" parent="."]
 visible = false
 tile_set = SubResource("TileSet_mob2x")
 format = 2
+layer_0/enabled = false
 layer_0/tile_data = PackedInt32Array(131085, 0, 2, 196622, 0, 2, 262159, 0, 2, 327696, 0, 2, 393233, 0, 2, 458770, 0, 2)
 
 [node name="TileMap9" type="TileMap" parent="."]
 visible = false
 tile_set = SubResource("TileSet_mob2x")
 format = 2
+layer_0/enabled = false
 layer_0/tile_data = PackedInt32Array(458770, 0, 2, 131095, 0, 3, 196630, 0, 3, 262165, 0, 3, 327700, 0, 3, 393235, 0, 3)
 
 [node name="TileMap10" type="TileMap" parent="."]
 visible = false
 tile_set = SubResource("TileSet_mob2x")
 format = 2
+layer_0/enabled = false
 layer_0/tile_data = PackedInt32Array(0, 0, 2, 65536, 0, 3, 1, 65536, 2, 65537, 65536, 3, 2, 131072, 2, 65538, 131072, 3, 3, 196608, 2, 65539, 196608, 3, 4, 0, 2, 65540, 0, 3, 5, 65536, 2, 65541, 65536, 3, 6, 131072, 2, 65542, 131072, 3, 7, 196608, 2, 65543, 196608, 3, 8, 0, 2, 65544, 0, 3, 9, 65536, 2, 65545, 65536, 3, 10, 131072, 2, 65546, 131072, 3, 11, 196608, 2, 65547, 196608, 3, 12, 0, 2, 65548, 0, 3, 13, 65536, 2, 65549, 65536, 3, 14, 131072, 2, 65550, 131072, 3, 15, 196608, 2, 65551, 196608, 3, 16, 0, 2, 65552, 0, 3, 17, 65536, 2, 65553, 65536, 3, 18, 131072, 2, 65554, 131072, 3, 19, 196608, 2, 65555, 196608, 3, 20, 0, 2, 65556, 0, 3, 21, 65536, 2, 65557, 65536, 3, 22, 131072, 2, 65558, 131072, 3, 23, 196608, 2, 65559, 196608, 3, 24, 0, 2, 65560, 0, 3, 131072, 0, 2, 196608, 0, 3, 262144, 0, 2, 327680, 0, 3, 393216, 0, 2, 458752, 0, 3, 524288, 0, 2, 589824, 0, 3, 131096, 0, 2, 196632, 0, 3, 262168, 0, 2, 327704, 0, 3, 393240, 0, 2, 458776, 0, 3, 524312, 0, 2, 589848, 0, 3, 131084, 0, 2, 196620, 0, 3, 262156, 0, 2, 327692, 0, 3, 393228, 0, 2, 458764, 0, 3, 524300, 0, 2, 589836, 0, 3, 131073, 0, 2, 196610, 0, 2, 262147, 0, 2, 327684, 0, 2, 393221, 0, 2, 458758, 0, 2, 131085, 0, 2, 196622, 0, 2, 262159, 0, 2, 327696, 0, 2, 393233, 0, 2, 458770, 0, 2, 131083, 0, 3, 196618, 0, 3, 262153, 0, 3, 327688, 0, 3, 393223, 0, 3, 131095, 0, 3, 196630, 0, 3, 262165, 0, 3, 327700, 0, 3, 393235, 0, 3)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
